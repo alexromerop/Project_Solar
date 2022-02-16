@@ -63,18 +63,6 @@ public class LookAtFreeze : MonoBehaviour
             var desiredPosition = new Vector3(CharacterMesh.position.x, ghostPositionY, CharacterMesh.position.z);
             ghostTransform.position = Vector3.SmoothDamp(ghostTransform.position, desiredPosition, ref velocity, speed * Time.deltaTime);
 
-            // if(personaje.isGrounded==false){  
-
-            //     transform.position = new Vector3(CharacterMesh.position.x,ghostPositionY, CharacterMesh.position.z);
-
-            //  }
-            // else{
-
-            //     transform.position = new Vector3(CharacterMesh.position.x,CharacterMesh.position.y, CharacterMesh.position.z);
-            //  }
-
-
-            //ghostTransform.position = Vector3.SmoothDamp(ghostTransform.position, desiredPosition, ref velocity, speed*Time.deltaTime);
         }
     }
 }

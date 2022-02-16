@@ -17,7 +17,7 @@ public class ThirdPersonMovement : MonoBehaviour
     float GiroSmoothVelocity;
     public Transform cam;
 
-    public float gravity = 9.81f;
+    public float gravity;
     public Vector3 velocity;
     public int glidingGravity;
     
@@ -44,7 +44,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public bool buf;
     public bool danger;
-    public Transform CharacterMesh;
+    
     
 
     public MochilaController mochilaController;
@@ -107,17 +107,9 @@ public class ThirdPersonMovement : MonoBehaviour
     {
           Cursor.visible = false;
     }
-    
-   public void OnCollisionEnter(Collision other){
-      if (other.collider.tag == "Enemigo"){
-          Debug.Log("AUCH");
-      }
-  }
-
     void OnTriggerEnter(Collider other){
         if(other.tag==("DangerZone")){
            danger=true;
-
         }
     }
     public void doubleJump()
@@ -140,9 +132,6 @@ public class ThirdPersonMovement : MonoBehaviour
                 canDoubleJump = false;
                 
             }
-            
-            
-         
         }
     }
     public void GLIDING()
@@ -201,12 +190,11 @@ public class ThirdPersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
 
         if(Input.GetKeyDown(KeyCode.V)){
             speed=speed+1;
         }
-         if(!disable){
+        if(!disable){
         if(isOnSlope){gravity=-36f;}
         
         if(isOnSlope && canDoubleJump==false){
@@ -232,7 +220,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
         isnegative();
         
-
+         //gravedad
+         
         if (isGrounded && velocity.y < 0 && !isOnSlope)
         {
             
