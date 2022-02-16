@@ -38,9 +38,12 @@ public class NivelDIA_Manager : MonoBehaviour
     }
      public IEnumerator NoFuncionas(float time)
     {
+        if (personaje)
+        {
+            yield return new WaitForSeconds(9f);
         
-        yield return new WaitForSeconds(9f);
-        personaje.disable=false;
+            personaje.disable = false;
+        }
     }
     // Update is called once per frame
     

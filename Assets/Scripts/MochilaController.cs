@@ -132,36 +132,43 @@ public class MochilaController : MonoBehaviour
             }
         }
 
-
-         if(Movimiento.isGrounded && reciboLuz){
-             energia =5;
-         }
-
-        if (energia<=0){
-            Movimiento.allowDoubleJump=false;
-        }
-        else{
-            Movimiento.allowDoubleJump=true;
-        }
-
-        if (energia<=-1){
-            Movimiento.allowGliding=false;
-        }
-        else {
-            Movimiento.allowGliding=true;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.E) && energia >0)
-   
+        if (Movimiento)
         {
-            
-            GetComponent<Renderer>().material = electricityMat;
-            StartCoroutine(ElectrificameMochila(1f));
-            energia -=1;
-        }
-        else
-        {
-            rayo = false;
+            if (Movimiento.isGrounded && reciboLuz)
+            {
+                energia = 5;
+            }
+
+            if (energia <= 0)
+            {
+                Movimiento.allowDoubleJump = false;
+            }
+            else
+            {
+                Movimiento.allowDoubleJump = true;
+            }
+
+            if (energia <= -1)
+            {
+                Movimiento.allowGliding = false;
+            }
+            else
+            {
+                Movimiento.allowGliding = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && energia > 0)
+
+            {
+
+                GetComponent<Renderer>().material = electricityMat;
+                StartCoroutine(ElectrificameMochila(1f));
+                energia -= 1;
+            }
+            else
+            {
+                rayo = false;
+            }
         }
     }
 }

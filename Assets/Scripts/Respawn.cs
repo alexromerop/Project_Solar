@@ -24,6 +24,7 @@ public class Respawn : MonoBehaviour
         
     }
     void Update(){
+        if(thirdPersonMovement)
         if(thirdPersonMovement.vida<0){
             StartCoroutine(Teleport(1f));
         }

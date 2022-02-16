@@ -16,29 +16,33 @@ public Text healthText;
 
     private void Start()
     {
-        
+        if(personaje)
         personaje.vida = maxHealth;
     }
 
     private void Update()
     {
-
+        if(personaje)
         if(personaje.vida >= 100f){
-            
+            if(healthBar)
             healthBar.enabled = false;
             
         }
         else{
-            healthBar.enabled=true;
+            if (healthBar)
+                healthBar.enabled=true;
         }
-       
-        healthText.text = "Health: " + personaje.vida + "%";
-        if (personaje.vida > maxHealth) personaje.vida = maxHealth;
+        if (healthText && personaje)
+        {
+            healthText.text = "Health: " + personaje.vida + "%";
+            if (personaje.vida > maxHealth) personaje.vida = maxHealth;
 
-        lerpSpeed = 3f * Time.deltaTime;
+            lerpSpeed = 3f * Time.deltaTime;
 
-        HealthBarFiller();
-        ColorChanger();
+            HealthBarFiller();
+            ColorChanger();
+        }
+        
     }
 
     void HealthBarFiller()

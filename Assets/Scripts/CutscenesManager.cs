@@ -70,12 +70,17 @@ public class CutscenesManager : MonoBehaviour
         Destroy(this.gameObject);
     }
     void Update(){
-         if(Activator.power==true){
-             StartCoroutine(CinematicaPozo(2f));
-         }
-         if(Activator.power==true){
-             Debug.Log("GOOOOOOOLA");
-            StartCoroutine(CinematicaFinal(2f));
+        if (Activator)
+        {
+            if (Activator.power == true)
+            {
+                StartCoroutine(CinematicaPozo(2f));
+            }
+            if (Activator.power == true)
+            {
+                Debug.Log("GOOOOOOOLA");
+                StartCoroutine(CinematicaFinal(2f));
+            }
         }
     }
 }
