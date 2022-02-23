@@ -105,7 +105,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795280719555839427}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -9861,46 +9861,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!65 &5086481309533971294
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5356932923552221458}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01568375, y: 0.03064523, z: 0.012826342}
-  m_Center: {x: -0.000008772314, y: -0.003593774, z: 0.00036225162}
---- !u!65 &5086481309533971293
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5356932923552221458}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.007931452, y: 0.03183648, z: 0.0006561065}
-  m_Center: {x: -0.000011873246, y: -0.0045886585, z: -0.00002444151}
---- !u!114 &5086481309533971295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5356932923552221458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb209d7b0c6b9f4781584fe7821b728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energia: 0
-  particulaRayo: {fileID: 7931579285586785681}
 --- !u!1 &5086481309839437378
 GameObject:
   m_ObjectHideFlags: 0
@@ -14817,6 +14777,46 @@ Transform:
   m_Father: {fileID: 7931579285586785710}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5086481309533971293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356932923552221458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007931452, y: 0.03183648, z: 0.0006561065}
+  m_Center: {x: -0.000011873246, y: -0.0045886585, z: -0.00002444151}
+--- !u!65 &5086481309533971294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356932923552221458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01568375, y: 0.03064523, z: 0.012826342}
+  m_Center: {x: -0.000008772314, y: -0.003593774, z: 0.00036225162}
+--- !u!114 &5086481309533971295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356932923552221458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb209d7b0c6b9f4781584fe7821b728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energia: 0
+  particulaRayo: {fileID: 7931579285586785681}
 --- !u!1 &7489118836580204100
 GameObject:
   m_ObjectHideFlags: 0
