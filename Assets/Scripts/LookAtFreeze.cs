@@ -54,7 +54,7 @@ public class LookAtFreeze : MonoBehaviour
         {
             Vector3 characterViewPos = cam.WorldToViewportPoint(CharacterMesh.position + personaje.velocity * Time.deltaTime);
 
-            if (characterViewPos.y > 0.99f || characterViewPos.y < 0.3f)
+            if (characterViewPos.y > 0.99f || characterViewPos.y < 0.5f)
             {
                 ghostPositionY = CharacterMesh.position.y;
             }
