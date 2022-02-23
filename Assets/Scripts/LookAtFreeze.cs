@@ -18,6 +18,8 @@ public class LookAtFreeze : MonoBehaviour
 {
     // update Y for behavior 3
     ghostPositionY = CharacterMesh.position.y;
+
+
 }
 
    

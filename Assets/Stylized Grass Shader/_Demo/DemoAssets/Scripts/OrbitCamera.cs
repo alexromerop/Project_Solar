@@ -5,6 +5,8 @@ namespace StylizedGrassDemo
 {
     public class OrbitCamera : MonoBehaviour
     {
+
+        /*
         [Space]
         public Transform pivot;
 
@@ -64,6 +66,8 @@ namespace StylizedGrassDemo
 
             float dist = Mathf.Lerp(-cam.transform.localPosition.z, distance, Time.deltaTime * scrollSmoothSpeed);
             cam.localPosition = -Vector3.forward * dist;
+        
         }
+    */
     }
 }
