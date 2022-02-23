@@ -854,13 +854,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energia: 5
+  lightLookAtMe: {fileID: 0}
   electricityMat: {fileID: 2100000, guid: 52b287ee53246bc4586d41b00bf47aed, type: 2}
   Movimiento: {fileID: 0}
   rayo: 0
   reciboLuz: 0
   electrificado: 0
-  RayCastBegin: {fileID: 992633304}
-  RayCastEnd: {fileID: 1895429190}
   particulaRayo: {fileID: 1662375302742038139, guid: f6ce1093ac37a634a85c92b31d51c19f, type: 3}
   pico: {fileID: 443033347839798199}
   rayoSpawner: {fileID: 459538652}
@@ -5625,7 +5624,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 2028354932}
-  instanceID: 103836
+  instanceID: 52384
 --- !u!4 &183040079
 Transform:
   m_ObjectHideFlags: 0
@@ -46355,7 +46354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a0809052d16c342bdd6b7d6f9ed0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2009934428}
+  Raycast1: {fileID: 0}
+  Raycast2: {fileID: 0}
   RayCastBegin: {fileID: 129086173}
   RayCastEnd: {fileID: 2009934427}
   mochila: {fileID: 24920429}
@@ -49658,6 +49658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a7fdf1f6beaa54e91a6c6728142b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  principal: {fileID: 0}
+  settings: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &1509462719
 GameObject:
   m_ObjectHideFlags: 0
