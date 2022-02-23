@@ -6,6 +6,7 @@ public class MochilaController : MonoBehaviour
 {
     public int energia = 5;
     
+    public LightLookAtMe lightLookAtMe;
     public Material electricityMat;
     public ThirdPersonMovement Movimiento;
     public bool rayo;
@@ -13,9 +14,6 @@ public class MochilaController : MonoBehaviour
     public bool reciboLuz;
 
     public bool electrificado;
-
-    public GameObject RayCastBegin;
-    public GameObject RayCastEnd;
 
     public GameObject particulaRayo;
 
@@ -37,6 +35,18 @@ public class MochilaController : MonoBehaviour
         sparkMochila.SetActive(false);
     }
 
+
+   void OnTriggerEnter(Collider other){  
+     if(other.name== "CambioSegundoRay"){
+         lightLookAtMe.RayCastBegin=lightLookAtMe.Raycast2;
+     }
+      if(other.name== "CambioPrimerRay"){
+         lightLookAtMe.RayCastBegin=lightLookAtMe.Raycast1;
+     }
+         
+   }
+   
+    
 
   void OnTriggerStay(Collider other){  
      if(other.tag == "ZonaContaminada")
@@ -111,25 +121,6 @@ public class MochilaController : MonoBehaviour
 
         if (reciboLuz==true){
             Movimiento.vida=100;
-        }
-
-        //RAYCAST RECIBO LUZ   
-
-        Vector3 dirRayo;
-        RaycastHit hit;
-
-
-
-        dirRayo=RayCastEnd.transform.position-RayCastBegin.transform.position;
-        Debug.DrawRay(RayCastBegin.transform.position, dirRayo,Color.red);
-        
-       
-
-        if(Physics.Raycast(RayCastBegin.transform.position,dirRayo, out hit, 1f)){
-            if(hit.collider.tag=="ChargeLight"){
-                Debug.Log("ESTOY RECARGANDO");
-                energia =5;
-            }
         }
 
         if (Movimiento)
