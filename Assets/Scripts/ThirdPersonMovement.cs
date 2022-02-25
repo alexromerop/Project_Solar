@@ -9,7 +9,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool disable;
     public GameObject targetPlat;
     public CharacterController controller;
-    public float speed = 6f;
+    public float speed;
 
     public float vida = 100;
     
@@ -61,6 +61,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform ghostTransform;
     public GameObject sparkMochila;
     public GameObject planeoParticle;
+    float startSpeed = 0;
+    float endSpeed = 7;
+
+    float desiredDuration = 5;
+    float  elapsedTime;
 
     IEnumerator SpawnSparkle(float time){
         sparkMochila.SetActive(true);
@@ -68,7 +73,16 @@ public class ThirdPersonMovement : MonoBehaviour
         sparkMochila.SetActive(false);
     }
 
-
+    public void IncreaseVelocidad(){
+        if(!isMoving){
+            speed=0;
+        }
+        else{
+            if(speed<7){
+            speed += 10*Time.deltaTime;
+            }
+        }
+    }
     public void SlideDown(){
         isOnSlope = Vector3.Angle(Vector3.up, hitNormal) >= controller.slopeLimit;
         if(isOnSlope){
@@ -105,6 +119,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
+         elapsedTime+= Time.deltaTime;
           Cursor.visible = false;
     }
     void OnTriggerEnter(Collider other){
@@ -186,10 +201,13 @@ public class ThirdPersonMovement : MonoBehaviour
         buf=false;
         
     }
+    
 
     // Update is called once per frame
     void Update()
     {
+       
+        IncreaseVelocidad();
 
         if(Input.GetKeyDown(KeyCode.V)){
             speed=speed+1;
@@ -242,7 +260,7 @@ public class ThirdPersonMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref GiroSmoothVelocity, GiroSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized *  speed * Time.deltaTime);
             isMoving=true;
         }
         else{
