@@ -6,6 +6,7 @@ public class testcam : MonoBehaviour
 {
     public Renderer[] player;
     private Renderer[] player_;
+    //a
 
 
     [SerializeField]
