@@ -12,12 +12,16 @@ public class AnimatorHoopCtrl : MonoBehaviour
 
     public CogerObjeto cogerObjeto;
     public GameObject dustIzq;
-   
+    
+    
+    int VelocityHash;
 
     
-    
+    void Start(){
+       VelocityHash = Animator.StringToHash("speed");
+    }
     // Start is called before the first frame update
-    IEnumerator Start()
+    IEnumerator IdleChanger()
     {
         anim = GetComponent<Animator>();
         while (true){
@@ -39,6 +43,9 @@ public class AnimatorHoopCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        anim.SetFloat(VelocityHash, Movimiento.speed);
+
         if (Movimiento)
         {
             if (Movimiento.danger == true)
