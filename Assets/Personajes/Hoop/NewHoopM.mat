@@ -237,7 +237,7 @@ Texture2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: z__GradientRampTex{"mode":0,"colorKeys":[{"color":{"r":0.849056601524353,"g":0.849056601524353,"b":0.849056601524353,"a":1.0},"time":0.1441214680671692},{"color":{"r":0.9198113083839417,"g":0.9448702931404114,"b":1.0,"a":1.0},"time":0.17059586942195893}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}]}
+  m_Name: z__GradientRampTex{"mode":0,"colorKeys":[{"color":{"r":0.849056601524353,"g":0.849056601524353,"b":0.849056601524353,"a":1.0},"time":0.1441214680671692},{"color":{"r":0.9198113083839417,"g":0.9448702931404114,"b":1.0,"a":1.0},"time":0.17059586942195893}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.9794155955314636}]}
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000

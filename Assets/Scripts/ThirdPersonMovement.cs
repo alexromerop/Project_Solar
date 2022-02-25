@@ -6,6 +6,12 @@ using Cinemachine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [SerializeField]
+    private float coyoteTime= 0.15f;
+    private float coyoteTimeCounter;
+
+
+
     public bool disable;
     public GameObject targetPlat;
     public CharacterController controller;
@@ -132,12 +138,12 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canDoubleJump && gravity < -1)
         {
            
-            if (isGrounded)
+            if (coyoteTimeCounter>0f)
             {
                 
                 velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
-                
 
+                coyoteTimeCounter = 0f;
             }
             else 
             {   
@@ -232,9 +238,24 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         isFalling = isGrounded == false;
+
+            if (isGrounded)
+            {
+                coyoteTimeCounter = coyoteTime;
+            }
+            else
+            {
+                coyoteTimeCounter-=Time.deltaTime;
+            }
+
+
+
+
+
 
         isnegative();
         
@@ -275,7 +296,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (allowDoubleJump)
         {
-            if (isGrounded)
+            if (coyoteTimeCounter>0f)
             {
                 canDoubleJump = true;
             }
@@ -309,6 +330,11 @@ public class ThirdPersonMovement : MonoBehaviour
    
         
     }
-    
 
+    public IEnumerator CoyoteTime()
+    {
+        yield return new WaitForSeconds(5f * Time.deltaTime);
+        isGrounded=false;
+
+    }
 }
