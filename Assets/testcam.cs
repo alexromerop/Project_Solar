@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class testcam : MonoBehaviour
 {
+    public Renderer[] player;
+    private Renderer[] player_;
+
+
     [SerializeField]
     private float _mouseSensitivity = 3.0f;
 
@@ -37,7 +41,7 @@ public class testcam : MonoBehaviour
 
     private void Awake()
     {
-        
+        player_ = player;
     }
 
     void Update()
@@ -69,8 +73,24 @@ public class testcam : MonoBehaviour
         if (Physics.Raycast(_target.position, direction, out hit, _distanceFromTarget, collisionLayer))
         {
             float dis = hit.distance;
+            if(dis < 1)
+            {
+                Debug.Log(dis);
+                for (int i = 0; i < player.Length; i++)
+                {
+                    player[i].material.color = Color.clear;
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < player.Length; i++)
+                {
+                    player[i].material.color = player_[i].material.color;
+                }
+            }
             //float error = distance - hit.distance;
-            Debug.Log(dis);
+            
             transform.position = _target.position - transform.forward * dis;
 
         }
