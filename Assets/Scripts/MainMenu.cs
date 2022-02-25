@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,6 +19,35 @@ public class MainMenu : MonoBehaviour
     //Gestion del menu settings del volumen
     [SerializeField]
     public AudioMixer audioMixer;
+
+    //Resoluciones de pantalla
+    [SerializeField]
+    Dropdown resolutionDropdown;
+    Resolution[] resolutions;
+
+    private void Start()
+    {
+        //Resolucion pantalla
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+        for (int i = 0; i<resolutions.Length; i++) {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height) {
+                currentResolutionIndex = i;
+            }
+        }
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+
+    }
+
 
     public void PlayGame()
     {
@@ -46,7 +76,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-
+    //Cuando se activa y se desactiva el Principal
     public void Pause()
     {
         bool isActive = principal.activeSelf;
@@ -73,7 +103,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
 
     }
-
+    //Cuando se activa y se desactiva el Settings
     public void Setting()
     {
         bool isActive = settings.activeSelf;
@@ -101,5 +131,20 @@ public class MainMenu : MonoBehaviour
     {
         //audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
     }
+
+    //Control de ajustes de pantalla
+    public void SetResolution(int resolutionIndex) {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int qualityIndex) {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    
+    public void SetFullscreen(bool isFullscreen) {
+        Screen.fullScreen = isFullscreen;
+    }
+    
 
 }
