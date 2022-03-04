@@ -76,22 +76,23 @@ public class testcam : MonoBehaviour
             float dis = hit.distance;
             if(dis < 1)
             {
+
+                //Change color if distrance camenra whit wall is small
                 Debug.Log(dis);
                 for (int i = 0; i < player.Length; i++)
                 {
-                    player[i].material.color = Color.clear;
+                    //player[i].material.color = Color.clear;
                 }
-
             }
             else
             {
+                
                 for (int i = 0; i < player.Length; i++)
                 {
-                    player[i].material.color = player_[i].material.color;
+                    //player[i].material.color = player_[i].material.color;
                 }
             }
-            //float error = distance - hit.distance;
-            
+          
             transform.position = _target.position - transform.forward * dis;
 
         }
@@ -100,17 +101,7 @@ public class testcam : MonoBehaviour
 
             transform.position = _target.position - transform.forward * _distanceFromTarget;
         }
-        //Vector3 finalp = Physics.Raycast(_target.position,direction, out hit, distance, collisionLayer) ? hit.point - direction * cameraCollisionRadius : lookme.position;
-
-
-
-        // Substract forward vector of the GameObject to point its forward vector to the target
-
-
-
-
-
-
+   
     }
 
   

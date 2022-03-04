@@ -10,6 +10,8 @@ public class CutscenesManager : MonoBehaviour
      public GameObject Timeline2;
      public GameObject Timeline3;
      public ThirdPersonMovement player;
+    public GameObject MainCamera;
+
 
     public GameObject endCanvas;
      public Generic_Activator Activator;
@@ -27,11 +29,14 @@ public class CutscenesManager : MonoBehaviour
      
       public IEnumerator Cinematica2(float time)
     {
+        MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
         player.disable=true;
+        
         yield return new WaitForSeconds(5.3f);
          CameraCinematica2.SetActive(false);
+        MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
         Destroy(this.gameObject);
@@ -39,17 +44,20 @@ public class CutscenesManager : MonoBehaviour
    
         public IEnumerator CinematicaNoche(float time)
     {
+        MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
         player.disable=true;
         yield return new WaitForSeconds(2.85f);
          CameraCinematica2.SetActive(false);
+        MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
         Destroy(this.gameObject);
     }
      public IEnumerator CinematicaFinal(float time)
     {
+        MainCamera.SetActive(false);
         CameraCinematica3.SetActive(true);
         Timeline3.SetActive(true);
         player.disable=true;
@@ -60,11 +68,13 @@ public class CutscenesManager : MonoBehaviour
     }
      public IEnumerator CinematicaPozo(float time)
     {
+        MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
         player.disable=true;
         yield return new WaitForSeconds(2f);
          CameraCinematica2.SetActive(false);
+        MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
         Destroy(this.gameObject);
@@ -78,7 +88,7 @@ public class CutscenesManager : MonoBehaviour
             }
             if (Activator.power == true)
             {
-                Debug.Log("GOOOOOOOLA");
+                //Debug.Log("GOOOOOOOLA");
                 StartCoroutine(CinematicaFinal(2f));
             }
         }

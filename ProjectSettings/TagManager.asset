@@ -30,6 +30,7 @@ TagManager:
   - PasaLuz
   - Water
   - DangerZone
+  - Box
   layers:
   - Default
   - TransparentFX
