@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &270985256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5464377147905107280, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+  m_PrefabInstance: {fileID: 3103727257218701061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f69135d5e4bb40408356af7fa59081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &352147995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1028,6 +1039,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1119767381}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 270985256}
+    - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: BoxPoint
       value: 
       objectReference: {fileID: 1185673860}
@@ -1157,7 +1172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5464377149891214915, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}

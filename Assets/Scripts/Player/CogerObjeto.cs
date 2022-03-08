@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CogerObjeto : MonoBehaviour
 {
-    
+    public ThirdPersonMovement player;
 public GameObject handpoint;
 public GameObject BoxPoint;
 
@@ -68,6 +68,8 @@ private void OnTriggerStay(Collider other)
 
     if (other.gameObject.CompareTag("Box")){
         if (Input.GetMouseButton(0) && pickedObject == null && !picked  ){
+
+                player.SetCamCoxPos();
                 Debug.Log("aaa");
                 picked = true;
                 other.GetComponent<Rigidbody>().useGravity = false;

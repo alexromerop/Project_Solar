@@ -6,6 +6,8 @@ using Cinemachine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+
+    public Vector3 init_cam;
     public GameObject Hand;
 
     [SerializeField]
@@ -300,7 +302,8 @@ public class ThirdPersonMovement : MonoBehaviour
                     {
                         direction.x = 0f;
                     }
-                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+
+                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg+ init_cam.y;
                     //transform.rotation = cam.transform.rotation;
                     moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                     controller.Move(moveDir.normalized * (speed - 1) * Time.deltaTime);
@@ -362,4 +365,16 @@ public class ThirdPersonMovement : MonoBehaviour
         isGrounded=false;
 
     }
+
+
+    public void SetCamCoxPos() 
+    {
+        init_cam = cam.transform.eulerAngles;
+
+
+
+    }
+
+
+
 }

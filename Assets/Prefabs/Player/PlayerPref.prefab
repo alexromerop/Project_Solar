@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1185673860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185673861}
+  m_Layer: 2
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185673861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185673860}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0011, y: -0.00599, z: 0.00853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5464377148006232308}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5464377147844485125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f69135d5e4bb40408356af7fa59081b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  init_cam: {x: 0, y: 0, z: 0}
+  Hand: {fileID: 5464377148006232311}
   coyoteTime: 0.15
   disable: 0
   targetPlat: {fileID: 0}
@@ -4327,7 +4359,8 @@ Transform:
   m_LocalRotation: {x: 0.05554527, y: -0.042646125, z: -0.6983037, w: 0.712368}
   m_LocalPosition: {x: 0.6141423, y: 1.2409163, z: -0.13379875}
   m_LocalScale: {x: 99.99994, y: 99.99995, z: 99.99997}
-  m_Children: []
+  m_Children:
+  - {fileID: 1185673861}
   m_Father: {fileID: 5464377147905107285}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.5}
@@ -4356,7 +4389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46cffb06f94f3144a8d5cdea3cba4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5464377147905107280}
   handpoint: {fileID: 5464377148877844992}
+  BoxPoint: {fileID: 1185673860}
   picked: 0
 --- !u!1 &5464377148006262829
 GameObject:
@@ -19651,7 +19686,7 @@ MonoBehaviour:
   electricityMat: {fileID: 2100000, guid: 52b287ee53246bc4586d41b00bf47aed, type: 2}
   Movimiento: {fileID: 0}
   rayo: 0
-  reciboLuz: 0
+  reciboLuz: 1
   electrificado: 0
   particulaRayo: {fileID: 1662375302742038139, guid: f6ce1093ac37a634a85c92b31d51c19f, type: 3}
   pico: {fileID: 5464377148099951873}
@@ -42700,6 +42735,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377149497698657}
+  - component: {fileID: 1912583321}
+  - component: {fileID: 1912583320}
   m_Layer: 0
   m_Name: RayoSpawner
   m_TagString: Untagged
@@ -42714,13 +42751,38 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5464377149497698658}
-  m_LocalRotation: {x: 0.0021544893, y: 0.89594156, z: 0.44416678, w: -0.0003408565}
+  m_LocalRotation: {x: 0.92387956, y: 0, z: 0, w: 0.38268343}
   m_LocalPosition: {x: 0.455, y: 0.586, z: -0.326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5464377149891214914}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -52.74, y: 179.877, z: 0.337}
+  m_LocalEulerAnglesHint: {x: 135, y: 0, z: 0}
+--- !u!135 &1912583321
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377149497698658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1912583320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377149497698658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eccf40b39b87fb45a17a28f5b5151ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5464377149499635223
 GameObject:
   m_ObjectHideFlags: 0
@@ -47310,7 +47372,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5464377149691846913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -105.93, y: 3.1500015, z: 223.03856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -52096,7 +52158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5464377149891214914
 Transform:
   m_ObjectHideFlags: 0
