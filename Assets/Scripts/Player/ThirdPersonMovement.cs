@@ -6,6 +6,8 @@ using Cinemachine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    public GameObject Hand;
+
     [SerializeField]
     private float coyoteTime= 0.15f;
     private float coyoteTimeCounter;
@@ -275,21 +277,44 @@ public class ThirdPersonMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical). normalized;
 
-        if (direction.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref GiroSmoothVelocity, GiroSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized *  speed * Time.deltaTime);
-            isMoving=true;
-        }
-        else{
-            isMoving=false;
-        }
+            if (direction.magnitude >= 0.1f)
+            {
+                if (Hand.GetComponent<CogerObjeto>().picked == false)
+                {
+                    
+                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
+                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref GiroSmoothVelocity, GiroSmoothTime);
+                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                    controller.Move(moveDir.normalized * speed * Time.deltaTime);
+                    isMoving = true;
+                }
+                else
+                {
+                    if (direction.x > 0 || direction.x < 0)
+                    {
+                        
+                        direction.z = 0f;
+                    }
+                    else if (direction.z > 0 || direction.z < 0)
+                    {
+                        direction.x = 0f;
+                    }
+                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                    //transform.rotation = cam.transform.rotation;
+                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                    controller.Move(moveDir.normalized * (speed - 1) * Time.deltaTime);
+                    isMoving = true;
+                }
 
-        //  SALTO
-        if(isOnSlope==false){
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+            //  SALTO
+            if (isOnSlope==false){
         if (allowDoubleJump==false){
             canDoubleJump=false;
         }
