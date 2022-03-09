@@ -22,7 +22,7 @@ public class Take_Rob : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("qaa");
+            
            
                 if (Input.GetMouseButton(0))
                 {

@@ -20,6 +20,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject targetPlat;
     public CharacterController controller;
     public float speed;
+    private float speed_;
+
 
     public float vida = 100;
     
@@ -131,6 +133,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
          elapsedTime+= Time.deltaTime;
           Cursor.visible = false;
+        speed_ = speed;
     }
     void OnTriggerEnter(Collider other){
         if(other.tag==("DangerZone")){
@@ -216,6 +219,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
        
         IncreaseVelocidad();
 
@@ -278,6 +282,8 @@ public class ThirdPersonMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical). normalized;
+        Vector3 direction2 = new Vector3(0F, 0f, vertical).normalized;
+
 
             if (direction.magnitude >= 0.1f)
             {
@@ -293,20 +299,17 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (direction.x > 0 || direction.x < 0)
+                    if(vertical > 0f)
                     {
+                        speed_ = speed*0.5f;
+                    }
+                    else if (vertical <0f)
+                    {
+                        speed_ = -speed*0.5f;
                         
-                        direction.z = 0f;
                     }
-                    else if (direction.z > 0 || direction.z < 0)
-                    {
-                        direction.x = 0f;
-                    }
-
-                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg+ init_cam.y;
-                    //transform.rotation = cam.transform.rotation;
-                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                    controller.Move(moveDir.normalized * (speed - 1) * Time.deltaTime);
+                    Debug.Log(speed_);
+                    controller.Move(transform.forward.normalized * (speed_) * Time.deltaTime);
                     isMoving = true;
                 }
 
