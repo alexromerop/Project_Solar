@@ -5,9 +5,9 @@ using UnityEngine;
 public class LookAtObject : MonoBehaviour
 {
     Quaternion rotation;
-    public GameObject gameObject;
-    public float distance1;
-    public float distance2;
+    public GameObject ObjectNear;
+    private float distance1;
+    private float distance2;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +23,11 @@ public class LookAtObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Box")){
             distance1 = Vector3.Distance(this.transform.position, other.transform.position);
-            Debug.Log(distance1);
-            if (gameObject != null) {
-                distance2 = Vector3.Distance(this.transform.position,gameObject.transform.position);
-                Debug.Log(distance2);
+            if (ObjectNear != null) {
+                distance2 = Vector3.Distance(this.transform.position,ObjectNear.transform.position);
                 if (distance1 < distance2)
                 {
-                    gameObject = other.gameObject;
+                    ObjectNear = other.gameObject;
                 }
 
             }
@@ -39,9 +37,9 @@ public class LookAtObject : MonoBehaviour
            
 
 
-            if(gameObject == null || other.gameObject == gameObject)
+            if(ObjectNear == null || other.gameObject == ObjectNear)
             {
-                gameObject = other.gameObject;
+                ObjectNear = other.gameObject;
 
                 transform.LookAt(other.transform);
 
@@ -57,8 +55,8 @@ public class LookAtObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Box"))
         {
-            gameObject = null;
-           // this.gameObject.transform.rotation = rotation;
+            ObjectNear = null;
+            this.gameObject.transform.localRotation = rotation;
         }
     }
 }
