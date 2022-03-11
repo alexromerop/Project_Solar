@@ -11,8 +11,8 @@ public GameObject BoxPoint;
 
     public bool picked;
 
-private GameObject pickedObject = null;
-private GameObject pickedBox = null;
+public GameObject pickedObject = null;
+public GameObject pickedBox = null;
 
 
     void Update()
@@ -67,7 +67,7 @@ private void OnTriggerStay(Collider other)
     }
 
     if (other.gameObject.CompareTag("Box")){
-        if (Input.GetMouseButton(0) && pickedObject == null && !picked  ){
+        if (Input.GetMouseButton(0) && pickedBox == null && !picked  ){
 
                 player.SetCamCoxPos();
                 Debug.Log("aaa");

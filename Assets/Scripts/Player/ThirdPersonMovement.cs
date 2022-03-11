@@ -287,7 +287,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (direction.magnitude >= 0.1f)
             {
-                if (Hand.GetComponent<CogerObjeto>().picked == false)
+                if (Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null)
                 {
                     
                     float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
@@ -297,8 +297,9 @@ public class ThirdPersonMovement : MonoBehaviour
                     controller.Move(moveDir.normalized * speed * Time.deltaTime);
                     isMoving = true;
                 }
-                else
+                 if (Hand.GetComponent<CogerObjeto>().pickedBox != null)
                 {
+                    Debug.Log("asdasdasd");
                     if(vertical > 0f)
                     {
                         speed_ = speed*0.5f;
