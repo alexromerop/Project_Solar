@@ -299,6 +299,10 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
                  if (Hand.GetComponent<CogerObjeto>().pickedBox != null)
                 {
+                    //movimiento para cuando pulses f cerca de una caja para moverla
+
+
+                    /*
                     Debug.Log("asdasdasd");
                     if(vertical > 0f)
                     {
@@ -312,6 +316,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     Debug.Log(speed_);
                     controller.Move(transform.forward.normalized * (speed_) * Time.deltaTime);
                     isMoving = true;
+                    */
                 }
 
             }

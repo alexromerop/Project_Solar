@@ -38,8 +38,25 @@ public class ObstalePush : MonoBehaviour
             rb = hit.gameObject.GetComponent<Rigidbody>();
 
 
-            if (rb.isKinematic == false)
+           
+            
+            if (Input.GetKey(KeyCode.F))
             {
+                //cojer la posion i el vector direccion
+                //poner al player en el centro de la cara de la caja
+
+
+                //hit.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+
+
+                rb.isKinematic = false;
+
+
+                dir = hit.point - transform.position;
+                // We then get the opposite (-Vector3) and normalize it
+                dir = -dir.normalized;
+
                 _PushingTime += Time.deltaTime;
                 if (_PushingTime >= PushingTime)
                 {
@@ -48,18 +65,6 @@ public class ObstalePush : MonoBehaviour
 
                 rb.mass = Mathf.Lerp(ObMass, PushAtMass, _PushingTime / PushingTime);
                 rb.AddForce(dir * ForceToPush, ForceMode.Force);
-            }
-            Debug.Log("Pals");
-            if (Input.GetKey(KeyCode.F))
-            {
-
-
-                hit.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-
-                dir = hit.point - transform.position;
-                // We then get the opposite (-Vector3) and normalize it
-                dir = -dir.normalized;
 
 
             }

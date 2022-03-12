@@ -32,20 +32,11 @@ public class LookAtObject : MonoBehaviour
 
             }
 
-
-            
-           
-
-
             if(ObjectNear == null || other.gameObject == ObjectNear)
             {
                 ObjectNear = other.gameObject;
 
                 transform.LookAt(other.transform);
-
-
-
-
 
             }
 

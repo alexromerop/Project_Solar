@@ -66,11 +66,10 @@ private void OnTriggerStay(Collider other)
         }
     }
 
-    if (other.gameObject.CompareTag("Box")){
+   /* if (other.gameObject.CompareTag("Box")){
         if (Input.GetMouseButton(0) && pickedBox == null && !picked  ){
 
                 player.SetCamCoxPos();
-                Debug.Log("aaa");
                 picked = true;
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().isKinematic = true;
@@ -83,14 +82,22 @@ private void OnTriggerStay(Collider other)
 
                 other.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-
+                
             }
                
     }
+   */
     }
 
 
+    private void FixedUpdate()
+    {
+        if (pickedBox != null) {
 
+            pickedBox.transform.position = BoxPoint.transform.position;
+
+        }
+    }
 
 
 
