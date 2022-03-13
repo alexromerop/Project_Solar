@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-
+    bool boxpull = false;
     public Vector3 init_cam;
     public GameObject Hand;
 
@@ -287,7 +287,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (direction.magnitude >= 0.1f)
             {
-                if (Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null)
+                if ((Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null)&& this.GetComponent<ObstalePush_>().oncollider_ == false)
                 {
                     
                     float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
@@ -297,26 +297,30 @@ public class ThirdPersonMovement : MonoBehaviour
                     controller.Move(moveDir.normalized * speed * Time.deltaTime);
                     isMoving = true;
                 }
-                 if (Hand.GetComponent<CogerObjeto>().pickedBox != null)
+                 if (this.GetComponent<ObstalePush_>().oncollider_)
                 {
-                    //movimiento para cuando pulses f cerca de una caja para moverla
-
-
-                    /*
-                    Debug.Log("asdasdasd");
-                    if(vertical > 0f)
+                    GameObject box = this.GetComponent<ObstalePush_>().box;
+              
+                    if (vertical > 0f)
                     {
-                        speed_ = speed*0.5f;
-                    }
-                    else if (vertical <0f)
-                    {
-                        speed_ = -speed*0.5f;
+                        speed_ = speed * 0.75f;               
+                        this.GetComponent<ObstalePush_>().box.transform.SetParent(null);
                         
                     }
-                    Debug.Log(speed_);
+                    else if (vertical < 0f)
+                    {
+                        
+                        speed_ = -speed * 0.5f;
+       
+                        box.transform.SetParent(transform);
+                    }
+                   
+                    //Debug.Log(speed_);
                     controller.Move(transform.forward.normalized * (speed_) * Time.deltaTime);
                     isMoving = true;
-                    */
+
+
+                   
                 }
 
             }
@@ -375,6 +379,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     }
 
+    
 
     public void SetCamCoxPos() 
     {

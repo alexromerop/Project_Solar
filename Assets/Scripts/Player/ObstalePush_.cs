@@ -7,6 +7,7 @@ public class ObstalePush_ : MonoBehaviour
     [SerializeField]
     private float forceMagnitude;
 
+    public GameObject box;
     public bool oncollider_;
     public bool onhit;
 
@@ -34,7 +35,7 @@ public class ObstalePush_ : MonoBehaviour
         if (hit.gameObject.CompareTag("Box")&& oncollider_)
         {
             dir = hit.point - transform.position;
-            
+            box = hit.gameObject;
 
             Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
@@ -45,7 +46,6 @@ public class ObstalePush_ : MonoBehaviour
                 Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
                 forceDirection.y = 0;
                 forceDirection.Normalize();
-                Debug.Log(forceDirection);
                 if (forceDirection.z > 0.75f || forceDirection.z < -0.75f)
                 {
                     rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
@@ -67,8 +67,16 @@ public class ObstalePush_ : MonoBehaviour
                 rigidbody.AddForceAtPosition(forceDirection*forceMagnitude, transform.position, ForceMode.Impulse);
             }
         }
+
     }
 
-    
-    
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Box"))
+        {
+            box = other.gameObject;
+        }
+    }
 }

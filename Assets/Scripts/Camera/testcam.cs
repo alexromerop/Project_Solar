@@ -78,7 +78,7 @@ public class testcam : MonoBehaviour
             {
 
                 //Change color if distrance camenra whit wall is small
-                Debug.Log(dis);
+                
                 for (int i = 0; i < player.Length; i++)
                 {
                     //player[i].material.color = Color.clear;
