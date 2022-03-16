@@ -5565,7 +5565,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 2028354932}
-  instanceID: 717490
+  instanceID: 693612
 --- !u!4 &183040079
 Transform:
   m_ObjectHideFlags: 0
@@ -18395,7 +18395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce0b9c0ac7e69a4497d1bbf35991a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMagnitude: 0
+  forceMagnitude: 5
   box: {fileID: 0}
   oncollider_: 0
   onhit: 0
@@ -55528,18 +55528,6 @@ PrefabInstance:
     - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
       propertyPath: m_LocalPosition.x

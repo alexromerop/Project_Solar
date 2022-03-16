@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
 {
-    
+    private  int iterator= 0;
     
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
@@ -60,6 +60,7 @@ public class PhotoCapture : MonoBehaviour
 
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
+        SaveTexture(screenCapture);
         ShowPhoto();
 
     }
@@ -91,5 +92,22 @@ public class PhotoCapture : MonoBehaviour
         viewingPhoto = false;
         photoFrame.SetActive(false);
         CameraUI.SetActive(true);
+    }
+
+
+    private void SaveTexture(Texture2D texture)
+    {
+        iterator++;
+        byte[] bytes =texture.EncodeToPNG();
+        var dirPath = Application.dataPath + "/RenderOutput";
+        if (!System.IO.Directory.Exists(dirPath))
+        {
+            System.IO.Directory.CreateDirectory(dirPath);
+        }
+        System.IO.File.WriteAllBytes(dirPath + "/R_" + iterator + ".png", bytes);
+        Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + dirPath);
+#if UNITY_EDITOR
+        UnityEditor.AssetDatabase.Refresh();
+#endif
     }
 }
