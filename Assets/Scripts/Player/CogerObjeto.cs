@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CogerObjeto : MonoBehaviour
 {
-    public ThirdPersonMovement player;
+public bool pickedBoxAnim;
+public ThirdPersonMovement player;
 public GameObject handpoint;
 public GameObject BoxPoint;
 
@@ -36,6 +37,7 @@ public GameObject pickedBox = null;
                     pickedBox.GetComponent<Rigidbody>().useGravity = true;
                     pickedBox.gameObject.transform.SetParent(null);
                     pickedBox = null;
+                    pickedBoxAnim=false;
                 }
 
             }
@@ -82,7 +84,8 @@ private void OnTriggerStay(Collider other)
 
                 other.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-                
+                pickedBoxAnim=true;
+
             }
                
     }

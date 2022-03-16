@@ -12,6 +12,7 @@ public class AnimatorHoopCtrl : MonoBehaviour
 
     public CogerObjeto cogerObjeto;
     public GameObject dustIzq;
+
     
     
     int VelocityHash;
@@ -43,6 +44,26 @@ public class AnimatorHoopCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(cogerObjeto.pickedBoxAnim){
+            anim.SetBool("BoxPicked", true);
+            if(Input.GetKey(KeyCode.W)){
+                anim.SetBool("PushFront", true);
+            }
+            else{
+                anim.SetBool("PushFront", false);
+            }
+            if(Input.GetKey(KeyCode.S)){
+                anim.SetBool("PushBack", true);
+            }
+            else{
+                anim.SetBool("PushBack", false);
+            }
+            
+        }
+        else{
+            anim.SetBool("BoxPicked", false);
+        }
+        
        
         anim.SetFloat(VelocityHash, Movimiento.speed);
 

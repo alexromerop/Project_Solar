@@ -303,12 +303,11 @@ public class ThirdPersonMovement : MonoBehaviour
               
                     if (vertical > 0f)
                     {
-                        speed_ = speed * 0.75f;               
-                        this.GetComponent<ObstalePush_>().box.transform.SetParent(null);
-                        
+                        speed_ = speed*0.2f;
                     }
                     else if (vertical < 0f)
                     {
+                        speed_ = -speed*0.2f;
                         
                         speed_ = -speed * 0.5f;
        
