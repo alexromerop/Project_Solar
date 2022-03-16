@@ -9,6 +9,7 @@ public class PhotoCapture : MonoBehaviour
     
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
+
     [SerializeField] private GameObject photoFrame;
     [SerializeField] private GameObject CameraUI;
 
@@ -60,7 +61,9 @@ public class PhotoCapture : MonoBehaviour
 
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
-        SaveTexture(screenCapture);
+
+        capture();
+        //SaveTexture(screenCapture);
         ShowPhoto();
 
     }
@@ -110,4 +113,13 @@ public class PhotoCapture : MonoBehaviour
         UnityEditor.AssetDatabase.Refresh();
 #endif
     }
+
+
+
+
+    void capture()
+    {
+        ScreenCapture.CaptureScreenshot("SomeLevel");
+    }
+   
 }
