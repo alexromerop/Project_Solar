@@ -17,7 +17,7 @@ public class testcam : MonoBehaviour
 
 
     [SerializeField]
-    private float _mouseSensitivity = 3.0f;
+    public float _mouseSensitivity = 3.0f;
 
     private float _rotationY;
     private float _rotationX;
@@ -53,6 +53,11 @@ public class testcam : MonoBehaviour
 
     private bool CamMode = false;
 
+
+    [Header("Photo Fader Effect")]
+    [SerializeField] private Animator ZoomIn;
+
+
     private void Awake()
     {
         player_ = RendPlayer;
@@ -68,7 +73,7 @@ public class testcam : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            ChangeCamera();
+            StartCoroutine( ChangeCamera());
         }
 
     }
@@ -131,12 +136,14 @@ public class testcam : MonoBehaviour
 
     }
 
-    void ChangeCamera()
+    IEnumerator ChangeCamera()
     {
         if (player.GetComponent<ThirdPersonMovement>().isGrounded)
         {
             if (!CamMode)
             {
+                ZoomIn.Play("zoomin");
+                yield return new WaitForSeconds(1);
                 Debug.Log("Cambiar camera");
                 _distanceFromTarget = distanceFromTarget;
                 player.gameObject.SetActive(false);
@@ -146,6 +153,9 @@ public class testcam : MonoBehaviour
             }
             else
             {
+                ZoomIn.Play("zoomout");
+                
+
                 Debug.Log("Volver camera");
                 _distanceFromTarget = distanceFromTarget_;
                 player.gameObject.SetActive(true);

@@ -26,6 +26,9 @@ public class PhotoCapture : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource cameraAudio;
 
+    [SerializeField] private GameObject camera;
+
+
     private Texture2D screenCapture;
     private bool viewingPhoto;
 
@@ -55,15 +58,28 @@ public class PhotoCapture : MonoBehaviour
     {
         CameraUI.SetActive(false);
         viewingPhoto = true;
+
+        camera.GetComponent<testcam>()._mouseSensitivity = 0;
+
         yield return new WaitForEndOfFrame();
+
+
+
+
 
         Rect regionToRead = new Rect(0,0,Screen.width,Screen.height);
 
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
 
-        capture();
+
+
+
+
+
+        StartCoroutine( capture());
         //SaveTexture(screenCapture);
+        //StartCoroutine(SaveImg(screenCapture));
         ShowPhoto();
 
     }
@@ -114,12 +130,52 @@ public class PhotoCapture : MonoBehaviour
 #endif
     }
 
-
-
-
-    void capture()
+    IEnumerator SaveImg(Texture2D texture)
     {
-        ScreenCapture.CaptureScreenshot("SomeLevel");
+        yield return null;
+
+        
+        byte[] bytes = texture.EncodeToPNG();
+        var dirPath = Application.dataPath + "/RenderOutput";
+        if (!System.IO.Directory.Exists(dirPath))
+        {
+            System.IO.Directory.CreateDirectory(dirPath);
+        }
+        System.IO.File.WriteAllBytes(dirPath + "/R_" + iterator + ".png", bytes);
+        Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + dirPath);
+#if UNITY_EDITOR
+
+        //hacer esto al abrir el libro !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //UnityEditor.AssetDatabase.Refresh();
+#endif
+
     }
-   
+
+
+    IEnumerator capture()
+    {
+
+        iterator++;
+        var dirPath = Application.dataPath + "/RenderOutput";
+        if (!System.IO.Directory.Exists(dirPath))
+        {
+            System.IO.Directory.CreateDirectory(dirPath);
+        }
+
+        ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".png");
+        yield return new WaitForSeconds(1f);
+#if UNITY_EDITOR
+
+
+        //hay que comprobar si se puede acceder aun si no se hace eso
+        UnityEditor.AssetDatabase.Refresh();
+
+#endif
+        yield return new WaitForSeconds(0.5f);
+
+        camera.GetComponent<testcam>()._mouseSensitivity = 2;
+
+
+    }
+
 }

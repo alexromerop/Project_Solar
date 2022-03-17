@@ -198,6 +198,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70702197}
   m_CullTransparentMesh: 1
+--- !u!1 &292875823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5464377149349759465, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+  m_PrefabInstance: {fileID: 3103727257218701061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &292875832
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292875823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07dc5a0bfda5f6a419ba92e348bdfd17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &352147995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,6 +1066,7 @@ MonoBehaviour:
   flashTime: 0.4
   fadingAnimation: {fileID: 417874822}
   cameraAudio: {fileID: 2000476145}
+  camera: {fileID: 292875823}
 --- !u!1 &991169822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1295,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1118753452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5282008760281612988, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
+  m_PrefabInstance: {fileID: 836006135}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef8920dcf7f6314cbdfb95743584546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1278888223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,6 +1813,7 @@ MonoBehaviour:
   Oncolider: 0
   activado: 0
   trigger: {fileID: 0}
+  boxAnim: 0
 --- !u!65 &1555176830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2763,6 +2800,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: boxScript
+      value: 
+      objectReference: {fileID: 1118753452}
     - target: {fileID: 5464377148049495035, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2848,6 +2889,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: ZoomIn
+      value: 
+      objectReference: {fileID: 292875832}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: CameraUi
       value: 
       objectReference: {fileID: 1478902316}
@@ -2855,6 +2900,10 @@ PrefabInstance:
       propertyPath: CameraManager
       value: 
       objectReference: {fileID: 964588167}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: _distanceFromTarget
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377149550446094, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
