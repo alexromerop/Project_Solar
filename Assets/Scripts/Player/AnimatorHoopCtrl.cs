@@ -12,6 +12,7 @@ public class AnimatorHoopCtrl : MonoBehaviour
 
     public CogerObjeto cogerObjeto;
     public GameObject dustIzq;
+    public box_scr boxScript;
 
     
     
@@ -44,7 +45,9 @@ public class AnimatorHoopCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cogerObjeto.pickedBoxAnim){
+
+        
+        if(boxScript.boxAnim==true){
             anim.SetBool("BoxPicked", true);
             if(Input.GetKey(KeyCode.W)){
                 anim.SetBool("PushFront", true);

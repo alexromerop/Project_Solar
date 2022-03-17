@@ -8,6 +8,7 @@ public class box_scr : MonoBehaviour
     public bool activado = false;
     private GameObject Player;
     public GameObject trigger;
+    public bool boxAnim;
 
 
     bool boxpull;
@@ -25,6 +26,7 @@ public class box_scr : MonoBehaviour
                 {
                     Debug.Log("desactivado");
                     activado = false;
+                    boxAnim=false;
                 }
                 else
                 {
@@ -35,6 +37,7 @@ public class box_scr : MonoBehaviour
                     }
                     Debug.Log("ACTIVADO");
                     activado = true;
+                    boxAnim=true;
                 }
             }
             
