@@ -18,6 +18,7 @@ public class box_scr : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        boxAnim=activado;
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (trigger!=null)
@@ -26,7 +27,7 @@ public class box_scr : MonoBehaviour
                 {
                     Debug.Log("desactivado");
                     activado = false;
-                    boxAnim=false;
+                    
                 }
                 else
                 {
@@ -37,7 +38,7 @@ public class box_scr : MonoBehaviour
                     }
                     Debug.Log("ACTIVADO");
                     activado = true;
-                    boxAnim=true;
+                    
                 }
             }
             

@@ -309,7 +309,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     {
                         speed_ = -speed*0.2f;
                         
-                        speed_ = -speed * 0.5f;
+                        // speed_ = -speed * 0.5f;
        
                         box.transform.SetParent(transform);
                     }
