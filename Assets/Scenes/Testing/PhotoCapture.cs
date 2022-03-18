@@ -26,7 +26,7 @@ public class PhotoCapture : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource cameraAudio;
 
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject cam;
 
 
     private Texture2D screenCapture;
@@ -59,13 +59,13 @@ public class PhotoCapture : MonoBehaviour
         CameraUI.SetActive(false);
         viewingPhoto = true;
 
-        camera.GetComponent<testcam>()._mouseSensitivity = 0;
+        cam.GetComponent<testcam>()._mouseSensitivity = 0;
 
         yield return new WaitForEndOfFrame();
 
 
 
-
+        //screenCapture = ScreenCapture.CaptureScreenshotAsTexture();
 
         Rect regionToRead = new Rect(0,0,Screen.width,Screen.height);
 
@@ -81,7 +81,8 @@ public class PhotoCapture : MonoBehaviour
         //SaveTexture(screenCapture);
         //StartCoroutine(SaveImg(screenCapture));
         ShowPhoto();
-
+        yield return new WaitForSeconds(2);
+        RemovePhoto();
     }
 
     void ShowPhoto()
@@ -92,6 +93,8 @@ public class PhotoCapture : MonoBehaviour
         photoFrame.SetActive(true);
         StartCoroutine(CameraFlashEffect());
         fadingAnimation.Play("CamFadeOut");
+
+
     }
 
 
@@ -107,7 +110,14 @@ public class PhotoCapture : MonoBehaviour
     }
 
 
+
+
+    //Funcion temporal para quitar la imagen de golpe
+    //en un futuro hacer que se minimize mientras se mueve a la izquierda
     void RemovePhoto() { 
+
+
+        
         viewingPhoto = false;
         photoFrame.SetActive(false);
         CameraUI.SetActive(true);
@@ -173,7 +183,7 @@ public class PhotoCapture : MonoBehaviour
 #endif
         yield return new WaitForSeconds(0.5f);
 
-        camera.GetComponent<testcam>()._mouseSensitivity = 2;
+        cam.GetComponent<testcam>()._mouseSensitivity = 2;
 
 
     }

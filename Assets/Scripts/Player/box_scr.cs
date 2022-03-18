@@ -33,6 +33,7 @@ public class box_scr : MonoBehaviour
                 {
                     Debug.Log("desactivado");
                     activado = false;
+                    Player.GetComponent<CharacterController>().radius = 0.4f;
                     
                 }
                 else
@@ -86,6 +87,8 @@ public class box_scr : MonoBehaviour
            other.GetComponent<ObstalePush_>().oncollider_ = false;
             activado = false;
             trigger = null;
+            Player.GetComponent<CharacterController>().radius = 0.03f;
+
         }
     }
 

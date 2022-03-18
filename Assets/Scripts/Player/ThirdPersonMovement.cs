@@ -290,6 +290,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 if ((Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null)&& this.GetComponent<ObstalePush_>().oncollider_ == false)
                 {
                     
+
                     float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
                     float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref GiroSmoothVelocity, GiroSmoothTime);
                     transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -305,6 +306,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     {
                         speed_ = speed*0.2f;
                         box.transform.SetParent(null);
+                        GetComponent<CharacterController>().radius = 0.4f;
 
                     }
                     else if (vertical < 0f)
@@ -312,7 +314,8 @@ public class ThirdPersonMovement : MonoBehaviour
                         speed_ = -speed*0.2f;
                         
                         // speed_ = -speed * 0.5f;
-       
+                        GetComponent<CharacterController>().radius = 0.03f;
+
                         box.transform.SetParent(transform);
                     }
                    
