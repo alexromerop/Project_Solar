@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class box_scr : MonoBehaviour
 {
+    
+
     public bool Oncolider = false;
     public bool activado = false;
     private GameObject Player;
+    private GameObject animator;
+
     public GameObject trigger;
     public bool boxAnim;
 
@@ -14,11 +18,13 @@ public class box_scr : MonoBehaviour
     bool boxpull;
     // Start is called before the first frame update
 
-
+    private void Start()
+    {
+        animator = GameObject.Find("Hoop_GameReady");
+    }
     // Update is called once per frame
     private void Update()
     {
-        boxAnim=activado;
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (trigger!=null)
@@ -40,8 +46,10 @@ public class box_scr : MonoBehaviour
                     activado = true;
                     
                 }
+                boxAnim = activado;
+
             }
-            
+
         }
     }
 
@@ -49,6 +57,9 @@ public class box_scr : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.GetComponent<AnimatorHoopCtrl>().boxScript = this;
+
+
             Player= other.gameObject;
 
             if (activado)

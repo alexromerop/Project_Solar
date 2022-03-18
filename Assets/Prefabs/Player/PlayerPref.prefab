@@ -1305,7 +1305,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.03
+  m_Radius: 0.4
   m_SlopeLimit: 50
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -4919,6 +4919,7 @@ MonoBehaviour:
   Mochila: {fileID: 5464377148640895640}
   cogerObjeto: {fileID: 5464377148006232310}
   dustIzq: {fileID: 5464377148308210906}
+  boxScript: {fileID: 0}
 --- !u!1 &5464377148024680667
 GameObject:
   m_ObjectHideFlags: 0
@@ -39073,6 +39074,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 8
+  ZoomIn: {fileID: 0}
 --- !u!114 &5464377149349759469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52325,6 +52327,7 @@ MonoBehaviour:
   Mochila: {fileID: 5464377148640895640}
   cogerObjeto: {fileID: 5464377148006232310}
   dustIzq: {fileID: 0}
+  boxScript: {fileID: 0}
 --- !u!1 &5464377149893031097
 GameObject:
   m_ObjectHideFlags: 0
