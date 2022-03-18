@@ -304,6 +304,8 @@ public class ThirdPersonMovement : MonoBehaviour
                     if (vertical > 0f)
                     {
                         speed_ = speed*0.2f;
+                        box.transform.SetParent(null);
+
                     }
                     else if (vertical < 0f)
                     {

@@ -71,6 +71,7 @@ public class box_scr : MonoBehaviour
                 other.GetComponent<ObstalePush_>().oncollider_ = false;
                 if (other.GetComponent<ObstalePush_>().box.transform.parent !=null)
                 {
+                    Debug.Log("parente null");
                     other.GetComponent<ObstalePush_>().box.transform.SetParent(null);
                 }
                 
