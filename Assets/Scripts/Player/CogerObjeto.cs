@@ -14,7 +14,7 @@ public GameObject BoxPoint;
 
 public GameObject pickedObject = null;
 public GameObject pickedBox = null;
-
+public GameObject UiPickUp;
 
     void Update()
     {
@@ -25,6 +25,7 @@ public GameObject pickedBox = null;
                 picked = false;
                 if (pickedObject != null)
                 {
+                    StartCoroutine(TimerF(pickedObject));
                     pickedObject.GetComponent<Rigidbody>().isKinematic = false;
                     pickedObject.GetComponent<Rigidbody>().useGravity = true;
                     pickedObject.gameObject.transform.SetParent(null);
@@ -50,8 +51,15 @@ private void OnTriggerStay(Collider other)
 {
     if(other.gameObject.CompareTag("Pickable"))
     {
-        if (Input.GetMouseButton(0) && pickedObject == null && !picked){
+            if(pickedObject == null && !picked){
+            UiPickUp.SetActive(true);
+        
+        if (Input.GetMouseButton(0)){
+
+            UiPickUp.SetActive(false);
             picked = true;
+
+            other.GetComponent<BoxCollider>().enabled = false;
 
             other.GetComponent<Rigidbody>().useGravity = false;
 
@@ -65,7 +73,9 @@ private void OnTriggerStay(Collider other)
 
             other.transform.rotation = new Quaternion(0, 0, 0, 0);
 
+
         }
+    }
     }
 
    /* if (other.gameObject.CompareTag("Box")){
@@ -92,6 +102,23 @@ private void OnTriggerStay(Collider other)
    */
     }
 
+     private void OnTriggerExit(Collider other){
+        if(other.gameObject.CompareTag("Pickable") && pickedObject==null && !picked){
+
+
+            UiPickUp.SetActive(false);
+
+        }
+    }
+
+    
+IEnumerator TimerF(GameObject A)
+    {
+
+       yield return new WaitForSeconds(2f);
+       A.GetComponent<BoxCollider>().enabled = true;
+
+    }
 
     private void FixedUpdate()
     {

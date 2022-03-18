@@ -9,6 +9,7 @@ public class NivelDIA_Manager : MonoBehaviour
     public bool glidingUnlock;
     public bool doubleJumpUnlock;
     public bool picoUnlock;
+    public GameObject polaroidPlayer;
     
     Scene current_Scene;
 
@@ -33,8 +34,25 @@ public class NivelDIA_Manager : MonoBehaviour
             picoUnlock=true;
             Destroy(other.gameObject);
         }
+         
        
        
+    }
+    void OnTriggerStay(Collider other){
+        if(other.name == "PolaroidMESH" && tag=="Player"){
+             Debug.Log("ESTOYDENTRO");
+             if(Input.GetMouseButtonDown(0)){
+            polaroidPlayer.SetActive(true);
+            Destroy(other.gameObject);
+             }
+        }
+        if(other.name == "Libreta" && tag=="Player"){
+             Debug.Log("ESTOYDENTRO");
+             if(Input.GetMouseButtonDown(0)){
+            
+            Destroy(other.gameObject);
+             }
+        }
     }
      public IEnumerator NoFuncionas(float time)
     {
