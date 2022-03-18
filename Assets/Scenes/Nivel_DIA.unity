@@ -3054,6 +3054,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.008168797, y: 0.0065417807, z: 0.008207311}
   m_Center: {x: -0.0033052135, y: -0.0032078258, z: 0.0006654257}
+--- !u!54 &105046980
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105046978}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &105046981
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105046978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021815135, y: 0.00031258183, z: 0.002784544}
+  m_Center: {x: -0.002906877, y: 2.5355321e-12, z: 0.000698978}
 --- !u!1001 &105243651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5741,7 +5770,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 2028354932}
-  instanceID: 23024
+  instanceID: 466050
 --- !u!4 &183040079
 Transform:
   m_ObjectHideFlags: 0
@@ -9718,7 +9747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37d056e2460b33f4bbeca2ba6cf6b8bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52.18
+      value: 52.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37d056e2460b33f4bbeca2ba6cf6b8bf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9759,6 +9788,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 37d056e2460b33f4bbeca2ba6cf6b8bf, type: 3}
       propertyPath: m_Name
       value: Libreta
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37d056e2460b33f4bbeca2ba6cf6b8bf, type: 3}
+      propertyPath: m_TagString
+      value: Pickable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d056e2460b33f4bbeca2ba6cf6b8bf, type: 3}
@@ -44494,8 +44527,37 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0125074955, y: 0.0143265035, z: 0.008547552}
+  m_Size: {x: 0.02, y: 0.03, z: 0.03}
   m_Center: {x: 0.00039141765, y: -0.000006023711, z: 0.0021831067}
+--- !u!54 &1137006227
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137006222}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1137006228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137006222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0018413047, y: 0.0021522888, z: 0.0014144988}
+  m_Center: {x: 0.000017402983, y: 0.00059671764, z: -0.00034346033}
 --- !u!4 &1141498491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c1a9869995dcbe478f40b727726a2fb, type: 3}
@@ -45775,6 +45837,10 @@ PrefabInstance:
       propertyPath: UiPickUp
       value: 
       objectReference: {fileID: 1698942125}
+    - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: polaroidPlayer
+      value: 
+      objectReference: {fileID: 1850253980}
     - target: {fileID: 5464377148011041372, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -55.465115
@@ -67872,7 +67938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.087
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -67909,6 +67975,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
       propertyPath: m_Name
       value: PolaroidMESH
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
+      propertyPath: m_TagString
+      value: Pickable
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
@@ -75619,7 +75693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}

@@ -38,6 +38,9 @@ public class NivelDIA_Manager : MonoBehaviour
        
        
     }
+
+
+    /*
     void OnTriggerStay(Collider other){
         if(other.name == "PolaroidMESH" && tag=="Player"){
              Debug.Log("ESTOYDENTRO");
@@ -54,6 +57,12 @@ public class NivelDIA_Manager : MonoBehaviour
              }
         }
     }
+
+
+    */
+
+
+
      public IEnumerator NoFuncionas(float time)
     {
         if (personaje)
@@ -63,6 +72,6 @@ public class NivelDIA_Manager : MonoBehaviour
             personaje.disable = false;
         }
     }
-    // Update is called once per frame
+    
     
 }

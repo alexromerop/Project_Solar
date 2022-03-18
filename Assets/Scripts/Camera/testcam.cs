@@ -52,6 +52,7 @@ public class testcam : MonoBehaviour
     public LayerMask collisionLayer;
 
     private bool CamMode = false;
+    public bool canCam;
 
 
     [Header("Photo Fader Effect")]
@@ -71,7 +72,7 @@ public class testcam : MonoBehaviour
         Camera();
 
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && canCam == true)
         {
             StartCoroutine( ChangeCamera());
         }

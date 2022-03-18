@@ -279,59 +279,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
         }
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical). normalized;
-        Vector3 direction2 = new Vector3(0F, 0f, vertical).normalized;
 
+            Movment();
 
-            if (direction.magnitude >= 0.1f)
-            {
-                if ((Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null)&& this.GetComponent<ObstalePush_>().oncollider_ == false)
-                {
-                    
-
-                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
-                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref GiroSmoothVelocity, GiroSmoothTime);
-                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                    controller.Move(moveDir.normalized * speed * Time.deltaTime);
-                    isMoving = true;
-                }
-                 if (this.GetComponent<ObstalePush_>().oncollider_)
-                {
-                    GameObject box = this.GetComponent<ObstalePush_>().box;
-              
-                    if (vertical > 0f)
-                    {
-                        speed_ = speed*0.2f;
-                        box.transform.SetParent(null);
-                        GetComponent<CharacterController>().radius = 0.4f;
-
-                    }
-                    else if (vertical < 0f)
-                    {
-                        speed_ = -speed*0.2f;
-                        
-                        // speed_ = -speed * 0.5f;
-                        GetComponent<CharacterController>().radius = 0.03f;
-
-                        box.transform.SetParent(transform);
-                    }
-                   
-                    //Debug.Log(speed_);
-                    controller.Move(transform.forward.normalized * (speed_) * Time.deltaTime);
-                    isMoving = true;
-
-
-                   
-                }
-
-            }
-            else
-            {
-                isMoving = false;
-            }
 
             //  SALTO
             if (isOnSlope==false){
@@ -394,5 +344,63 @@ public class ThirdPersonMovement : MonoBehaviour
     }
 
 
+
+
+    private void Movment()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 direction2 = new Vector3(0F, 0f, vertical).normalized;
+
+
+        if (direction.magnitude >= 0.1f)
+        {
+            if ((Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null) && this.GetComponent<ObstalePush_>().oncollider_ == false)
+            {
+
+
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref GiroSmoothVelocity, GiroSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+                isMoving = true;
+            }
+            if (this.GetComponent<ObstalePush_>().oncollider_)
+            {
+                GameObject box = this.GetComponent<ObstalePush_>().box;
+
+                if (vertical > 0f)
+                {
+                    speed_ = speed * 0.2f;
+                    box.transform.SetParent(null);
+                    GetComponent<CharacterController>().radius = 0.4f;
+
+                }
+                else if (vertical < 0f)
+                {
+                    speed_ = -speed * 0.2f;
+
+                    // speed_ = -speed * 0.5f;
+                    GetComponent<CharacterController>().radius = 0.03f;
+
+                    box.transform.SetParent(transform);
+                }
+
+                //Debug.Log(speed_);
+                controller.Move(transform.forward.normalized * (speed_) * Time.deltaTime);
+                isMoving = true;
+
+
+
+            }
+
+        }
+        else
+        {
+            isMoving = false;
+        }
+    }
 
 }

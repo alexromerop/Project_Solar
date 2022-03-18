@@ -8,6 +8,9 @@ public bool pickedBoxAnim;
 public ThirdPersonMovement player;
 public GameObject handpoint;
 public GameObject BoxPoint;
+public GameObject polaroidPlayer;
+    public GameObject cam;
+
 
 
     public bool picked;
@@ -16,6 +19,15 @@ public GameObject pickedObject = null;
 public GameObject pickedBox = null;
 public GameObject UiPickUp;
 
+    public bool take1;
+    public bool take2;
+
+
+
+    private void Start()
+    {
+        cam = GameObject.Find("Camera");
+    }
     void Update()
     {
         
@@ -51,56 +63,83 @@ private void OnTriggerStay(Collider other)
 {
     if(other.gameObject.CompareTag("Pickable"))
     {
-            if(pickedObject == null && !picked){
-            UiPickUp.SetActive(true);
-        
+
+            if (pickedObject == null && !picked){
+        UiPickUp.SetActive(true);
+
+      
+
         if (Input.GetMouseButton(0)){
+                    if (other.name == "PolaroidMESH")
+                    {
+                        polaroidPlayer.SetActive(true);
+                        Destroy(other.gameObject);
+                        UiPickUp.SetActive(false);
+                        take1 = true;
+                        if (take2)
+                        {
+                            cam.GetComponent<testcam>().canCam = true;
+                        }
+                    }
+                    else if (other.name == "Libreta")
+                    {
+                        Destroy(other.gameObject);
+                        UiPickUp.SetActive(false);
+                        take2 = true;
+                        if (take1)
+                        {
+                            cam.GetComponent<testcam>().canCam = true;
+                        }
+                    }
+                    else
+                    {
+                        UiPickUp.SetActive(false);
+                        picked = true;
 
-            UiPickUp.SetActive(false);
-            picked = true;
+                        other.GetComponent<BoxCollider>().enabled = false;
 
-            other.GetComponent<BoxCollider>().enabled = false;
+                        other.GetComponent<Rigidbody>().useGravity = false;
 
-            other.GetComponent<Rigidbody>().useGravity = false;
+                        other.GetComponent<Rigidbody>().isKinematic = true;
 
-            other.GetComponent<Rigidbody>().isKinematic = true;
+                        other.transform.position = handpoint.transform.position;
 
-            other.transform.position = handpoint.transform.position;
+                        other.gameObject.transform.SetParent(handpoint.gameObject.transform);
 
-            other.gameObject.transform.SetParent(handpoint.gameObject.transform);
+                        pickedObject = other.gameObject;
 
-            pickedObject=other.gameObject;
+                        other.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-            other.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-
+                    }
         }
     }
     }
 
-   /* if (other.gameObject.CompareTag("Box")){
-        if (Input.GetMouseButton(0) && pickedBox == null && !picked  ){
+  
+    
+            /* if (other.gameObject.CompareTag("Box")){
+                 if (Input.GetMouseButton(0) && pickedBox == null && !picked  ){
 
-                player.SetCamCoxPos();
-                picked = true;
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent<Rigidbody>().isKinematic = true;
+                         player.SetCamCoxPos();
+                         picked = true;
+                         other.GetComponent<Rigidbody>().useGravity = false;
+                         other.GetComponent<Rigidbody>().isKinematic = true;
 
-                other.transform.position = BoxPoint.transform.position;
+                         other.transform.position = BoxPoint.transform.position;
 
-                other.gameObject.transform.SetParent(BoxPoint.gameObject.transform);
+                         other.gameObject.transform.SetParent(BoxPoint.gameObject.transform);
 
-                pickedBox = other.gameObject;
+                         pickedBox = other.gameObject;
 
-                other.transform.rotation = new Quaternion(0, 0, 0, 0);
+                         other.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-                pickedBoxAnim=true;
+                         pickedBoxAnim=true;
 
-            }
-               
-    }
-   */
-    }
+                     }
+
+             }
+            */
+}
 
      private void OnTriggerExit(Collider other){
         if(other.gameObject.CompareTag("Pickable") && pickedObject==null && !picked){
