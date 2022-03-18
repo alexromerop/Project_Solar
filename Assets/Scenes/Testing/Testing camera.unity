@@ -203,25 +203,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5464377149349759465, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
   m_PrefabInstance: {fileID: 3103727257218701061}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &292875832
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292875823}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07dc5a0bfda5f6a419ba92e348bdfd17, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &337930124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,17 +264,6 @@ PrefabInstance:
       objectReference: {fileID: 1986023606}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
---- !u!114 &343850279 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5282008760281612988, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
-  m_PrefabInstance: {fileID: 337930124}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef8920dcf7f6314cbdfb95743584546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &352147995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -549,7 +519,7 @@ GameObject:
   - component: {fileID: 572737975}
   m_Layer: 0
   m_Name: Reciver
-  m_TagString: Box
+  m_TagString: Reciver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,7 +895,7 @@ GameObject:
   - component: {fileID: 945326477}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Box
+  m_TagString: Reciver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1886,7 +1856,7 @@ GameObject:
   - component: {fileID: 1674200899}
   m_Layer: 0
   m_Name: Box (3)
-  m_TagString: Box
+  m_TagString: Reciver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2571,34 +2541,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1522260565, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: m_Intensity
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5464377147905107286, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: m_Radius
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: boxScript
       value: 
       objectReference: {fileID: 1118753452}
-    - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: boxScript.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: boxScript.Array.data[0]
-      value: 
-      objectReference: {fileID: 1118753452}
-    - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: boxScript.Array.data[1]
-      value: 
-      objectReference: {fileID: 343850279}
-    - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: boxScript.Array.data[2]
-      value: 
-      objectReference: {fileID: 1957171666}
     - target: {fileID: 5464377148049495035, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2684,10 +2630,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: ZoomIn
-      value: 
-      objectReference: {fileID: 292875832}
-    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: CameraUi
       value: 
       objectReference: {fileID: 1478902316}
@@ -2695,10 +2637,6 @@ PrefabInstance:
       propertyPath: CameraManager
       value: 
       objectReference: {fileID: 964588167}
-    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-      propertyPath: _distanceFromTarget
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5464377149550446094, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2735,6 +2673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPref
       objectReference: {fileID: 0}
+    - target: {fileID: 5464377149891214913, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: boxScript
+      value: 
+      objectReference: {fileID: 1957171666}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
 --- !u!1001 &5282008759150075840

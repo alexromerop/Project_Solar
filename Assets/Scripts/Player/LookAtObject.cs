@@ -21,7 +21,7 @@ public class LookAtObject : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Box")){
+        if (other.gameObject.CompareTag("Reciver")){
             distance1 = Vector3.Distance(this.transform.position, other.transform.position);
             if (ObjectNear != null) {
                 distance2 = Vector3.Distance(this.transform.position,ObjectNear.transform.position);
@@ -44,7 +44,7 @@ public class LookAtObject : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Box"))
+        if (other.gameObject.CompareTag("Reciver"))
         {
             ObjectNear = null;
             this.gameObject.transform.localRotation = rotation;

@@ -73,7 +73,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.98163456, g: 1, b: 0.8820755, a: 1}
-  m_Intensity: 20
+  m_Intensity: 40
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1305,7 +1305,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.4
+  m_Radius: 0.03
   m_SlopeLimit: 50
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -19843,7 +19843,7 @@ MonoBehaviour:
   glidingUnlock: 0
   doubleJumpUnlock: 0
   picoUnlock: 0
-  personaje: {fileID: 0}
+  personaje: {fileID: 5464377147905107280}
 --- !u!1 &5464377148641825972
 GameObject:
   m_ObjectHideFlags: 0
@@ -38942,6 +38942,7 @@ GameObject:
   - component: {fileID: 5464377149349759469}
   - component: {fileID: 5464377149349759470}
   - component: {fileID: 5464377149349759471}
+  - component: {fileID: 292875832}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -39074,7 +39075,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 8
-  ZoomIn: {fileID: 0}
+  ZoomIn: {fileID: 292875832}
 --- !u!114 &5464377149349759469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39205,6 +39206,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &292875832
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377149349759465}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07dc5a0bfda5f6a419ba92e348bdfd17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5464377149356078771
 GameObject:
   m_ObjectHideFlags: 0
@@ -52326,7 +52346,7 @@ MonoBehaviour:
   Movimiento: {fileID: 5464377147905107280}
   Mochila: {fileID: 5464377148640895640}
   cogerObjeto: {fileID: 5464377148006232310}
-  dustIzq: {fileID: 0}
+  dustIzq: {fileID: 5464377148308210906}
   boxScript: {fileID: 0}
 --- !u!1 &5464377149893031097
 GameObject:
