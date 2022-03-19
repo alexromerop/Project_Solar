@@ -84,7 +84,7 @@ public class testcam : MonoBehaviour
         {
             StartCoroutine( ChangeCamera());
         }
-        
+        RaycastHit hit;
 
 
         
@@ -120,21 +120,7 @@ public class testcam : MonoBehaviour
 
         Ray forwardRay = new Ray(_target.position, direction);
 
-        //Debug.Log(hit.transform.gameObject);
-
-        /*
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, cameraCollisionRadius);
-        foreach (var hitCollider in hitColliders)
-        {
-             Debug.Log(hitCollider.transform.gameObject);
-
-        }
-
-        if (Physics.)
-        {
-
-        }
-        */
+        
 
 
 
@@ -143,7 +129,7 @@ public class testcam : MonoBehaviour
             hitObjet = hit.transform.gameObject;
             _distanceFromTarget = hit.distance;
             Debug.Log(hit.transform.gameObject);
-        }else
+        }
 
 
 
@@ -153,7 +139,7 @@ public class testcam : MonoBehaviour
         if (Physics.Raycast(_target.position, direction, out hit, _distanceFromTarget, collisionLayer))
         {
             float dis = hit.distance;
-            float num = 0.15f;
+            float num = 0.25f;
             if (dis < 1)
             {
                 num = 0;
