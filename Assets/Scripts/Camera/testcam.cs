@@ -67,10 +67,14 @@ public class testcam : MonoBehaviour
     public GameObject hitObjet;
 
     public Vector3 targetPosition;
+
+
+    RaycastHit hit;
+
     private void Awake()
     {
         player_ = RendPlayer;
-        //distanceFromTarget_ = _distanceFromTarget;
+        distanceFromTarget_ = _distanceFromTarget;
         smoothTime_ = _smoothTime;
     }
 
@@ -80,11 +84,11 @@ public class testcam : MonoBehaviour
         Camera();
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && canCam == true)
+        if (Input.GetKeyDown(KeyCode.E) && canCam == true)
         {
             StartCoroutine( ChangeCamera());
         }
-        RaycastHit hit;
+        
 
 
         
@@ -105,7 +109,7 @@ public class testcam : MonoBehaviour
         Vector3 nextRotation = new Vector3(_rotationX, _rotationY);
 
         // Apply damping between rotation changes
-        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
+        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, 0.1f);
         transform.localEulerAngles = _currentRotation;
 
 
@@ -114,8 +118,7 @@ public class testcam : MonoBehaviour
         Vector3 direction = heading / distance;
         direction.Normalize();
         dir = direction;
-        //Debug.DrawRay(_target.position, direction, Color.red, 0.5f);
-        RaycastHit hit;
+       
 
 
         Ray forwardRay = new Ray(_target.position, direction);
@@ -124,51 +127,15 @@ public class testcam : MonoBehaviour
 
 
 
-        if (Physics.SphereCast(player.transform.position, 0.25f, direction, out hit, _distanceFromTarget, collisionLayer))
+        if (Physics.SphereCast(new Vector3( player.transform.position.x, player.transform.position.y+2,player.transform.position.z), 0.39f, direction, out hit, 6, collisionLayer, QueryTriggerInteraction.UseGlobal))
         {
-            hitObjet = hit.transform.gameObject;
+           
             _distanceFromTarget = hit.distance;
-            Debug.Log(hit.transform.gameObject);
+
         }
 
-
-
-
-
-
-        if (Physics.Raycast(_target.position, direction, out hit, _distanceFromTarget, collisionLayer))
-        {
-            float dis = hit.distance;
-            float num = 0.25f;
-            if (dis < 1)
-            {
-                num = 0;
-                //Change color if distrance camenra whit wall is small
-
-                for (int i = 0; i < RendPlayer.Length; i++)
-                {
-                    //player[i].material.color = Color.clear;
-                }
-            }
-            else
-            {
-
-                for (int i = 0; i < RendPlayer.Length; i++)
-                {
-                    //player[i].material.color = player_[i].material.color;
-                }
-            }
-
-            transform.position = _target.position - transform.forward * (dis - num);
-            
-        }
-
-        else
-        {
-
-            transform.position = _target.position - transform.forward * _distanceFromTarget;
-        }
-
+            transform.position = _target.position - transform.forward * (_distanceFromTarget-0.01f);
+      
         
     }
     #region Polaroid

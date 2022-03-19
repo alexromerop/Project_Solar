@@ -185,12 +185,19 @@ public class ThirdPersonMovement : MonoBehaviour
         if (isGrounded)
 
         {
+            GetComponent<CharacterController>().radius = 0.4f;
+
             gravity = -36f;
             planeoParticle.SetActive(false);
         }
+        else
+        {
+            GetComponent<CharacterController>().radius = 0.03f;
+
+        }
         if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope)
         {
-           
+            GetComponent<CharacterController>().radius = 0.03f;
             velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
             
             
