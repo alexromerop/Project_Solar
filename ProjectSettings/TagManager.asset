@@ -33,6 +33,9 @@ TagManager:
   - Box
   - TakeRob
   - Reciver
+  - Sand
+  - Grass
+  - Concrete
   layers:
   - Default
   - TransparentFX

@@ -1292,6 +1292,7 @@ MonoBehaviour:
   glidingUnlock: 1
   doubleJumpUnlock: 1
   picoUnlock: 0
+  polaroidPlayer: {fileID: 0}
   personaje: {fileID: 5464377147905107280}
 --- !u!143 &5464377147905107286
 CharacterController:
@@ -4503,9 +4504,14 @@ MonoBehaviour:
   player: {fileID: 5464377147905107280}
   handpoint: {fileID: 5464377148877844992}
   BoxPoint: {fileID: 1185673860}
+  polaroidPlayer: {fileID: 0}
+  cam: {fileID: 0}
   picked: 0
   pickedObject: {fileID: 0}
   pickedBox: {fileID: 0}
+  UiPickUp: {fileID: 0}
+  take1: 0
+  take2: 0
 --- !u!1 &5464377148006262829
 GameObject:
   m_ObjectHideFlags: 0
@@ -4854,6 +4860,8 @@ GameObject:
   - component: {fileID: 5464377148022585864}
   - component: {fileID: 5464377148022585870}
   - component: {fileID: 5464377148022585871}
+  - component: {fileID: 1921820876317967097}
+  - component: {fileID: 7554286551593425607}
   m_Layer: 0
   m_Name: Hoop_GameReady
   m_TagString: Untagged
@@ -4920,6 +4928,132 @@ MonoBehaviour:
   cogerObjeto: {fileID: 5464377148006232310}
   dustIzq: {fileID: 5464377148308210906}
   boxScript: {fileID: 0}
+--- !u!82 &1921820876317967097
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377148022585865}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7505825872981888, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
+  m_audioClip: {fileID: 8300000, guid: ad91225cf7af9ef4c9d3f3f0abc2099b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7554286551593425607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377148022585865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d197d3d76bb041f46866a9b5eaba3578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footStepGrassClip:
+  - {fileID: 8300000, guid: ad91225cf7af9ef4c9d3f3f0abc2099b, type: 3}
+  footStepConcreteClip:
+  - {fileID: 8300000, guid: 337b4a75fe6110d4c9526f277d031e27, type: 3}
+  footStepSandClip:
+  - {fileID: 8300000, guid: 0850e7df612335c4d96603dd3dda5ce9, type: 3}
+  footStepWaterClip:
+  - {fileID: 8300000, guid: 5582809df9329874da03fa4e1b1f0ed0, type: 3}
+  footStepWoodClip:
+  - {fileID: 8300000, guid: 7150ed7eef7f40040b6300762a339841, type: 3}
+  footStepMetalicClip:
+  - {fileID: 8300000, guid: 6bc06618e24b6034495a9577b0afa821, type: 3}
+  footStepGroundClip:
+  - {fileID: 8300000, guid: b5a12c395870bc943b52374cd5b5b2ef, type: 3}
+  jumpClip: []
+  pushClip: []
+  painClip: []
+  floorMaterial: 
 --- !u!1 &5464377148024680667
 GameObject:
   m_ObjectHideFlags: 0
@@ -19843,6 +19977,7 @@ MonoBehaviour:
   glidingUnlock: 0
   doubleJumpUnlock: 0
   picoUnlock: 0
+  polaroidPlayer: {fileID: 0}
   personaje: {fileID: 5464377147905107280}
 --- !u!1 &5464377148641825972
 GameObject:
@@ -39075,6 +39210,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 8
+  canCam: 0
   ZoomIn: {fileID: 292875832}
 --- !u!114 &5464377149349759469
 MonoBehaviour:
