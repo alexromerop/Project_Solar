@@ -30,7 +30,10 @@ public GameObject UiPickUp;
     }
     void Update()
     {
-        
+        if (take2 && take1)
+        {
+            cam.GetComponent<testcam>().canCam = true;
+        }
         if (pickedObject!=null || pickedBox!=null){
             if(Input.GetMouseButtonDown(1))
             {

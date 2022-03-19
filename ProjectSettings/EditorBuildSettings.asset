@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Nivel_NOCHE.unity
     guid: 0f74df1e1097c81468d2f9d6ceab560f
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 32e043a9045a9f74aba03f7591527b8f, type: 2}
