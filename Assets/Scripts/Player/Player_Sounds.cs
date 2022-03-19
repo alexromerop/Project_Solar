@@ -25,12 +25,13 @@ public class Player_Sounds : MonoBehaviour
     public AudioClip[] jumpClip;
     public AudioClip[] pushClip;
     public AudioClip[] painClip;
+    public AudioClip[] punchClip;
 
     public string floorMaterial;
 
     
     
-
+    //Correr y caminar
     public void PlayFootStepSound()
     {
 
@@ -74,6 +75,7 @@ public class Player_Sounds : MonoBehaviour
 
     }
 
+    //Salto y salto doble
     public void PlayJumpSound() 
     {
         AudioSource audioSource = GetComponent<AudioSource>();
@@ -83,6 +85,7 @@ public class Player_Sounds : MonoBehaviour
 
     }
 
+    //Empujar y estirar
     public void PlayPushSound() 
     {
         AudioSource audioSource = GetComponent<AudioSource>();
@@ -92,6 +95,7 @@ public class Player_Sounds : MonoBehaviour
 
     }
 
+    //Sufrir daño por los enemigos o algo contaminado
     public void PlayPainSound() 
     {
         AudioSource audioSource = GetComponent<AudioSource>();
@@ -99,6 +103,15 @@ public class Player_Sounds : MonoBehaviour
         audioSource.pitch = audioSource.pitch;
         audioSource.PlayOneShot(painClip[painClip.Length - 1]);
 
+    }
+
+    //Golpear con el PICO
+    public void PlayPunchSound() 
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.volume = audioSource.volume;
+        audioSource.pitch = audioSource.pitch;
+        audioSource.PlayOneShot(punchClip[punchClip.Length - 1]);
     }
     
     public void OnCollisionEnter(Collision collision)
