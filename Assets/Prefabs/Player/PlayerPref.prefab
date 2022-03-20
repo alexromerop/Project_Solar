@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 5464377147905107286}
   - component: {fileID: 5464377147905107280}
   - component: {fileID: 379771708}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1306,7 +1306,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.03
+  m_Radius: 0.4
   m_SlopeLimit: 50
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -3433,7 +3433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464377147980574074}
   - component: {fileID: 5464377147980574073}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hoop_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3992,7 +3992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377147992630043}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RayCastEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4453,7 +4453,7 @@ GameObject:
   - component: {fileID: 5464377148006232308}
   - component: {fileID: 5464377148006232309}
   - component: {fileID: 5464377148006232310}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: PickUpHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 5464377148022585871}
   - component: {fileID: 1921820876317967097}
   - component: {fileID: 7554286551593425607}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hoop_GameReady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5053,6 +5053,7 @@ MonoBehaviour:
   jumpClip: []
   pushClip: []
   painClip: []
+  punchClip: []
   floorMaterial: 
 --- !u!1 &5464377148024680667
 GameObject:
@@ -7335,7 +7336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464377148106164622}
   - component: {fileID: 5464377148106164621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LookAtCamera
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9847,7 +9848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464377148217148261}
   - component: {fileID: 5464377148217148260}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperTeeth_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14823,7 +14824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377148425469663}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27996,7 +27997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464377148934175922}
   - component: {fileID: 5464377148934175921}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_Eye_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29666,7 +29667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377148990943241}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CTRL_Rig_Hoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30260,7 +30261,7 @@ GameObject:
   - component: {fileID: 5464377149015760204}
   - component: {fileID: 5464377149015760205}
   - component: {fileID: 5464377149015760206}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: LightReciever
   m_TagString: LightReciever
   m_Icon: {fileID: 0}
@@ -37245,7 +37246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464377149288793320}
   - component: {fileID: 5464377149288793327}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_Eye_GEO.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37662,7 +37663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464377149297905440}
   - component: {fileID: 5464377149297905447}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerTeethTongue_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39204,7 +39205,7 @@ MonoBehaviour:
   lookme: {fileID: 5464377148425469663}
   _distanceFromTarget: 6
   _smoothTime: 0.2
-  _rotationXMinMax: {x: -20, y: 40}
+  _rotationXMinMax: {x: -15, y: 40}
   cameraTransform: {fileID: 5464377149349759464}
   cameraCollisionRadius: 2
   collisionLayer:
@@ -39212,6 +39213,10 @@ MonoBehaviour:
     m_Bits: 8
   canCam: 0
   ZoomIn: {fileID: 292875832}
+  dir: {x: 0, y: 0, z: 0}
+  hitDistance: 0
+  hitObjet: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &5464377149349759469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44442,7 +44447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377149553817644}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47625,7 +47630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377148993936058}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49796,7 +49801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377149783719746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RayCastBegin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52264,7 +52269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464377149888362844}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GAME_Rig_Hoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

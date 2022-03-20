@@ -5,7 +5,8 @@ using UnityEngine;
 public class testcam : MonoBehaviour
 {
     private Vector3 pos;
-
+    private bool oncam;
+    private bool oncam_;
 
     public Renderer[] RendPlayer;
     private Renderer[] player_;
@@ -84,11 +85,16 @@ public class testcam : MonoBehaviour
         Camera();
 
 
-        if (Input.GetKeyDown(KeyCode.E) && canCam == true)
+        if (Input.GetKeyDown(KeyCode.E) && canCam == true )
         {
             StartCoroutine( ChangeCamera());
         }
-        
+
+        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true)
+        {
+            StartCoroutine(ChangeCamera());
+            
+        }
 
 
         
@@ -123,17 +129,19 @@ public class testcam : MonoBehaviour
 
         Ray forwardRay = new Ray(_target.position, direction);
 
-        
 
 
 
-        if (Physics.SphereCast(new Vector3( player.transform.position.x, player.transform.position.y+2,player.transform.position.z), 0.39f, direction, out hit, 6, collisionLayer, QueryTriggerInteraction.UseGlobal))
+        if (oncam == false)
         {
-           
-            _distanceFromTarget = hit.distance;
 
+            if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), 0.39f, direction, out hit, 6, collisionLayer, QueryTriggerInteraction.UseGlobal))
+            {
+
+                _distanceFromTarget = hit.distance;
+
+            }
         }
-
             transform.position = _target.position - transform.forward * (_distanceFromTarget-0.01f);
       
         
@@ -145,6 +153,7 @@ public class testcam : MonoBehaviour
         {
             if (!CamMode)
             {
+                oncam = true;
                 ZoomIn.Play("zoomin");
                 yield return new WaitForSeconds(1);
                 Debug.Log("Cambiar camera");
@@ -153,11 +162,14 @@ public class testcam : MonoBehaviour
                 CamMode = true;
                 CameraManager.SetActive(true);
                 CameraUi.SetActive(true);
+                
+                
+
             }
             else
             {
                 ZoomIn.Play("zoomout");
-
+                oncam = false;
 
                 Debug.Log("Volver camera");
                 _distanceFromTarget = distanceFromTarget_;
@@ -166,6 +178,8 @@ public class testcam : MonoBehaviour
                 CamMode = false;
                 CameraManager.SetActive(false);
                 CameraUi.SetActive(false);
+                
+                
 
             }
         }

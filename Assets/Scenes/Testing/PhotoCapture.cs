@@ -31,6 +31,10 @@ public class PhotoCapture : MonoBehaviour
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
+    
+
+
+
 
     private void Start()
     {
@@ -39,23 +43,21 @@ public class PhotoCapture : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             if (!viewingPhoto)
             {
                 StartCoroutine(CapturePhoto());
-
+               
             }
-            else
-            {
-                RemovePhoto();
-            }
+            
         }
     }
 
 
     IEnumerator CapturePhoto()
     {
+        cam.GetComponent<testcam>().canCam=false;
         CameraUI.SetActive(false);
         viewingPhoto = true;
 
@@ -121,45 +123,11 @@ public class PhotoCapture : MonoBehaviour
         viewingPhoto = false;
         photoFrame.SetActive(false);
         CameraUI.SetActive(true);
-    }
-
-
-    private void SaveTexture(Texture2D texture)
-    {
-        iterator++;
-        byte[] bytes =texture.EncodeToPNG();
-        var dirPath = Application.dataPath + "/RenderOutput";
-        if (!System.IO.Directory.Exists(dirPath))
-        {
-            System.IO.Directory.CreateDirectory(dirPath);
-        }
-        System.IO.File.WriteAllBytes(dirPath + "/R_" + iterator + ".png", bytes);
-        Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + dirPath);
-#if UNITY_EDITOR
-        UnityEditor.AssetDatabase.Refresh();
-#endif
-    }
-
-    IEnumerator SaveImg(Texture2D texture)
-    {
-        yield return null;
-
-        
-        byte[] bytes = texture.EncodeToPNG();
-        var dirPath = Application.dataPath + "/RenderOutput";
-        if (!System.IO.Directory.Exists(dirPath))
-        {
-            System.IO.Directory.CreateDirectory(dirPath);
-        }
-        System.IO.File.WriteAllBytes(dirPath + "/R_" + iterator + ".png", bytes);
-        Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + dirPath);
-#if UNITY_EDITOR
-
-        //hacer esto al abrir el libro !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //UnityEditor.AssetDatabase.Refresh();
-#endif
+        cam.GetComponent<testcam>().canCam = true;
 
     }
+
+
 
 
     IEnumerator capture()
