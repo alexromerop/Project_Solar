@@ -99,7 +99,14 @@ private void OnTriggerStay(Collider other)
                         UiPickUp.SetActive(false);
                         picked = true;
 
-                        other.GetComponent<BoxCollider>().enabled = false;
+                        if (other.GetComponent<BoxCollider>())
+                        {
+                            other.GetComponent<BoxCollider>().enabled = false;
+                        }
+                        if (other.GetComponent<CapsuleCollider>())
+                        {
+                            other.GetComponent<CapsuleCollider>().enabled = false;
+                        }
 
                         other.GetComponent<Rigidbody>().useGravity = false;
 
@@ -158,7 +165,15 @@ IEnumerator TimerF(GameObject A)
     {
 
        yield return new WaitForSeconds(2f);
-       A.GetComponent<BoxCollider>().enabled = true;
+        if (A.GetComponent<BoxCollider>())
+        {
+            A.GetComponent<BoxCollider>().enabled = true;
+        }
+        if (A.GetComponent<CapsuleCollider>())
+        {
+            A.GetComponent<CapsuleCollider>().enabled = true;
+        }
+        
 
     }
 

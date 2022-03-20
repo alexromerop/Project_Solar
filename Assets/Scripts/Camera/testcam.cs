@@ -42,7 +42,7 @@ public class testcam : MonoBehaviour
     private Vector3 _smoothVelocity = Vector3.zero;
 
     [SerializeField]
-    private float _smoothTime = 0.2f;
+    private float _smoothTime = 0.1f;
     private float smoothTime = 0.0f;
     private float smoothTime_;
 
@@ -115,7 +115,7 @@ public class testcam : MonoBehaviour
         Vector3 nextRotation = new Vector3(_rotationX, _rotationY);
 
         // Apply damping between rotation changes
-        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, 0.1f);
+        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
         transform.localEulerAngles = _currentRotation;
 
 
@@ -126,8 +126,6 @@ public class testcam : MonoBehaviour
         dir = direction;
        
 
-
-        Ray forwardRay = new Ray(_target.position, direction);
 
 
 

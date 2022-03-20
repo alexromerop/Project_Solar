@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4114551233110846083}
   - component: {fileID: 2232982505829916233}
   - component: {fileID: 665600787288814779}
-  - component: {fileID: 665600787288814772}
   - component: {fileID: 665600787288814768}
+  - component: {fileID: 5480707157743032322}
   m_Layer: 3
   m_Name: LIGHTRECIEVER
   m_TagString: Lever
@@ -99,19 +99,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6416302070336371891, guid: 29a4bb2abe98a214ba7108a437715c61, type: 3}
---- !u!65 &665600787288814772
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431740498613960604}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01769873, y: 0.020014571, z: 0.016922688}
-  m_Center: {x: 0.001414029, y: 0.0018789904, z: 0.0027890168}
 --- !u!114 &665600787288814768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +117,19 @@ MonoBehaviour:
   power: 0
   hanSalido: 0
   tiempoElectrificado: 0
+--- !u!135 &5480707157743032322
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431740498613960604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0042454256
+  m_Center: {x: 0.00081095815, y: 0.0040621143, z: 0.0005544311}
 --- !u!1001 &665600788096958251
 PrefabInstance:
   m_ObjectHideFlags: 0
