@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public DialogueTrigger dialogueTrigger;
     private Queue<string> sentences;
+    public testcam cam;
     // Start is called before the first frame update
 
      IEnumerator TypeSentence (string sentence){
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
+        
         sentences = new Queue<string>();
         
     }
@@ -28,6 +30,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue){
         
+        cam.canCam = false;
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.name;
@@ -55,6 +58,8 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         animator.SetBool("IsOpen", false);
         dialogueTrigger.estoyEnDialogo=false;
+        cam.canCam = true;
+
     }
     void Update(){
        

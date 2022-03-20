@@ -85,7 +85,7 @@ public class testcam : MonoBehaviour
         Camera();
 
 
-        if (Input.GetKeyDown(KeyCode.E) && canCam == true )
+        if (Input.GetKeyDown(KeyCode.F) && canCam == true )
         {
             StartCoroutine( ChangeCamera());
         }
