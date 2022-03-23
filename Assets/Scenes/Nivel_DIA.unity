@@ -6145,7 +6145,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 2028354932}
-  instanceID: 23200
+  instanceID: 68746
 --- !u!4 &183040079
 Transform:
   m_ObjectHideFlags: 0
@@ -14832,6 +14832,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
+      propertyPath: m_TagString
+      value: Concrete
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
 --- !u!1 &412632517
@@ -16569,8 +16573,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.38283157, y: 0.09880137, z: 0.10625458}
+  m_Center: {x: -0.009140998, y: -0.009400684, z: 0.00067604333}
 --- !u!95 &461946074 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5464377148022585870, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
@@ -21878,6 +21882,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
+      propertyPath: m_TagString
+      value: Concrete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
@@ -67172,6 +67180,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0ed4c7db44cb72844874d6886244b0b1, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed4c7db44cb72844874d6886244b0b1, type: 3}
 --- !u!1001 &1356152725
@@ -67760,6 +67772,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
+      propertyPath: m_TagString
+      value: Concrete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
@@ -71047,6 +71063,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
+      propertyPath: m_TagString
+      value: Concrete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d1f14a1f26aa84795a36b9398ac6cd, type: 3}
