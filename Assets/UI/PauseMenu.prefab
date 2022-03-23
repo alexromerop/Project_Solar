@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   principal: {fileID: 1193431158940078564}
   settings: {fileID: 1193431158637640452}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
   resolutionDropdown: {fileID: 315527051082792252}
 --- !u!1 &1193431157797380427
 GameObject:

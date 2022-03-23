@@ -124,12 +124,12 @@ public class MainMenu : MonoBehaviour
     //Control de los Sliders
     public void VolumeMusic(float volume)
     {
-        //audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
     }
 
     public void VolumeSFX(float volume)
     {
-        //audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
     }
 
     //Control de ajustes de pantalla

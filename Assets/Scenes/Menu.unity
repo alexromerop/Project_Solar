@@ -977,6 +977,7 @@ MonoBehaviour:
   glidingUnlock: 0
   doubleJumpUnlock: 0
   picoUnlock: 0
+  polaroidPlayer: {fileID: 0}
   personaje: {fileID: 0}
 --- !u!1 &26032466
 GameObject:
@@ -1829,6 +1830,7 @@ MonoBehaviour:
   Mochila: {fileID: 24920429}
   cogerObjeto: {fileID: 535806325}
   dustIzq: {fileID: 0}
+  boxScript: {fileID: 0}
 --- !u!95 &45152739
 Animator:
   serializedVersion: 3
@@ -6179,7 +6181,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 2028354932}
-  instanceID: 83358
+  instanceID: 104580
 --- !u!4 &183040079
 Transform:
   m_ObjectHideFlags: 0
@@ -6475,6 +6477,7 @@ MonoBehaviour:
   Mochila: {fileID: 24920429}
   cogerObjeto: {fileID: 535806325}
   dustIzq: {fileID: 0}
+  boxScript: {fileID: 0}
 --- !u!95 &192556748
 Animator:
   serializedVersion: 3
@@ -15735,9 +15738,14 @@ MonoBehaviour:
   player: {fileID: 0}
   handpoint: {fileID: 879576320}
   BoxPoint: {fileID: 0}
+  polaroidPlayer: {fileID: 0}
+  cam: {fileID: 0}
   picked: 0
   pickedObject: {fileID: 0}
   pickedBox: {fileID: 0}
+  UiPickUp: {fileID: 0}
+  take1: 0
+  take2: 0
 --- !u!65 &535806326
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52493,6 +52501,7 @@ MonoBehaviour:
   glidingUnlock: 0
   doubleJumpUnlock: 0
   picoUnlock: 0
+  polaroidPlayer: {fileID: 0}
   personaje: {fileID: 0}
 --- !u!1 &1484430737
 GameObject:
@@ -53083,7 +53092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   principal: {fileID: 0}
   settings: {fileID: 1786229005}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
   resolutionDropdown: {fileID: 961904625}
 --- !u!1 &1509462719
 GameObject:

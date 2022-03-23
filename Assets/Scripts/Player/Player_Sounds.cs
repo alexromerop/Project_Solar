@@ -37,7 +37,7 @@ public class Player_Sounds : MonoBehaviour
 
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.volume = audioSource.volume;
-        audioSource.pitch = audioSource.pitch;
+        audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
 
         AudioClip[] footstepClip = footStepGroundClip;
 
@@ -80,7 +80,7 @@ public class Player_Sounds : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.volume = audioSource.volume;
-        audioSource.pitch = audioSource.pitch;
+        audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
         audioSource.PlayOneShot(jumpClip[jumpClip.Length - 1]);
 
     }
@@ -90,7 +90,7 @@ public class Player_Sounds : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.volume = audioSource.volume;
-        audioSource.pitch = audioSource.pitch;
+        audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
         audioSource.PlayOneShot(pushClip[pushClip.Length - 1]);
 
     }
@@ -100,7 +100,7 @@ public class Player_Sounds : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.volume = audioSource.volume;
-        audioSource.pitch = audioSource.pitch;
+        audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
         audioSource.PlayOneShot(painClip[painClip.Length - 1]);
 
     }
@@ -110,7 +110,7 @@ public class Player_Sounds : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.volume = audioSource.volume;
-        audioSource.pitch = audioSource.pitch;
+        audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
         audioSource.PlayOneShot(punchClip[punchClip.Length - 1]);
     }
     
