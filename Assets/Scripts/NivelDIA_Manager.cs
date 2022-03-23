@@ -13,6 +13,8 @@ public class NivelDIA_Manager : MonoBehaviour
     
     Scene current_Scene;
 
+
+
    
     public ThirdPersonMovement personaje;
     // Start is called before the first frame update
@@ -25,12 +27,16 @@ public class NivelDIA_Manager : MonoBehaviour
         if(other.name == "Disco_Unlock_Gliding" && tag=="Player"){
             glidingUnlock=true;
             Destroy(other.gameObject);
+            
+            personaje.movment=false;
         }    
          if(other.name == "Disco_Unlock_DoubleJump" && tag=="Player"){
              doubleJumpUnlock=true;
              Destroy(other.gameObject);
-         }
-        if(other.name == "Pico_Unlock" && tag=="Player"){
+            personaje.movment = false;
+
+        }
+        if (other.name == "Pico_Unlock" && tag=="Player"){
             picoUnlock=true;
             Destroy(other.gameObject);
         }
@@ -40,26 +46,7 @@ public class NivelDIA_Manager : MonoBehaviour
     }
 
 
-    /*
-    void OnTriggerStay(Collider other){
-        if(other.name == "PolaroidMESH" && tag=="Player"){
-             Debug.Log("ESTOYDENTRO");
-             if(Input.GetMouseButtonDown(0)){
-            polaroidPlayer.SetActive(true);
-            Destroy(other.gameObject);
-             }
-        }
-        if(other.name == "Libreta" && tag=="Player"){
-             Debug.Log("ESTOYDENTRO");
-             if(Input.GetMouseButtonDown(0)){
-            
-            Destroy(other.gameObject);
-             }
-        }
-    }
-
-
-    */
+  
 
 
 

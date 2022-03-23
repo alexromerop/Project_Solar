@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public DialogueTrigger dialogueTrigger;
     private Queue<string> sentences;
     public testcam cam;
+    private ThirdPersonMovement player;
     // Start is called before the first frame update
 
      IEnumerator TypeSentence (string sentence){
@@ -22,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
-        
+        player = GameObject.FindObjectOfType<ThirdPersonMovement>();
         sentences = new Queue<string>();
         
     }
@@ -59,6 +60,10 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         dialogueTrigger.estoyEnDialogo=false;
         cam.canCam = true;
+        if (player.movment==false)
+        {
+            player.movment = true;
+        }
 
     }
     void Update(){

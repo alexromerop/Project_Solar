@@ -79,6 +79,8 @@ public class ThirdPersonMovement : MonoBehaviour
     float desiredDuration = 5;
     float  elapsedTime;
 
+
+    public bool movment = true;
     IEnumerator SpawnSparkle(float time){
         sparkMochila.SetActive(true);
         yield return new WaitForSeconds (0.5f);
@@ -131,7 +133,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
-         elapsedTime+= Time.deltaTime;
+        movment = true;
+        elapsedTime += Time.deltaTime;
           Cursor.visible = false;
         speed_ = speed;
     }
@@ -286,8 +289,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
         }
 
+            
+                Movment();
 
-            Movment();
+           
 
 
             //  SALTO
@@ -357,9 +362,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        Vector3 direction2 = new Vector3(0F, 0f, vertical).normalized;
+        Vector3 direction = new Vector3(0, 0f, 0);
+        Vector3 direction2 = new Vector3(0F, 0f, 0f);
+        if (movment == true)
+        {
 
+            direction = new Vector3(horizontal, 0f, vertical).normalized;
+            direction2 = new Vector3(0F, 0f, vertical).normalized;
+        }
 
         if (direction.magnitude >= 0.1f)
         {
