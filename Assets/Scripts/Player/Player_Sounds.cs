@@ -116,7 +116,8 @@ public class Player_Sounds : MonoBehaviour
     
     public void OnCollisionEnter(Collision collision)
     {
-        switch (collision.gameObject.tag)
+        Debug.Log("suelo");
+        switch (collision.collider.tag)
         {
 
             case "Grass":
