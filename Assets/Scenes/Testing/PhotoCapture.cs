@@ -141,7 +141,7 @@ public class PhotoCapture : MonoBehaviour
         System.DateTime theTime = System.DateTime.Now;
         
         string a = theTime.ToString("yyyy-MM-dd\\THHmmss");
-        string b = theTime.ToString("dd-MM-yyyy");
+        string b = theTime.ToString("dd-MM-2147");
 
 
         
