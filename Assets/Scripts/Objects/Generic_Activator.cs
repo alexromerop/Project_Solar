@@ -8,6 +8,7 @@ public class Generic_Activator : MonoBehaviour
    public Animator anim2;
 
     public GameObject particulaRayo;
+    public GameObject Cable;
     public bool power;
 
     public bool hanSalido;
@@ -62,6 +63,8 @@ public class Generic_Activator : MonoBehaviour
        
        if (power){
             particulaRayo.SetActive(true);
+            Cable.GetComponent<Renderer>().material.color=Color.cyan;
+             Cable.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             if(anim!=null){
              anim.SetBool("Power", true);
             }
@@ -71,6 +74,8 @@ public class Generic_Activator : MonoBehaviour
         }
         else{
             particulaRayo.SetActive(false);
+            Cable.GetComponent<Renderer>().material.color=Color.black;
+             Cable.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
             if(anim!=null){
              anim.SetBool("Power", false);
             }
