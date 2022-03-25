@@ -36,6 +36,7 @@ TagManager:
   - Sand
   - Grass
   - Concrete
+  - test
   layers:
   - Default
   - TransparentFX

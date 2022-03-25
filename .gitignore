@@ -62,3 +62,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 Assets/RenderOutput/
+
+UserSettings/EditorUserSettings.asset
+
+UserSettings/
