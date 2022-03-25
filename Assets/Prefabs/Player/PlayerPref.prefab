@@ -1362,6 +1362,7 @@ MonoBehaviour:
   ghostTransform: {fileID: 5464377148106164622}
   sparkMochila: {fileID: 5464377149726581022}
   planeoParticle: {fileID: 5464377148049495012}
+  movment: 1
   AlturaSalto: 4
   DIA_Manager: {fileID: 5464377147905107287}
 --- !u!114 &379771708
@@ -3901,7 +3902,7 @@ Transform:
   m_LocalScale: {x: 100.00004, y: 100.00004, z: 100.000015}
   m_Children: []
   m_Father: {fileID: 5464377149891214914}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 165}
 --- !u!33 &5464377147990572285
 MeshFilter:
@@ -4510,8 +4511,8 @@ MonoBehaviour:
   pickedObject: {fileID: 0}
   pickedBox: {fileID: 0}
   UiPickUp: {fileID: 0}
-  take1: 0
-  take2: 0
+  take1: 1
+  take2: 1
 --- !u!1 &5464377148006262829
 GameObject:
   m_ObjectHideFlags: 0
@@ -19849,12 +19850,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5464377148640895623}
-  m_LocalRotation: {x: -0.0000000024447215, y: -0.9980333, z: 0.000000009313225, w: 0.06268642}
-  m_LocalPosition: {x: -0.37, y: 0.11, z: -3.06}
-  m_LocalScale: {x: 0.32514757, y: 0.1508829, z: 2.7102122}
+  m_LocalRotation: {x: -0.056148108, y: -0.276786, z: 0.95878404, w: 0.031148091}
+  m_LocalPosition: {x: -0.959, y: -0.99, z: 3.81}
+  m_LocalScale: {x: 0.32514748, y: 0.1508829, z: 2.7102125}
   m_Children: []
-  m_Father: {fileID: 5464377149891214914}
-  m_RootOrder: 3
+  m_Father: {fileID: 5464377149497698657}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5464377148640895641
 MeshFilter:
@@ -19916,7 +19917,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Center: {x: -0.445736, y: -1.2621436, z: -0.48984408}
 --- !u!114 &5464377148640895640
 MonoBehaviour:
@@ -43025,9 +43026,10 @@ Transform:
   m_LocalRotation: {x: 0.96041805, y: -0.013736104, z: -0.0040650605, w: 0.27819422}
   m_LocalPosition: {x: 0.455, y: 0.586, z: -0.326}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5464377148640895622}
   m_Father: {fileID: 5464377149891214914}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 147.707, y: 1.0469971, z: 1.9420013}
 --- !u!135 &1912583321
 SphereCollider:
@@ -52430,7 +52432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5464377149891214914
 Transform:
   m_ObjectHideFlags: 0
@@ -52445,7 +52447,6 @@ Transform:
   - {fileID: 5464377149574560094}
   - {fileID: 5464377149700400519}
   - {fileID: 5464377148700794480}
-  - {fileID: 5464377148640895622}
   - {fileID: 5464377149497698657}
   - {fileID: 5464377147990572287}
   m_Father: {fileID: 5464377149631975061}
