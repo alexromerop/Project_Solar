@@ -13496,7 +13496,9 @@ PrefabInstance:
       propertyPath: footStepConcreteClip.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: c3ea1ce7d3be775478621b57ecbd3342, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8669027794694235186, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+    - {fileID: 3302900981862936533, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
 --- !u!1 &729276670
 GameObject:

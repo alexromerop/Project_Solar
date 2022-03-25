@@ -1248,6 +1248,7 @@ GameObject:
   - component: {fileID: 5464377147905107286}
   - component: {fileID: 5464377147905107280}
   - component: {fileID: 379771708}
+  - component: {fileID: 3302900981862936533}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -1362,6 +1363,7 @@ MonoBehaviour:
   ghostTransform: {fileID: 5464377148106164622}
   sparkMochila: {fileID: 5464377149726581022}
   planeoParticle: {fileID: 5464377148049495012}
+  propulsoresClip: {fileID: 8300000, guid: ca302bb2a8502c94e849a154a8370fd9, type: 3}
   movment: 1
   AlturaSalto: 4
   DIA_Manager: {fileID: 5464377147905107287}
@@ -1381,6 +1383,102 @@ MonoBehaviour:
   box: {fileID: 0}
   oncollider_: 0
   onhit: 0
+--- !u!82 &3302900981862936533
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377147905107281}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7505825872981888, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
+  m_audioClip: {fileID: 8300000, guid: ca302bb2a8502c94e849a154a8370fd9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5464377147906170851
 GameObject:
   m_ObjectHideFlags: 0
@@ -19836,6 +19934,7 @@ GameObject:
   - component: {fileID: 5464377148640895640}
   - component: {fileID: 5464377148640895620}
   - component: {fileID: 5464377148640895621}
+  - component: {fileID: 8669027794694235186}
   m_Layer: 2
   m_Name: RAYO
   m_TagString: Mochila
@@ -19947,6 +20046,7 @@ MonoBehaviour:
   energyOff: {fileID: 2100000, guid: 51ba22f8ccff4c947a425dd21e9d8c8a, type: 2}
   energyOn: {fileID: 2100000, guid: ecdd93a7cb5cedd4eafa4a632134bb13, type: 2}
   sparkMochila: {fileID: 0}
+  rayoClip: {fileID: 8300000, guid: 0ad75cec6743d3a46bbbbf3f89977ed9, type: 3}
 --- !u!54 &5464377148640895620
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19981,6 +20081,102 @@ MonoBehaviour:
   picoUnlock: 0
   polaroidPlayer: {fileID: 0}
   personaje: {fileID: 5464377147905107280}
+--- !u!82 &8669027794694235186
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464377148640895623}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7505825872981888, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0ad75cec6743d3a46bbbbf3f89977ed9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5464377148641825972
 GameObject:
   m_ObjectHideFlags: 0
