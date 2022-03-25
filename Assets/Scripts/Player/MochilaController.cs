@@ -28,6 +28,7 @@ public class MochilaController : MonoBehaviour
     public Material energyOff;
     public Material energyOn;
     public GameObject sparkMochila;
+    public AudioClip rayoClip;
 
     IEnumerator SpawnSparkle(float time){
         sparkMochila.SetActive(true);
@@ -153,6 +154,10 @@ public class MochilaController : MonoBehaviour
             {
 
                 GetComponent<Renderer>().material = electricityMat;
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.Play();
+                audio.clip = rayoClip;
+                audio.Play();
                 StartCoroutine(ElectrificameMochila(1f));
                 energia -= 1;
             }

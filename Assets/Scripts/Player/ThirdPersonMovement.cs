@@ -73,12 +73,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform ghostTransform;
     public GameObject sparkMochila;
     public GameObject planeoParticle;
+    public AudioClip propulsoresClip;
     float startSpeed = 0;
     float endSpeed = 7;
 
     float desiredDuration = 5;
     float  elapsedTime;
 
+    private AudioSource audio;
 
     public bool movment = true;
     IEnumerator SpawnSparkle(float time){
@@ -137,6 +139,8 @@ public class ThirdPersonMovement : MonoBehaviour
         elapsedTime += Time.deltaTime;
           Cursor.visible = false;
         speed_ = speed;
+
+        audio = GetComponent<AudioSource>();
     }
     void OnTriggerEnter(Collider other){
         if(other.tag==("DangerZone")){
@@ -158,6 +162,10 @@ public class ThirdPersonMovement : MonoBehaviour
             else 
             {   
                  StartCoroutine(SpawnSparkle(0.5f));
+                //Audio propulsores
+                audio.Play();
+                audio.clip = propulsoresClip;
+                audio.Play();
                 velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
                 mochilaController.energia -= 1;
                 canDoubleJump = false;
@@ -174,14 +182,20 @@ public class ThirdPersonMovement : MonoBehaviour
         {
                      if (Input.GetKey(KeyCode.LeftShift)){
                           planeoParticle.SetActive(true);
-                         gravity = glidingGravity;
+                        //Audio propulsores
+                        audio.Play();
+                        audio.clip = propulsoresClip;
+                        audio.Play();
+                        gravity = glidingGravity;
                      } 
                     else
                     {
                      gravity = -36f;
                      planeoParticle.SetActive(false);
-                
-                 }
+                        audio.clip = propulsoresClip;
+                        audio.Stop();
+
+                    }
              }
           }
      }
