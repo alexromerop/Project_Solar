@@ -46,28 +46,37 @@ public class AnimatorHoopCtrl : MonoBehaviour
     void Update()
     {
 
-        
-        if(boxScript.boxAnim==true){
-            anim.SetBool("BoxPicked", true);
-            if(Input.GetKey(KeyCode.W)){
-                anim.SetBool("PushFront", true);
+        if (boxScript != null)
+        {
+
+
+            if (boxScript.boxAnim == true)
+            {
+                anim.SetBool("BoxPicked", true);
+                if (Input.GetKey(KeyCode.W))
+                {
+                    anim.SetBool("PushFront", true);
+                }
+                else
+                {
+                    anim.SetBool("PushFront", false);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    anim.SetBool("PushBack", true);
+                }
+                else
+                {
+                    anim.SetBool("PushBack", false);
+                }
+
             }
-            else{
-                anim.SetBool("PushFront", false);
+            else
+            {
+                anim.SetBool("BoxPicked", false);
             }
-            if(Input.GetKey(KeyCode.S)){
-                anim.SetBool("PushBack", true);
-            }
-            else{
-                anim.SetBool("PushBack", false);
-            }
-            
+
         }
-        else{
-            anim.SetBool("BoxPicked", false);
-        }
-        
-       
         anim.SetFloat(VelocityHash, Movimiento.speed);
 
         if (Movimiento)

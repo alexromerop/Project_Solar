@@ -249,73 +249,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &88310100
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 88310101}
-  - component: {fileID: 88310103}
-  - component: {fileID: 88310102}
-  m_Layer: 14
-  m_Name: CamAnimlaCheker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &88310101
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88310100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 292875832}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &88310102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88310100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1f8bea2fbc3eac4b872fc2d4f9589ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animal: {fileID: 0}
-  cam: {fileID: 964588169}
---- !u!65 &88310103
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88310100}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 4, z: 12}
-  m_Center: {x: 0, y: 0, z: 6}
 --- !u!1 &292875823 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5464377149349759465, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
-  m_PrefabInstance: {fileID: 3103727257218701061}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &292875832 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5464377149349759464, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
   m_PrefabInstance: {fileID: 3103727257218701061}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &337930124
@@ -1117,6 +1053,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef8920dcf7f6314cbdfb95743584546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1143050961 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5758463787665156260, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+  m_PrefabInstance: {fileID: 3103727257218701061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1278888223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1719,6 +1660,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5029342847411259190, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 964588169}
+    - target: {fileID: 5464377147905107285, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377147905107285, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: take1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: take2
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377148022585871, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: boxScript
       value: 
@@ -1807,6 +1768,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[7]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: Cheker
+      value: 
+      objectReference: {fileID: 1143050961}
     - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: CameraUi
       value: 

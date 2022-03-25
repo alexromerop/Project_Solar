@@ -72,6 +72,7 @@ public class testcam : MonoBehaviour
 
     RaycastHit hit;
 
+    public BoxCollider Cheker;
     private void Awake()
     {
         player_ = RendPlayer;
@@ -151,6 +152,7 @@ public class testcam : MonoBehaviour
         {
             if (!CamMode)
             {
+                Cheker.enabled = true;
                 oncam = true;
                 ZoomIn.Play("zoomin");
                 yield return new WaitForSeconds(1);
@@ -166,6 +168,8 @@ public class testcam : MonoBehaviour
             }
             else
             {
+                Cheker.enabled = false;
+
                 ZoomIn.Play("zoomout");
                 oncam = false;
 

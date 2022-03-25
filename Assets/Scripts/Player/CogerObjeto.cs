@@ -40,7 +40,7 @@ public GameObject UiPickUp;
         }
        
         if (pickedObject!=null || pickedBox!=null){
-            if(Input.GetMouseButtonDown(1))
+            if(Input.GetMouseButtonDown(0))
             {
                 picked = false;
                 if (pickedObject != null)
