@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class box_scr : MonoBehaviour
 {
-    
+
 
     public bool Oncolider = false;
     public bool activado = false;
@@ -25,16 +25,17 @@ public class box_scr : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Player != null) {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Player.GetComponent<ObstalePush_>().enabled)
         {
-            if (trigger!=null)
+            if (trigger != null)
             {
                 if (activado)
                 {
                     Debug.Log("desactivado");
                     activado = false;
                     Player.GetComponent<CharacterController>().radius = 0.4f;
-                    
+
                 }
                 else
                 {
@@ -45,14 +46,15 @@ public class box_scr : MonoBehaviour
                     }
                     Debug.Log("ACTIVADO");
                     activado = true;
-                    
+
                 }
                 boxAnim = activado;
 
             }
 
         }
-    }
+    } 
+}
 
     private void OnTriggerStay(Collider other)
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CogerObjeto : MonoBehaviour
 {
 public bool pickedBoxAnim;
-public ThirdPersonMovement player;
+public GameObject player;
 public GameObject handpoint;
 public GameObject BoxPoint;
 public GameObject polaroidPlayer;
@@ -24,6 +24,8 @@ public GameObject UiPickUp;
 
 
 
+
+
     private void Start()
     {
         cam = GameObject.Find("Camera");
@@ -32,8 +34,11 @@ public GameObject UiPickUp;
     {
         if (take2 && take1)
         {
+           
             cam.GetComponent<testcam>().canCam = true;
+            player.GetComponent<ObstalePush_>().enabled = true;
         }
+       
         if (pickedObject!=null || pickedBox!=null){
             if(Input.GetMouseButtonDown(1))
             {
