@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
 {
-    private  int iterator= 0;
+    private  string iterator;
     
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
@@ -27,12 +27,15 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource cameraAudio;
 
     [SerializeField] private GameObject cam;
+    [SerializeField] private Text text;
+
 
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
-    
 
+
+    [SerializeField] public GameObject Animal;
 
 
 
@@ -132,8 +135,16 @@ public class PhotoCapture : MonoBehaviour
 
     IEnumerator capture()
     {
+        System.DateTime.UtcNow.ToString();
+        System.DateTime theTime = System.DateTime.Now;
+        
+        string a = theTime.ToString("yyyy-MM-dd\\THHmmss");
+        string b = theTime.ToString("dd-MM-yyyy");
 
-        iterator++;
+        iterator = a;
+        
+        text.text = b;
+
         var dirPath = Application.dataPath + "/RenderOutput";
         if (!System.IO.Directory.Exists(dirPath))
         {
