@@ -27,7 +27,9 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource cameraAudio;
 
     [SerializeField] private GameObject cam;
-    [SerializeField] private Text text;
+    [SerializeField] private Text date;
+    [SerializeField] private Text name;
+
 
 
 
@@ -141,9 +143,20 @@ public class PhotoCapture : MonoBehaviour
         string a = theTime.ToString("yyyy-MM-dd\\THHmmss");
         string b = theTime.ToString("dd-MM-yyyy");
 
-        iterator = a;
+
         
-        text.text = b;
+
+        iterator = a;
+        if (Animal)
+        {
+            iterator = Animal.tag + iterator;
+            name.text = Animal.tag;
+        }
+        else
+        {
+            name.text = null;
+        }
+        date.text = b;
 
         var dirPath = Application.dataPath + "/RenderOutput";
         if (!System.IO.Directory.Exists(dirPath))
