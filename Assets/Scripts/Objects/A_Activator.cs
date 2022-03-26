@@ -15,6 +15,7 @@ public class A_Activator : MonoBehaviour
     public bool power2;
     public bool electric;
     public GameObject particulaRayo;
+    public GameObject Cable;
     public float waitSeconds;
 
     public IEnumerator Electrificame(float time)
@@ -69,9 +70,13 @@ public class A_Activator : MonoBehaviour
     {
         if(A_amIActivated){
             particulaRayo.SetActive(true);
+             Cable.GetComponent<Renderer>().material.color=Color.cyan;
+             Cable.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         }
         else{
             particulaRayo.SetActive(false);
+            Cable.GetComponent<Renderer>().material.color=Color.black;
+             Cable.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
         }
         if(A_amIActivated && b_Activator.B_amIActivated){
                power=true;
