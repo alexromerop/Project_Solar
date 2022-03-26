@@ -21,6 +21,8 @@ public GameObject UiPickUp;
 
     public bool take1;
     public bool take2;
+    public bool taked = false;
+
 
 
 
@@ -40,7 +42,7 @@ public GameObject UiPickUp;
         }
        
         if (pickedObject!=null || pickedBox!=null){
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0)&& taked)
             {
                 picked = false;
                 if (pickedObject != null)
@@ -50,6 +52,7 @@ public GameObject UiPickUp;
                     pickedObject.GetComponent<Rigidbody>().useGravity = true;
                     pickedObject.gameObject.transform.SetParent(null);
                     pickedObject = null;
+                    taked = false;
                 }
 
                 if (pickedBox != null)
@@ -59,6 +62,8 @@ public GameObject UiPickUp;
                     pickedBox.gameObject.transform.SetParent(null);
                     pickedBox = null;
                     pickedBoxAnim=false;
+                    taked = false;
+
                 }
 
             }
@@ -77,7 +82,7 @@ private void OnTriggerStay(Collider other)
 
       
 
-        if (Input.GetMouseButton(0)){
+        if (Input.GetMouseButton(0) && taked == false){
                     if (other.name == "PolaroidMESH")
                     {
                         polaroidPlayer.SetActive(true);
@@ -103,7 +108,7 @@ private void OnTriggerStay(Collider other)
                     {
                         UiPickUp.SetActive(false);
                         picked = true;
-
+                        StartCoroutine(TimeTake());
                         if (other.GetComponent<BoxCollider>())
                         {
                             other.GetComponent<BoxCollider>().enabled = false;
@@ -179,6 +184,14 @@ IEnumerator TimerF(GameObject A)
             A.GetComponent<CapsuleCollider>().enabled = true;
         }
         
+
+    }
+    IEnumerator TimeTake()
+    {
+
+        yield return new WaitForSeconds(1f);
+        taked = true;
+
 
     }
 

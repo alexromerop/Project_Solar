@@ -149,27 +149,32 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     public void doubleJump()
     {
-        if (Input.GetButtonDown("Jump") && canDoubleJump && gravity < -1)
+        if (gameObject.GetComponent<ObstalePush_>().enabled)
         {
-           
-            if (coyoteTimeCounter>0f)
-            {
-                
-                velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
 
-                coyoteTimeCounter = 0f;
-            }
-            else 
-            {   
-                 StartCoroutine(SpawnSparkle(0.5f));
-                //Audio propulsores
-                audio.Play();
-                audio.clip = propulsoresClip;
-                audio.Play();
-                velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
-                mochilaController.energia -= 1;
-                canDoubleJump = false;
-                
+
+            if (Input.GetButtonDown("Jump") && canDoubleJump && gravity < -1 )
+            {
+
+                if (coyoteTimeCounter > 0f)
+                {
+
+                    velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
+
+                    coyoteTimeCounter = 0f;
+                }
+                else
+                {
+                    StartCoroutine(SpawnSparkle(0.5f));
+                    //Audio propulsores
+                    audio.Play();
+                    audio.clip = propulsoresClip;
+                    audio.Play();
+                    velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
+                    mochilaController.energia -= 1;
+                    canDoubleJump = false;
+
+                }
             }
         }
     }
