@@ -75,6 +75,8 @@ public GameObject UiPickUp;
 private void OnTriggerStay(Collider other)
 {
 
+
+
     if(other.gameObject.CompareTag("Box") && take2 && take1)
     {
 
@@ -85,6 +87,7 @@ private void OnTriggerStay(Collider other)
     }
     if(other.gameObject.CompareTag("Pickable"))
     {
+        
 
             if (pickedObject == null && !picked){
         UiPickUp.SetActive(true);
