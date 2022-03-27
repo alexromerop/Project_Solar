@@ -6,7 +6,7 @@ public class AnimalCheker : MonoBehaviour
 {
     public GameObject animal;
     public PhotoCapture cam;
-
+    private bool animalOnCam;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,12 @@ public class AnimalCheker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!animalOnCam)
+        {
+            cam.Animal = null;
+
+        }
+
     }
 
 
@@ -26,7 +31,14 @@ public class AnimalCheker : MonoBehaviour
         if (other.gameObject.layer == 13)
         {
             cam.Animal = other.gameObject;
-           
+            animalOnCam = true;
+
+
+        }
+        else
+        {
+            animalOnCam = false;
+
         }
     }
 
@@ -34,7 +46,7 @@ public class AnimalCheker : MonoBehaviour
     {
         if (other.gameObject.layer == 13)
         {
-            cam.Animal = null;
+            animalOnCam = false;
 
         }
     }

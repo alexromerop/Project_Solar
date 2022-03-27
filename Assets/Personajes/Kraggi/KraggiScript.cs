@@ -11,8 +11,14 @@ public class KraggiScript : MonoBehaviour
        anim = GetComponent<Animator>();
    }
 void OnTriggerEnter(Collider other) {
-  
-    anim.SetTrigger("PlayerNear");
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            anim.SetTrigger("PlayerNear");
+            this.gameObject.layer = 13;
+
+
+        }
 }
 
     

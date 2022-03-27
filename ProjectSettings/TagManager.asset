@@ -37,6 +37,7 @@ TagManager:
   - Grass
   - Concrete
   - test
+  - Kraggi
   layers:
   - Default
   - TransparentFX
