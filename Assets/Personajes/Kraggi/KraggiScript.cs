@@ -4,22 +4,56 @@ using UnityEngine;
 
 public class KraggiScript : MonoBehaviour
 {
-  private Animator anim;
+    private Animator anim;
+    public Vector3[] Path;
+    private Vector3 currentTarget;
+    public float speed;
+    public int actualPath = 0;
+    public float tolerancia = 1;
+    private bool Apath;
+    public int ajuste = 90;
 
    void Start()
    {
        anim = GetComponent<Animator>();
+       currentTarget = Path[0];
+   }
+
+
+    void Update() {
+        if(Apath){
+       StartCoroutine (StartMove());
+    }   
+       
    }
 void OnTriggerEnter(Collider other) {
+    if(other.tag=="Player"){
+    Apath=true;
+    anim.SetTrigger("PlayerNear");
+   
+    }
+}
+    IEnumerator StartMove(){
+        yield return new WaitForSeconds (1);
+         if(transform.position != currentTarget){
+            Vector3 heading = currentTarget - transform.position;       
+            transform.position += (Vector3)(heading / heading.magnitude) * speed * Time.deltaTime;
+            transform.LookAt(currentTarget);
+            transform.Rotate (0,90,0);
+            if(heading.magnitude < tolerancia){
+                transform.position = currentTarget;
+            }
+        }else{
+            actualPath++;
+            if(actualPath >= Path.Length){
+                actualPath=0;
+                anim.SetTrigger("Eating");
+                Apath=false;
+            }
 
-        if (other.gameObject.CompareTag("Player"))
-        {
-            anim.SetTrigger("PlayerNear");
-            this.gameObject.layer = 13;
-
+            currentTarget= Path[actualPath];
 
         }
-}
-
+    }
     
 }
