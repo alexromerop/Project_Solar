@@ -8,16 +8,25 @@ public class ColisionInvisible : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-     player=GameObject.Find("Player");   
+        player = GameObject.Find("Player");
+
+#if Unity_STANDALONE
+
+        if (Application.isPlaying)
+        {
+           gameObject.GetComponent<Renderer>().enabled = false;
+
+        }
+#endif
     }
+
 
     // Update is called once per frame
     void Update()
     {
         if(player.GetComponent<ObstalePush_>().oncollider_){
             gameObject.GetComponent<BoxCollider>().enabled=true;
-            Debug.Log("Activa colision");
+           
         }
         else{
             gameObject.GetComponent<BoxCollider>().enabled=false;

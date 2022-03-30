@@ -32,7 +32,7 @@ public class box_scr : MonoBehaviour
             {
                 if (activado)
                 {
-                    Debug.Log("desactivado");
+                   
                     activado = false;
                     Player.GetComponent<CharacterController>().radius = 0.4f;
 
@@ -44,7 +44,7 @@ public class box_scr : MonoBehaviour
                         if (trigger != null)
                             StartCoroutine(Pullbox(trigger));
                     }
-                    Debug.Log("ACTIVADO");
+                    
                     activado = true;
 
                 }

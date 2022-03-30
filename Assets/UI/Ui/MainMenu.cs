@@ -156,5 +156,11 @@ public class MainMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
     
-
+    public void ActiveSettings()
+    {
+        bool isActive = settings.activeSelf;
+        settings.SetActive(true);
+        bool Active = principal.activeSelf;
+        cam.GetComponent <testcam>().enabled = false;
+    }
 }

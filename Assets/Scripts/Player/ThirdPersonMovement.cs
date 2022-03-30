@@ -433,7 +433,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    Debug.Log("A");
+                    
                     speed_ = 0;
 
 
