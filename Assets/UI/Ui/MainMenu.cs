@@ -89,6 +89,7 @@ public class MainMenu : MonoBehaviour
     {
         bool isActive = principal.activeSelf;
         principal.SetActive(false);
+        settings.SetActive(false);
         Time.timeScale = 1f;
         GameIsPause = false;
         Debug.Log("Jugando");
