@@ -27,7 +27,7 @@ public class LightLookAtMe : MonoBehaviour
         Debug.DrawRay(RayCastBegin.transform.position, dirRayo,Color.red);
         
         if(Physics.Raycast(RayCastBegin.transform.position,dirRayo, out hit)){
-            Debug.Log(hit.collider.name);
+            
             if(hit.collider.tag=="LightReciever"){
         
                 mochila.reciboLuz=true;

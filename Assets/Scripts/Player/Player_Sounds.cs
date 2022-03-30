@@ -116,7 +116,7 @@ public class Player_Sounds : MonoBehaviour
     
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("suelo");
+        
         switch (collision.collider.tag)
         {
 

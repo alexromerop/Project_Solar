@@ -396,7 +396,7 @@ public class ThirdPersonMovement : MonoBehaviour
             direction = new Vector3(horizontal, 0f, vertical).normalized;
             direction2 = new Vector3(0F, 0f, vertical).normalized;
         }
-
+        
         if (direction.magnitude >= 0.1f)
         {
             if ((Hand.GetComponent<CogerObjeto>().picked == false || Hand.GetComponent<CogerObjeto>().pickedObject != null) && this.GetComponent<ObstalePush_>().oncollider_ == false)
@@ -413,7 +413,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if (this.GetComponent<ObstalePush_>().oncollider_)
             {
                 GameObject box = this.GetComponent<ObstalePush_>().box;
-
+              
                 canJump = false;
                 if (vertical > 0f)
                 {
@@ -431,7 +431,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
                     box.transform.SetParent(transform);
                 }
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+                {
+                    Debug.Log("A");
+                    speed_ = 0;
 
+
+                }
                 //Debug.Log(speed_);
                 controller.Move(transform.forward.normalized * (speed_) * Time.deltaTime);
                 isMoving = true;
