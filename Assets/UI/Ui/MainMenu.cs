@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Con tecla Esc se activa el men� de pausa
+        //Con tecla Esc se activa el menu de pausa
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPause)
@@ -73,6 +73,7 @@ public class MainMenu : MonoBehaviour
             else
             {
                 Pause();
+                Setting();
             }
 
         }
@@ -86,6 +87,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPause = true;
         cam.GetComponent<testcam>().enabled = false;
+        
     }
 
     public void ContinueGame()
@@ -112,10 +114,12 @@ public class MainMenu : MonoBehaviour
     //Cuando se activa y se desactiva el Settings
     public void Setting()
     {
+       
         bool isActive = settings.activeSelf;
         settings.SetActive(false);
         bool Active = principal.activeSelf;
         principal.SetActive(true);
+        cam.GetComponent<testcam>().enabled = false;
 
     }
 
@@ -130,12 +134,12 @@ public class MainMenu : MonoBehaviour
     //Control de los Sliders
     public void VolumeMusic(float volume)
     {
-        //audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
     }
 
     public void VolumeSFX(float volume)
     {
-        //audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
     }
 
     //Control de ajustes de pantalla
