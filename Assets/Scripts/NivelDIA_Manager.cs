@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,18 +10,19 @@ public class NivelDIA_Manager : MonoBehaviour
     public bool doubleJumpUnlock;
     public bool picoUnlock;
     public GameObject polaroidPlayer;
-    
-    Scene current_Scene;
-
-
-
-   
     public ThirdPersonMovement personaje;
     // Start is called before the first frame update
     void Start()
     {
+        personaje.enabled=false;
+       if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Nivel_DIA")) 
+         {
+             StartCoroutine(NoFuncionas(1f));
+         }
+         else{
+             personaje.enabled=true;
+         }
         mochila.energia = 0;
-        StartCoroutine(NoFuncionas(9f));
     }
      private void OnTriggerEnter(Collider other) {
         if(other.name == "Disco_Unlock_Gliding" && tag=="Player"){
@@ -54,12 +55,8 @@ public class NivelDIA_Manager : MonoBehaviour
 
      public IEnumerator NoFuncionas(float time)
     {
-        if (personaje)
-        {
-            yield return new WaitForSeconds(9f);
-        
-            personaje.disable = false;
-        }
+        yield return new WaitForSeconds(1200f*Time.deltaTime);
+        personaje.enabled=true;
     }
     
     
