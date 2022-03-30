@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 
@@ -257,7 +258,11 @@ public class ThirdPersonMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.V)){
             speed=speed+1;
         }
-        if(!disable){
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SceneManager.LoadScene("Nivel_Tarde");
+        }
+        if (!disable){
         if(isOnSlope){gravity=-36f;}
         
         if(isOnSlope && canDoubleJump==false){
