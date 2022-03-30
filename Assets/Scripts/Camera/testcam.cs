@@ -68,6 +68,7 @@ public class testcam : MonoBehaviour
     public GameObject hitObjet;
 
     public Vector3 targetPosition;
+    private GameObject pauseMenu;
 
 
     RaycastHit hit;
@@ -75,6 +76,7 @@ public class testcam : MonoBehaviour
     public BoxCollider Cheker;
     private void Awake()
     {
+        pauseMenu = GameObject.Find("PauseMenu");
         player_ = RendPlayer;
         distanceFromTarget_ = _distanceFromTarget;
         smoothTime_ = _smoothTime;
@@ -152,6 +154,7 @@ public class testcam : MonoBehaviour
         {
             if (!CamMode)
             {
+                pauseMenu.SetActive(false);
                 Cheker.enabled = true;
                 oncam = true;
                 ZoomIn.Play("zoomin");
@@ -181,7 +184,8 @@ public class testcam : MonoBehaviour
                 CameraManager.SetActive(false);
                 CameraUi.SetActive(false);
                 
-                
+                pauseMenu.SetActive(true);
+
 
             }
         }

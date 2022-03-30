@@ -25,8 +25,10 @@ public class MainMenu : MonoBehaviour
     Dropdown resolutionDropdown;
     Resolution[] resolutions;
 
+    private GameObject cam;
     private void Start()
     {
+        cam = GameObject.Find("Camera");
         //Resolucion pantalla
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -83,6 +85,7 @@ public class MainMenu : MonoBehaviour
         principal.SetActive(!isActive);
         Time.timeScale = 0f;
         GameIsPause = true;
+        cam.GetComponent<testcam>().enabled = false;
     }
 
     public void ContinueGame()
@@ -93,6 +96,8 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPause = false;
         Debug.Log("Jugando");
+        cam.GetComponent<testcam>().enabled = true;
+
 
     }
 

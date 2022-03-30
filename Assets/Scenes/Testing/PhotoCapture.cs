@@ -32,7 +32,6 @@ public class PhotoCapture : MonoBehaviour
 
 
 
-
     private Texture2D screenCapture;
     private bool viewingPhoto;
 
