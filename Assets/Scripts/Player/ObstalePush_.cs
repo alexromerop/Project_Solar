@@ -10,8 +10,9 @@ public class ObstalePush_ : MonoBehaviour
     public GameObject box;
     public bool oncollider_;
     public bool onhit;
-    
-    
+
+
+
 
     Vector3 dir;
 

@@ -30,8 +30,9 @@ void OnTriggerEnter(Collider other) {
     if(other.tag=="Player"){
     Apath=true;
     anim.SetTrigger("PlayerNear");
-   
-    }
+            gameObject.layer = 13;  
+            
+        }
 }
     IEnumerator StartMove(){
         yield return new WaitForSeconds (1);

@@ -80,6 +80,8 @@ public class ThirdPersonMovement : MonoBehaviour
     float desiredDuration = 5;
     float  elapsedTime;
 
+    bool canJump;
+
     private AudioSource audio;
 
     public bool movment = true;
@@ -149,7 +151,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     public void doubleJump()
     {
-        if (gameObject.GetComponent<ObstalePush_>().enabled)
+        if (gameObject.GetComponent<ObstalePush_>().enabled && canJump)
         {
 
 
@@ -217,7 +219,7 @@ public class ThirdPersonMovement : MonoBehaviour
             GetComponent<CharacterController>().radius = 0.03f;
 
         }
-        if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope && canJump && !gameObject.GetComponent<ObstalePush_>().oncollider_) 
         {
             GetComponent<CharacterController>().radius = 0.03f;
             velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
@@ -407,6 +409,7 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 GameObject box = this.GetComponent<ObstalePush_>().box;
 
+                canJump = false;
                 if (vertical > 0f)
                 {
                     speed_ = speed * 0.2f;
@@ -430,6 +433,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
 
 
+            }
+            else
+            {
+                canJump = true;
             }
 
         }

@@ -18,6 +18,8 @@ public GameObject polaroidPlayer;
 public GameObject pickedObject = null;
 public GameObject pickedBox = null;
 public GameObject UiPickUp;
+    public GameObject UiPickUpCam;
+
 
     public bool take1;
     public bool take2;
@@ -34,6 +36,11 @@ public GameObject UiPickUp;
     }
     void Update()
     {
+        if(take1 == true || take2 == true)
+        {
+            
+            UiPickUpCam.SetActive(true);
+        }
         if (take2 && take1)
         {
            
