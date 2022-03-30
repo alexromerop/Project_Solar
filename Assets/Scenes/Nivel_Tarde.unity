@@ -58110,7 +58110,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 379771708, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576270220301584487, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Layer
@@ -58136,13 +58136,33 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5464377147905107287, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: glidingUnlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377147905107287, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: doubleJumpUnlock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: take1
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: take2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: taked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: UiPickUp
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377148006232311, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148049495035, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
