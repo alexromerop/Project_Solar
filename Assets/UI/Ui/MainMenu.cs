@@ -128,7 +128,8 @@ public class MainMenu : MonoBehaviour
     //Cuando se activa y se desactiva el Settings
     public void Setting()
     {
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         bool isActive = settings.activeSelf;
         settings.SetActive(false);
         bool Active = principal.activeSelf;
@@ -139,6 +140,8 @@ public class MainMenu : MonoBehaviour
 
     public void Back()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         bool isActive = settings.activeSelf;
         settings.SetActive(false);
         bool Active = principal.activeSelf;
@@ -175,6 +178,8 @@ public class MainMenu : MonoBehaviour
 
     public void ActiveSettings()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         bool isActive = settings.activeSelf;
         settings.SetActive(true);
         bool Active = principal.activeSelf;
@@ -187,6 +192,7 @@ public class MainMenu : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
