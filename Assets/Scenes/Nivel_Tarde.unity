@@ -59191,7 +59191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: taked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: UiPickUp

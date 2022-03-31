@@ -135,6 +135,7 @@ private void OnTriggerStay(Collider other)
                     }
                     else
                     {
+                        Debug.Log("saludos");
                         UiPickUp.SetActive(false);
                         picked = true;
                         StartCoroutine(TimeTake());
