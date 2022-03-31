@@ -28,7 +28,7 @@ public class CinematicCamController : MonoBehaviour
 
         gameObject.SetActive(false);
         player.GetComponent<ThirdPersonMovement>().enabled = true;
-        Destroy(gameObject);
+        
         
     }
     // Update is called once per frame
