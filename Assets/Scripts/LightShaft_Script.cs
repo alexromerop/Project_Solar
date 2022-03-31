@@ -14,6 +14,7 @@ public class LightShaft_Script : MonoBehaviour
     public NivelDIA_Manager diaManager;
 
     public GameObject destroyedVersion;
+    public GameObject ClickDestroy;
 
     public MochilaController mochila;
      public IEnumerator EsperaAlPico(float time)
@@ -39,7 +40,10 @@ public class LightShaft_Script : MonoBehaviour
      void OnTriggerStay(Collider other){
       
       if(noEjecutes==false){
+
           if(diaManager.picoUnlock==true){
+              
+              ClickDestroy.SetActive(true);
       if (other.tag == "Player" && Input.GetMouseButtonDown(0)){
           mochila.destroyed=true;
           StartCoroutine(EsperaAlPico(40f*Time.deltaTime));
@@ -55,6 +59,7 @@ public class LightShaft_Script : MonoBehaviour
     {
          if(destroyed==true){
            BreakObject();
+           ClickDestroy.SetActive(false);
        }
     }
     
