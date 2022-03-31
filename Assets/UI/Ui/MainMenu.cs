@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
 
     private GameObject cam;
     private GameObject player;
+    
 
     private void Start()
     {
@@ -57,6 +58,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
     public void QuitGame(){
