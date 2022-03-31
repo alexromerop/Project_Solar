@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2804302169065482890, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
   m_PrefabInstance: {fileID: 723721481}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1846103731}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df884f99b13dc624580408eece66d82c, type: 3}
@@ -17103,6 +17103,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2804302169065482890, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1802608194}
     - target: {fileID: 7459238573955274302, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -41980,6 +41984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65360bb4c6e3b446bb9a621fe9b0f12, type: 3}
+--- !u!1 &1846103731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2804302169065482884, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
+  m_PrefabInstance: {fileID: 723721481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1847305976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47431,6 +47440,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083036168}
   m_Mesh: {fileID: -5053925668127403250, guid: a05bae93f9cc05a45a7e172817f90aa8, type: 3}
+--- !u!65 &2085628978 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5758463787665156260, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+  m_PrefabInstance: {fileID: 5464377148694370219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2089584936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 454928, guid: d65360bb4c6e3b446bb9a621fe9b0f12, type: 3}
@@ -47705,6 +47719,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2099099972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2804302170698635823, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
+  m_PrefabInstance: {fileID: 723721481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2100926130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 443372, guid: 86444bd65299a014e84c95fc4e2a294f, type: 3}
@@ -59156,15 +59175,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: take1
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: take2
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: taked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464377148006232310, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: UiPickUp
@@ -59323,9 +59342,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: Cheker
+      value: 
+      objectReference: {fileID: 2085628978}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: CameraUi
+      value: 
+      objectReference: {fileID: 2099099972}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: CameraManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1846103731}
     - target: {fileID: 5464377149349759470, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: healthBar
       value: 
