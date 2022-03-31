@@ -10,6 +10,7 @@ public GameObject handpoint;
 public GameObject BoxPoint;
 public GameObject polaroidPlayer;
     public GameObject cam;
+public GameObject Explorar;
 
 
 
@@ -79,8 +80,17 @@ public GameObject UiPickUp;
     }
 
 
+ void OnTriggerEnter(Collider other)
+{   if(other.gameObject.CompareTag("Box") && !take2 && !take1)
+    {
+    Explorar.SetActive(true);
+     StartCoroutine(ExploOut());
+    }
+}
+
 private void OnTriggerStay(Collider other)
 {
+
 
 
 
@@ -183,7 +193,8 @@ private void OnTriggerStay(Collider other)
      private void OnTriggerExit(Collider other){
 
            if(other.gameObject.CompareTag("Box") && pickedObject==null && !picked){
-
+              
+           
 
             UiPickUp.SetActive(false);
 
@@ -217,6 +228,14 @@ IEnumerator TimerF(GameObject A)
 
         yield return new WaitForSeconds(1f);
         taked = true;
+
+
+    }
+     IEnumerator ExploOut()
+    {
+
+        yield return new WaitForSeconds(3f);
+         Explorar.SetActive(false);
 
 
     }
