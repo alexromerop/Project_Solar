@@ -26,8 +26,11 @@ public class MainMenu : MonoBehaviour
     Resolution[] resolutions;
 
     private GameObject cam;
+    private GameObject player;
+
     private void Start()
     {
+        player = GameObject.Find("Player");
         cam = GameObject.Find("Camera");
         //Resolucion pantalla
         resolutions = Screen.resolutions;
@@ -99,6 +102,8 @@ public class MainMenu : MonoBehaviour
         GameIsPause = false;
         Debug.Log("Jugando");
         cam.GetComponent<testcam>().enabled = true;
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
 
 
     }
@@ -162,5 +167,8 @@ public class MainMenu : MonoBehaviour
         settings.SetActive(true);
         bool Active = principal.activeSelf;
         cam.GetComponent <testcam>().enabled = false;
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+        Time.timeScale = 0f;
+
     }
 }
