@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     private GameObject cam;
     private GameObject player;
-    
+
 
     private void Start()
     {
@@ -39,12 +39,14 @@ public class MainMenu : MonoBehaviour
         List<string> options = new List<string>();
 
         int currentResolutionIndex = 0;
-        for (int i = 0; i<resolutions.Length; i++) {
+        for (int i = 0; i < resolutions.Length; i++)
+        {
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height) {
+                resolutions[i].height == Screen.currentResolution.height)
+            {
                 currentResolutionIndex = i;
             }
         }
@@ -58,10 +60,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
+
     }
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
         Application.Quit();
     }
 
@@ -87,16 +90,20 @@ public class MainMenu : MonoBehaviour
     //Cuando se activa y se desactiva el Principal
     public void Pause()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         bool isActive = principal.activeSelf;
         principal.SetActive(!isActive);
         Time.timeScale = 0f;
         GameIsPause = true;
         cam.GetComponent<testcam>().enabled = false;
-        
+
     }
 
     public void ContinueGame()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         bool isActive = principal.activeSelf;
         principal.SetActive(false);
         settings.SetActive(false);
@@ -121,7 +128,7 @@ public class MainMenu : MonoBehaviour
     //Cuando se activa y se desactiva el Settings
     public void Setting()
     {
-       
+
         bool isActive = settings.activeSelf;
         settings.SetActive(false);
         bool Active = principal.activeSelf;
@@ -150,27 +157,38 @@ public class MainMenu : MonoBehaviour
     }
 
     //Control de ajustes de pantalla
-    public void SetResolution(int resolutionIndex) {
+    public void SetResolution(int resolutionIndex)
+    {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetQuality(int qualityIndex) {
+    public void SetQuality(int qualityIndex)
+    {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
-    
-    public void SetFullscreen(bool isFullscreen) {
+
+    public void SetFullscreen(bool isFullscreen)
+    {
         Screen.fullScreen = isFullscreen;
     }
-    
+
     public void ActiveSettings()
     {
         bool isActive = settings.activeSelf;
         settings.SetActive(true);
         bool Active = principal.activeSelf;
-        cam.GetComponent <testcam>().enabled = false;
+        cam.GetComponent<testcam>().enabled = false;
         player.GetComponent<ThirdPersonMovement>().enabled = false;
         Time.timeScale = 0f;
+
+    }
+
+
+    void OnLevelWasLoaded(int level)
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 }
