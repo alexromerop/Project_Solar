@@ -17107,6 +17107,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1802608194}
+    - target: {fileID: 2804302170177130482, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fecf26c796a2df48acc102f1ce1b0b8, type: 3}
+    - target: {fileID: 2804302170177130482, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7505825872981888, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
     - target: {fileID: 7459238573955274302, guid: 62afa8f4dda84f34f8f70b9a4370c565, type: 3}
       propertyPath: m_RootOrder
       value: 6
