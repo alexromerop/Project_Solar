@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MochilaController : MonoBehaviour
 {
-    public int energia = 5;
+    public int energia = 0;
     
     public LightLookAtMe lightLookAtMe;
     public Material electricityMat;
@@ -29,6 +29,8 @@ public class MochilaController : MonoBehaviour
     public Material energyOn;
     public GameObject sparkMochila;
     public AudioClip rayoClip;
+    bool cargando = false;
+    int lastCharged = 2;
 
     IEnumerator SpawnSparkle(float time){
         sparkMochila.SetActive(true);
@@ -88,19 +90,30 @@ public class MochilaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         
         //int index=0;
         pico.SetActive(false);
         //for (int i=2;i<robotin.materials.Length;i++){
             energySlot=robotin.materials;
         //    index++;
         //}
+
+        for(int i=2;i<energySlot.Length;i++){
+             energySlot[i]=energyOff;
+         }
+    }
+    void CargaMochila(){
+        if(lastCharged<energySlot.Length){
+        energySlot[lastCharged]=energyOn;
+        lastCharged++;
+        energia++;
+        }
     }
     
 // Update is called once per frame
     void Update()
     {   
-    
-
+        
         for(int i=2;i<energySlot.Length;i++){
             energySlot[i]=energyOff;
         }
@@ -123,13 +136,14 @@ public class MochilaController : MonoBehaviour
         if (reciboLuz==true){
             Movimiento.vida=100;
         }
+        
 
         if (Movimiento)
         {
-            if (Movimiento.isGrounded && reciboLuz)
-            {
-                energia = 5;
-            }
+             if (Movimiento.isGrounded && reciboLuz)
+             {
+                 energia = 5;
+             }
 
             if (energia <= 0)
             {
