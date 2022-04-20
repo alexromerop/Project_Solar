@@ -75,6 +75,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject sparkMochila;
     public GameObject planeoParticle;
     public AudioClip propulsoresClip;
+    public AudioClip jetpackClip;
     float startSpeed = 0;
     float endSpeed = 7;
 
@@ -182,31 +183,33 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
     public void GLIDING()
-        {
+    {
           if(DIA_Manager.glidingUnlock==true){
              if(mochilaController.energia>=1){
             
                  if (isFalling && allowGliding)
-        {
+                 {
                      if (Input.GetKey(KeyCode.LeftShift)){
                           planeoParticle.SetActive(true);
-                        //Audio propulsores
+                        //Audio planeo
                         audio.Play();
-                        audio.clip = propulsoresClip;
+                        audio.clip = jetpackClip;
                         audio.Play();
                         gravity = glidingGravity;
-                     } 
+                        
+                    } 
                     else
                     {
                      gravity = -36f;
                      planeoParticle.SetActive(false);
-                        audio.clip = propulsoresClip;
-                        audio.Stop();
+                        
+                        //audio.clip = jetpackClip;
+                        //audio.Stop();
 
                     }
+                 }
              }
           }
-     }
         if (isGrounded)
 
         {
@@ -227,7 +230,7 @@ public class ThirdPersonMovement : MonoBehaviour
             
             
         }
-        }
+    }
         
 
        public IEnumerator SubeBuf(float time)
