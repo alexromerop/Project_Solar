@@ -18,6 +18,7 @@ public class CutscenesManager : MonoBehaviour
 
     public GameObject endCanvas;
      public Generic_Activator Activator;
+     
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other){
         if(other.tag=="Player" && name=="TriggerCinematica2"){
@@ -28,18 +29,30 @@ public class CutscenesManager : MonoBehaviour
             StartCoroutine(CinematicaNoche(2.85f));
         }
         if(other.tag=="Player" && gameObject.name=="TriggerCinematica1"){
-            
-            
             other.transform.position = playerTransform.transform.position;
             other.transform.rotation = playerTransform.transform.rotation;
             StartCoroutine(CinematicaCogerRob(580f*Time.deltaTime));
+        }
+        if(other.tag=="Player" && gameObject.name=="TriggerCinematicaCarreta"){
             
             
+            other.transform.parent = playerTransform;
+             other.transform.localPosition = new Vector3(0, 0, 0);
+            other.transform.localEulerAngles = new Vector3(0, 0, 0);
+            StartCoroutine(CinematicaCarretillaFinal(580f*Time.deltaTime));
         }
     }
 
      
-
+    public IEnumerator CinematicaCarretillaFinal(float time)
+    {
+        Debug.Log("Animacion Carretilla");
+        player.enabled=false;
+        MainCamera.SetActive(false);
+        CameraCinematica2.SetActive(true);
+        Timeline2.SetActive(true);
+        yield return new WaitForSeconds(50*Time.deltaTime);
+    }
 
      public IEnumerator CinematicaCogerRob(float time)
     {
