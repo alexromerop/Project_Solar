@@ -85,6 +85,7 @@ public class ThirdPersonMovement : MonoBehaviour
     bool canJump;
 
     private AudioSource audio;
+    bool gladingSound;
 
     public bool movment = true;
     IEnumerator SpawnSparkle(float time){
@@ -192,9 +193,14 @@ public class ThirdPersonMovement : MonoBehaviour
                      if (Input.GetKey(KeyCode.LeftShift)){
                           planeoParticle.SetActive(true);
                         //Audio planeo
-                        audio.Play();
-                        audio.clip = jetpackClip;
-                        audio.Play();
+                        Debug.Log("Planeando");
+                        if (gladingSound == false) {
+                            
+                            audio.clip = jetpackClip;
+                            audio.Play();
+                            gladingSound = true;
+                        }
+                        
                         gravity = glidingGravity;
                         
                     } 
@@ -202,11 +208,10 @@ public class ThirdPersonMovement : MonoBehaviour
                     {
                      gravity = -36f;
                      planeoParticle.SetActive(false);
-                        
-                        //audio.clip = jetpackClip;
-                        //audio.Stop();
+                       
 
                     }
+
                  }
              }
           }
@@ -217,6 +222,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
             gravity = -36f;
             planeoParticle.SetActive(false);
+            //Audio Planeo Stop
+            if (gladingSound == true)
+            {
+                gladingSound = false;
+                audio.Stop();
+            }
         }
         else
         {
