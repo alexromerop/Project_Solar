@@ -1423,7 +1423,7 @@ MonoBehaviour:
   sparkMochila: {fileID: 5464377149726581022}
   planeoParticle: {fileID: 5464377148049495012}
   propulsoresClip: {fileID: 8300000, guid: ca302bb2a8502c94e849a154a8370fd9, type: 3}
-  jetpackClip: {fileID: 8300000, guid: cd0507eb4b24b5e4f8986c82a6a1669f, type: 3}
+  jetpackClip: {fileID: 8300000, guid: 3b672fad1f1e3e745917e2d6442390f0, type: 3}
   movment: 1
   AlturaSalto: 4
   DIA_Manager: {fileID: 5464377147905107287}
