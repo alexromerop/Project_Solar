@@ -37,6 +37,7 @@ public GameObject UiPickUp;
     }
     void Update()
     {
+        if (UiPickUp)
         if(take1 == true || take2 == true)
         {
             
