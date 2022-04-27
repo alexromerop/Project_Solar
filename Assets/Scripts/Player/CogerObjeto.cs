@@ -26,7 +26,9 @@ public GameObject UiPickUp;
     public bool take2;
     public bool taked = false;
 
-
+    public AudioSource audioSourceHand;
+    public AudioClip audioRastrilloClip;
+    public AudioClip audioBateriaClip;
 
 
 
@@ -61,8 +63,10 @@ public GameObject UiPickUp;
                     pickedObject.gameObject.transform.SetParent(null);
                     pickedObject = null;
                     taked = false;
-                }
+                    
 
+                }
+               
                 if (pickedBox != null)
                 {
                     pickedBox.GetComponent<Rigidbody>().isKinematic = false;
@@ -80,13 +84,17 @@ public GameObject UiPickUp;
     }
 
 
- void OnTriggerEnter(Collider other)
-{   if(other.gameObject.CompareTag("Box") && !take2 && !take1)
-    {
-    Explorar.SetActive(true);
-     StartCoroutine(ExploOut());
+     void OnTriggerEnter(Collider other)
+     {   
+            if(other.gameObject.CompareTag("Box") && !take2 && !take1)
+            {
+                 Explorar.SetActive(true);
+                 StartCoroutine(ExploOut());
+            }
+
+       
+
     }
-}
 
 private void OnTriggerStay(Collider other)
 {
@@ -159,6 +167,14 @@ private void OnTriggerStay(Collider other)
                         pickedObject = other.gameObject;
 
                         other.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        //Sonido de recoger cosas
+                        if (other.tag == "Pickable")
+                        {
+                            Debug.Log("Sonido Rake");
+
+                            audioSourceHand.PlayOneShot(audioRastrilloClip);
+                        }
+
 
                     }
         }
@@ -199,14 +215,14 @@ private void OnTriggerStay(Collider other)
 
             UiPickUp.SetActive(false);
 
-        }
+           }
         if(other.gameObject.CompareTag("Pickable") && pickedObject==null && !picked){
 
 
             UiPickUp.SetActive(false);
 
         }
-    }
+     }
 
     
 IEnumerator TimerF(GameObject A)
