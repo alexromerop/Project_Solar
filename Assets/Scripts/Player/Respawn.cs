@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-  public ThirdPersonMovement thirdPersonMovement;
-  public GameObject Player;
+  private ThirdPersonMovement thirdPersonMovement;
+  private GameObject Player;
   public Transform respawnPoint;
 
-  void OnTriggerEnter(Collider other){
+    private void Start()
+    {
+        Player = GameObject.Find("Player");
+        thirdPersonMovement = Player.GetComponent<ThirdPersonMovement>();
+
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(Teleport(1f));
+
+        }
+    }
+    void OnTriggerEnter(Collider other){
       if(other.tag=="Player"){
           StartCoroutine(Teleport(1f));
       }
