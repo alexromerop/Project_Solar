@@ -203,7 +203,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _AnimationParams: {r: 1, g: 1, b: 2.6199996, a: 0}
-    - _BaseColor: {r: 0.091313645, g: 0.7169812, b: 0.28076708, a: 1}
+    - _BaseColor: {r: 0.09019609, g: 0.7176471, b: 0.09857705, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DepthMapBounds: {r: -402.3, g: -459.43, b: 0.0012693577, a: 0}
     - _DistanceNormalParams: {r: 100, g: 300, b: 0.25, a: 0}

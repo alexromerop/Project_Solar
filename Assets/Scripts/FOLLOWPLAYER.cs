@@ -14,7 +14,7 @@ public class FOLLOWPLAYER : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position=player.position;
+        transform.position=new Vector3( player.position.x, player.position.y+1, player.position.z);
         transform.eulerAngles = player.eulerAngles;
     }
 }
