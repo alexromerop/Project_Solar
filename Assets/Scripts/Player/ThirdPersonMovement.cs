@@ -457,4 +457,15 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
+
+  
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //call respawn function
+       
+        Debug.Log("aadassdaa");
+
+    }
+
 }
