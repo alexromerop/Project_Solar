@@ -139,7 +139,7 @@ public class PhotoCapture : MonoBehaviour
         System.DateTime.UtcNow.ToString();
         System.DateTime theTime = System.DateTime.Now;
         
-        string a = theTime.ToString("yyyy-MM-dd\\THHmmss");
+        string a = theTime.ToString(","+"yyyy-MM-dd\\THHmmss");
         string b = theTime.ToString("dd-MM-2147");
 
 
@@ -157,7 +157,7 @@ public class PhotoCapture : MonoBehaviour
         }
         date.text = b;
 
-        var dirPath = Application.dataPath + "/RenderOutput";
+        var dirPath = Application.dataPath + "/Resources/RenderOutput";
         if (!System.IO.Directory.Exists(dirPath))
         {
             System.IO.Directory.CreateDirectory(dirPath);
