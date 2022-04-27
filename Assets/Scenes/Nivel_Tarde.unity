@@ -17575,6 +17575,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521848229}
   m_Mesh: {fileID: 2212009239438826721, guid: 79f6710e9599ee542a7d1452ac41021f, type: 3}
+--- !u!1 &522468155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762740068}
+  m_Layer: 0
+  m_Name: Recovery GameObject (1762740068)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &525032569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2771847892021959446, guid: bbad8d94a0e96224e8f6032d648829b1, type: 3}
@@ -29993,6 +30009,22 @@ Transform:
   m_Father: {fileID: 128728308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -17.009, z: 0}
+--- !u!1 &1026551887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1866227886}
+  m_Layer: 0
+  m_Name: Recovery GameObject (1866227886)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1027961694
 PrefabInstance:
   m_ObjectHideFlags: 0
