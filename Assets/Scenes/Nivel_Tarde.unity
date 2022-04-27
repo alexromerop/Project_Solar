@@ -28624,6 +28624,10 @@ PrefabInstance:
       value: Water (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4189345276932621998, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189345276932621998, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 3
       objectReference: {fileID: 0}
@@ -45972,6 +45976,10 @@ PrefabInstance:
       value: Water (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4189345276932621998, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189345276932621998, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 3
       objectReference: {fileID: 0}
@@ -47877,6 +47885,10 @@ PrefabInstance:
     - target: {fileID: 4189345276932621985, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
       propertyPath: m_Name
       value: Water (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189345276932621998, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4189345276932621998, guid: fd42a63dc090d8644b5fe5a09feeb2b3, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
