@@ -14,6 +14,8 @@ public class LookAtFreeze : MonoBehaviour
     public Vector3 velocity = Vector3.zero;
     public float speed;
 
+    public bool cam_colliison;
+
     void OnLeaveGround()
 {
     // update Y for behavior 3
@@ -30,7 +32,7 @@ public class LookAtFreeze : MonoBehaviour
         
     }
     void Update() {
-        if (personaje)
+        if (personaje&& !cam_colliison)
         {
             if (personaje.gravity == -1)
             {
@@ -44,6 +46,10 @@ public class LookAtFreeze : MonoBehaviour
             {
                 OnLeaveGround();
             }
+        }
+        else
+        {
+            speed = 0;
         }
     }
 

@@ -14397,7 +14397,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 30
+  m_CookingOptions: -1
   m_Mesh: {fileID: -1550514412580984892, guid: 106a9ac095f1f524b8b8d8a5172a8045, type: 3}
 --- !u!1 &360393599
 GameObject:
@@ -26097,7 +26097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -122.18
+      value: -121.89
       objectReference: {fileID: 0}
     - target: {fileID: 5282008760281612867, guid: e218d5d62b2446a46b777c73d88d0a9e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37843,6 +37843,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1373880826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5464377148106164623, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+  m_PrefabInstance: {fileID: 5464377148694370219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1375128909
 Transform:
   m_ObjectHideFlags: 0
@@ -72264,6 +72269,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5464377148106164621, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: cam_colliison
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377148106164622, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -72412,9 +72421,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5464377149349759457, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377149349759457, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377149349759464, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377149349759465, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5464377149349759465, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_IsActive
@@ -72425,13 +72446,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2085628978}
     - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1373880826}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: CameraUi
       value: 
       objectReference: {fileID: 2099099972}
     - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: _smoothTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: CameraManager
       value: 
       objectReference: {fileID: 1846103731}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: _mouseSensitivity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377149349759468, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: collisionLayer.m_Bits
+      value: 32777
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377149349759470, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: healthBar
       value: 

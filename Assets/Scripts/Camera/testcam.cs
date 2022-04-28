@@ -27,7 +27,7 @@ public class testcam : MonoBehaviour
     private float _rotationX;
 
     [SerializeField]
-    private Transform _target;                                  //camera pivot and follow
+    private GameObject _target;                                  //camera pivot and follow
     [SerializeField]
     public Transform lookme;                                  //camera pivot and follow
 
@@ -50,7 +50,7 @@ public class testcam : MonoBehaviour
     private Vector2 _rotationXMinMax = new Vector2(-40, 40);
 
     public Transform cameraTransform;                           //transform actual camera
-    public float cameraCollisionRadius= 0.25f;
+    public float cameraCollisionRadius= 0.4f;
 
 
     public LayerMask collisionLayer;
@@ -82,10 +82,15 @@ public class testcam : MonoBehaviour
         smoothTime_ = _smoothTime;
     }
 
+    private void LateUpdate()
+    {
+        Camera();
+
+    }
+
     void Update()
     {
 
-        Camera();
 
 
         if (Input.GetKeyDown(KeyCode.F) && canCam == true )
@@ -122,7 +127,7 @@ public class testcam : MonoBehaviour
         transform.localEulerAngles = _currentRotation;
 
 
-        Vector3 heading = this.gameObject.transform.position - _target.position;
+        Vector3 heading = this.gameObject.transform.position - _target.transform.position;
         float distance = heading.magnitude;
         Vector3 direction = heading / distance;
         direction.Normalize();
@@ -135,15 +140,28 @@ public class testcam : MonoBehaviour
 
         if (oncam == false)
         {
+            //Physics.SphereCastAll(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), 0.4f, direction);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.4f);
 
-            if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), 0.39f, direction, out hit, 6, collisionLayer, QueryTriggerInteraction.UseGlobal))
+            foreach (Collider collider in hitColliders)
             {
+                Debug.Log(collider.ClosestPoint(player.transform.position));
+            }
 
+            cameraCollisionRadius = _distanceFromTarget*0.23f;
+
+
+            if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), cameraCollisionRadius, direction, out hit, _distanceFromTarget, collisionLayer, QueryTriggerInteraction.UseGlobal))
+            {
+                
                 _distanceFromTarget = hit.distance;
 
+                //cameraCollisionRadius = _distanceFromTarget;
+
             }
+           
         }
-            transform.position = _target.position - transform.forward * (_distanceFromTarget-0.01f);
+            transform.position = _target.transform.position - transform.forward * (_distanceFromTarget);
       
         
     }
@@ -201,7 +219,7 @@ public class testcam : MonoBehaviour
     {
         
         Gizmos.color = Color.yellow;
-        //Gizmos.DrawSphere(transform.position, cameraCollisionRadius);
+        Gizmos.DrawSphere(transform.position, cameraCollisionRadius);
         Gizmos.DrawWireSphere(transform.position, 0.25f);
 
     }
