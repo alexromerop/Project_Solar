@@ -130,6 +130,7 @@ public class testcam : MonoBehaviour
         Vector3 heading = this.gameObject.transform.position - _target.transform.position;
         float distance = heading.magnitude;
         Vector3 direction = heading / distance;
+        Vector3 dir;
         direction.Normalize();
         dir = direction;
        
@@ -140,9 +141,13 @@ public class testcam : MonoBehaviour
 
         if (oncam == false)
         {
+            cameraCollisionRadius = _distanceFromTarget * 0.23f;
+
+
            
 
-            cameraCollisionRadius = _distanceFromTarget*0.23f;
+            
+
 
 
             if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), cameraCollisionRadius, direction, out hit, _distanceFromTarget, collisionLayer, QueryTriggerInteraction.UseGlobal))
