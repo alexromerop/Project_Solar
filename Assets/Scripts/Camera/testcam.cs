@@ -140,13 +140,7 @@ public class testcam : MonoBehaviour
 
         if (oncam == false)
         {
-            //Physics.SphereCastAll(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), 0.4f, direction);
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.4f);
-
-            foreach (Collider collider in hitColliders)
-            {
-                Debug.Log(collider.ClosestPoint(player.transform.position));
-            }
+           
 
             cameraCollisionRadius = _distanceFromTarget*0.23f;
 
