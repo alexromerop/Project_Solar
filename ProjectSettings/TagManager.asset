@@ -38,6 +38,7 @@ TagManager:
   - Concrete
   - test
   - Kraggi
+  - EcoTrigger
   layers:
   - Default
   - TransparentFX
