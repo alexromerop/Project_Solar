@@ -211,18 +211,23 @@ public class ThirdPersonMovement : MonoBehaviour
 
         {
             GetComponent<CharacterController>().radius = 0.6f;
+            groundDistance = 0.6f;
 
             gravity = -36f;
             planeoParticle.SetActive(false);
         }
         else
         {
-            GetComponent<CharacterController>().radius = 0.03f;
+            GetComponent<CharacterController>().radius = 0.6f;
+            groundDistance = 0.6f;
+
 
         }
         if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope && canJump && !gameObject.GetComponent<ObstalePush_>().oncollider_) 
         {
-            GetComponent<CharacterController>().radius = 0.03f;
+            GetComponent<CharacterController>().radius = 0.6f;
+            groundDistance = 0.05f;
+
             velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
             
             
@@ -420,6 +425,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     speed_ = speed * 0.2f;
                     box.transform.SetParent(null);
                     GetComponent<CharacterController>().radius = 0.6f;
+                    groundDistance = 0.6f;
 
                 }
                 else if (vertical < 0f)
@@ -427,7 +433,8 @@ public class ThirdPersonMovement : MonoBehaviour
                     speed_ = -speed * 0.2f;
 
                     // speed_ = -speed * 0.5f;
-                    GetComponent<CharacterController>().radius = 0.03f;
+                    GetComponent<CharacterController>().radius = 0.6f;
+                    groundDistance = 0.6f;
 
                     box.transform.SetParent(transform);
                 }
