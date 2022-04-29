@@ -56,6 +56,8 @@ public class MochilaController : MonoBehaviour
          
           if(Movimiento.buf==false){
           Movimiento.vida -= 6f*Time.deltaTime;
+          }else{
+              Movimiento.vida-=1.6f*Time.deltaTime;
           }
             
   
