@@ -35,11 +35,24 @@ public class Respawn : MonoBehaviour
   }
   public IEnumerator Teleport(float time)
     {
+        animator = GameObject.Find("Panel").GetComponent<Animator>();
+    }
+
+    void OnTriggerEnter(Collider other){
+        if(other.tag=="Player"){
+            StartCoroutine(Teleport(1f));
+        }
+        
+    }
+    public IEnumerator Teleport(float time)
+    {
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
+        Fadeout();
         yield return new WaitForSeconds(.1f);
         Player.transform.position = respawnPoint.position;
         yield return new WaitForSeconds(.1f);
+        Fadein();
         thirdPersonMovement.disable = false;
         
     }
@@ -61,4 +74,12 @@ public class Respawn : MonoBehaviour
 
     }
 
+    }
+        animator.Play("FadeIN");
+    {
+    public void Fadein()
+    }
+        animator.Play("FadeOUT");
+    {
+    public void Fadeout()
 }
