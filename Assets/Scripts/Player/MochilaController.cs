@@ -46,7 +46,9 @@ public class MochilaController : MonoBehaviour
       if(other.name== "CambioPrimerRay"){
          lightLookAtMe.RayCastBegin=lightLookAtMe.Raycast1;
      }
-         
+         if(other.tag=="RecargaLuz"){
+             energia = 5;
+         }
    }
    
     
