@@ -8,12 +8,17 @@ public class Respawn : MonoBehaviour
     public GameObject Player;
     public Transform respawnPoint;
     public Animator animator;
-  
+
+    private void Awake()
+    {
+        animator = GameObject.Find("Panel").GetComponent<Animator>();
+    }
 
     void OnTriggerEnter(Collider other){
         if(other.tag=="Player"){
             StartCoroutine(Teleport(1f));
         }
+        
     }
     public IEnumerator Teleport(float time)
     {
