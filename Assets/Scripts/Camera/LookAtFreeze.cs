@@ -15,32 +15,38 @@ public class LookAtFreeze : MonoBehaviour
     public float speed;
 
     public bool cam_colliison;
+    private GameObject player;
+    private GameObject playerpref;
+
 
     void OnLeaveGround()
 {
     // update Y for behavior 3
     ghostPositionY = CharacterMesh.position.y;
 
+        
 
-}
+    }
 
-   
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
+        playerpref = GameObject.Find("PlayerPref");
     }
     void Update() {
         if (personaje&& !cam_colliison)
         {
+            this.transform.parent = playerpref.transform.parent;
             if (personaje.gravity == -1)
             {
                 speed = 20;
             }
             else
             {
-                speed = 10;
+                speed = 5;
             }
             if (personaje.isGrounded == true)
             {
@@ -49,6 +55,7 @@ public class LookAtFreeze : MonoBehaviour
         }
         else
         {
+            this.transform.parent = player.transform;
             speed = 0;
         }
     }

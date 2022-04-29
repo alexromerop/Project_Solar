@@ -38,7 +38,7 @@ public class Respawn : MonoBehaviour
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
         yield return new WaitForSeconds(.1f);
-        Player.transform.position = OriginRespawn.position;
+        Player.transform.position = respawnPoint.position;
         yield return new WaitForSeconds(.1f);
         thirdPersonMovement.disable = false;
         
@@ -46,7 +46,19 @@ public class Respawn : MonoBehaviour
     void Update(){
         if(thirdPersonMovement)
         if(thirdPersonMovement.vida<0){
-            StartCoroutine(Teleport(1f));
+            StartCoroutine(TeleportDeath(1f));
         }
     }
+
+    public IEnumerator TeleportDeath(float time)
+    {
+        Debug.Log("TELEPORT");
+        thirdPersonMovement.disable = true;
+        yield return new WaitForSeconds(.1f);
+        Player.transform.position = OriginRespawn.position;
+        yield return new WaitForSeconds(.1f);
+        thirdPersonMovement.disable = false;
+
+    }
+
 }
