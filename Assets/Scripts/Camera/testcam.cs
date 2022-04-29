@@ -141,7 +141,7 @@ public class testcam : MonoBehaviour
 
         if (oncam == false)
         {
-            cameraCollisionRadius = _distanceFromTarget * 0.23f;
+            //cameraCollisionRadius = _distanceFromTarget * 0.23f;
 
 
            
@@ -153,9 +153,13 @@ public class testcam : MonoBehaviour
             if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), cameraCollisionRadius, direction, out hit, _distanceFromTarget, collisionLayer, QueryTriggerInteraction.UseGlobal))
             {
                 
-                _distanceFromTarget = hit.distance;
-
-                //cameraCollisionRadius = _distanceFromTarget;
+                    _distanceFromTarget = hit.distance;
+                if (_distanceFromTarget < 0)
+                {
+                    _distanceFromTarget = 0;
+                }
+                
+               
 
             }
            
@@ -218,8 +222,8 @@ public class testcam : MonoBehaviour
     {
         
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, cameraCollisionRadius);
-        Gizmos.DrawWireSphere(transform.position, 0.25f);
+        //Gizmos.DrawSphere(transform.position, cameraCollisionRadius);
+        Gizmos.DrawWireSphere(transform.position, cameraCollisionRadius);
 
     }
 }
