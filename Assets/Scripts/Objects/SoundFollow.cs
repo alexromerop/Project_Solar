@@ -7,10 +7,14 @@ public class SoundFollow : MonoBehaviour
 {
     // path manager from the "Simple Waypoints" (http://www.rebound-games.com/?page_id=39)
     // you can assign waypoints directly in waypoints
-   /* public PathManager manager;
+   /*public Waypoints points;
 
     // this can be made public and assigned directly
     private Vector3[] waypoints;
+
+    public Vector3 puntos;
+
+    public Vector2 AlPunto;
 
     private Transform player;
     private Transform trans;
@@ -18,10 +22,13 @@ public class SoundFollow : MonoBehaviour
     void Awake()
     {
         // specific functionality
-        waypoints = new Vector3[manager.waypoints.Length];
-        for (var i = 0; i < manager.waypoints.Length; i++)
+        //waypoints = new Vector3[points.waypoints.Length];
+        //puntos = new Vector3[points.puntos.Length];
+        AlPunto = new Vector2(0.0f,0.0f);
+
+        for (var i = 0; i < points.waypoints.Length; i++)
         {
-            waypoints[i] = manager.waypoints[i].position;
+            waypoints[i] = points.waypoints[i].position;
         }
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
