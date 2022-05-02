@@ -24,6 +24,8 @@ public GameObject UiPickUp;
 
     public bool take1;
     public bool take2;
+    private bool take3;
+
     public bool taked = false;
 
 
@@ -34,22 +36,29 @@ public GameObject UiPickUp;
     private void Start()
     {
         cam = GameObject.Find("Camera");
+        if (take1 == true || take2 == true)
+        {
+
+            UiPickUpCam.SetActive(true);
+        }
     }
     void Update()
     {
         if (UiPickUp)
-        if(take1 == true || take2 == true)
+        if((take1 == true || take2 == true)&& !take3)
         {
             
             UiPickUpCam.SetActive(true);
+               
         }
-        if (take2 && take1)
+        if ((take2 && take1 )&& !take3)
         {
            
             cam.GetComponent<testcam>().canCam = true;
             player.GetComponent<ObstalePush_>().enabled = true;
+            take3 = true;
         }
-       
+
         if (pickedObject!=null || pickedBox!=null){
             if(Input.GetMouseButtonDown(0)&& taked)
             {
