@@ -77,10 +77,11 @@ public class AnimatorHoopCtrl : MonoBehaviour
             }
 
         }
-        anim.SetFloat(VelocityHash, Movimiento.speed);
 
         if (Movimiento)
         {
+            anim.SetFloat(VelocityHash, Movimiento.speed);
+
             if (Movimiento.danger == true)
             {
                 anim.runtimeAnimatorController = anim2;

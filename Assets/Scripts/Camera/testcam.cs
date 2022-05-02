@@ -8,8 +8,6 @@ public class testcam : MonoBehaviour
     private bool oncam;
     private bool oncam_;
 
-    public Renderer[] RendPlayer;
-    private Renderer[] player_;
 
     [SerializeField]
     private GameObject player;
@@ -63,7 +61,7 @@ public class testcam : MonoBehaviour
     [SerializeField] private Animator ZoomIn;
 
 
-    public Vector3 dir;
+    
     public float hitDistance;
     public GameObject hitObjet;
 
@@ -73,13 +71,25 @@ public class testcam : MonoBehaviour
 
     RaycastHit hit;
 
+
     public BoxCollider Cheker;
+
+
+    private Vector3 nextRotation;
+    float mouseX;
+    float mouseY;
+    Vector3 heading;
+    float distance;
+    Vector3 direction;
+   
+
     private void Awake()
     {
         pauseMenu = GameObject.Find("PauseMenu");
-        player_ = RendPlayer;
+ 
         distanceFromTarget_ = _distanceFromTarget;
         smoothTime_ = _smoothTime;
+
     }
 
     private void LateUpdate()
@@ -88,8 +98,9 @@ public class testcam : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update()
     {
+
 
 
 
@@ -111,8 +122,8 @@ public class testcam : MonoBehaviour
     }
     void Camera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * -1;
+        mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
+        mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * -1;
 
         _rotationY += mouseX;
         _rotationX += mouseY;
@@ -120,19 +131,18 @@ public class testcam : MonoBehaviour
         // Apply clamping for x rotation 
         _rotationX = Mathf.Clamp(_rotationX, _rotationXMinMax.x, _rotationXMinMax.y);
 
-        Vector3 nextRotation = new Vector3(_rotationX, _rotationY);
+        nextRotation = new Vector3(_rotationX, _rotationY);
 
         // Apply damping between rotation changes
         _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
         transform.localEulerAngles = _currentRotation;
 
 
-        Vector3 heading = this.gameObject.transform.position - _target.transform.position;
-        float distance = heading.magnitude;
-        Vector3 direction = heading / distance;
-        Vector3 dir;
+        heading = this.gameObject.transform.position - _target.transform.position;
+        distance = heading.magnitude;
+        direction = heading / distance;
         direction.Normalize();
-        dir = direction;
+        
        
 
 
@@ -168,6 +178,7 @@ public class testcam : MonoBehaviour
       
         
     }
+   
     #region Polaroid
     IEnumerator ChangeCamera()
     {
@@ -218,12 +229,4 @@ public class testcam : MonoBehaviour
     #endregion
 
 
-    void OnDrawGizmosSelected()
-    {
-        
-        Gizmos.color = Color.yellow;
-        //Gizmos.DrawSphere(transform.position, cameraCollisionRadius);
-        Gizmos.DrawWireSphere(transform.position, cameraCollisionRadius);
-
-    }
 }

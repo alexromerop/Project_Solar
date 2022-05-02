@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3613591720309181682}
   - component: {fileID: 2226597962309245865}
   - component: {fileID: 8439392059263843295}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053107680182324446}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832066136840852909}
   - component: {fileID: 2344679013723359598}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: ParedRompibleTrozos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 2830979633287875191}
   - component: {fileID: 2226597963214004212}
   - component: {fileID: 6475575383452825575}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2330413993725694839}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 3772762623869062216}
   - component: {fileID: 2226597962621241771}
   - component: {fileID: 7844500992125370724}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2666305169242266942}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 3470907565346070313}
   - component: {fileID: 2226597962477090463}
   - component: {fileID: 3858148130318442633}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751255462704683134}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 2673625725775041998}
   - component: {fileID: 2226597961876846153}
   - component: {fileID: 674803972935754545}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4384636017830746802}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 309054571709389084}
   - component: {fileID: 2226597961495684302}
   - component: {fileID: 5173234790699940187}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4995510087661935390}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 6832958845285347809}
   - component: {fileID: 2226597962365280581}
   - component: {fileID: 3122559137573076141}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7456636165868773264}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 2729621665964840440}
   - component: {fileID: 2226597961609736498}
   - component: {fileID: 4719552263540688626}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Cube_cell.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7648430105489003017}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
