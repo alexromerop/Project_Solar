@@ -8,6 +8,7 @@ public class Respawn : MonoBehaviour
   private GameObject Player;
   public Transform respawnPoint;
     private Transform OriginRespawn;
+    public Animator anim;
 
 
     private void Start()
@@ -37,9 +38,11 @@ public class Respawn : MonoBehaviour
     {
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
-        yield return new WaitForSeconds(.1f);
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(.3f);
+        
         Player.transform.position = respawnPoint.position;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.3f);
         thirdPersonMovement.disable = false;
         
     }
@@ -50,11 +53,16 @@ public class Respawn : MonoBehaviour
         }
     }
 
+    void Awake() {
+         anim = GameObject.Find("Panel").GetComponent<Animator>();
+    }
     public IEnumerator TeleportDeath(float time)
     {
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
+        anim.SetTrigger("Death");
         yield return new WaitForSeconds(.1f);
+         
         Player.transform.position = OriginRespawn.position;
         yield return new WaitForSeconds(.1f);
         thirdPersonMovement.disable = false;
