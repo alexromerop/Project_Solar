@@ -159,7 +159,7 @@ Material:
     - _ReflectionDistortion: 0.0467
     - _ReflectionFresnel: 5
     - _ReflectionLighting: 1
-    - _ReflectionStrength: 0.335
+    - _ReflectionStrength: 1
     - _Reflectivity: 1
     - _RefractionAmount: 0.05
     - _RefractionOn: 1
