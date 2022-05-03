@@ -22,7 +22,7 @@ public class LookAtFreeze : MonoBehaviour
     void OnLeaveGround()
 {
     // update Y for behavior 3
-    ghostPositionY = CharacterMesh.position.y;
+    //ghostPositionY = CharacterMesh.position.y;
 
         
 
@@ -37,6 +37,7 @@ public class LookAtFreeze : MonoBehaviour
         playerpref = GameObject.Find("PlayerPref");
     }
     void Update() {
+        ghostPositionY = CharacterMesh.position.y;
         if (personaje&& !cam_colliison)
         {
             this.transform.parent = playerpref.transform.parent;
@@ -69,11 +70,11 @@ public class LookAtFreeze : MonoBehaviour
 
             if (characterViewPos.y > 0.99f || characterViewPos.y < 0.5f)
             {
-                ghostPositionY = CharacterMesh.position.y;
+                //ghostPositionY = CharacterMesh.position.y;
             }
             else if (personaje.isGrounded == true)
             {
-                ghostPositionY = CharacterMesh.position.y;
+                //ghostPositionY = CharacterMesh.position.y;
             }
             var desiredPosition = new Vector3(CharacterMesh.position.x, ghostPositionY, CharacterMesh.position.z);
             ghostTransform.position = Vector3.SmoothDamp(ghostTransform.position, desiredPosition, ref velocity, speed * Time.deltaTime);
