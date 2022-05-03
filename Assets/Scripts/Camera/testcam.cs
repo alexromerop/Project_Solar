@@ -81,10 +81,13 @@ public class testcam : MonoBehaviour
     Vector3 heading;
     float distance;
     Vector3 direction;
+    public Canvas[] canvas;
    
 
     private void Awake()
     {
+        canvas = FindObjectsOfType<Canvas>();
+       
         pauseMenu = GameObject.Find("PauseMenu");
  
         distanceFromTarget_ = _distanceFromTarget;
@@ -186,6 +189,7 @@ public class testcam : MonoBehaviour
         {
             if (!CamMode)
             {
+               
                 pauseMenu.SetActive(false);
                 Cheker.enabled = true;
                 oncam = true;
@@ -195,9 +199,11 @@ public class testcam : MonoBehaviour
                 _distanceFromTarget = distanceFromTarget;
                 player.gameObject.SetActive(false);
                 CamMode = true;
+                //desactivar todos los objetos con canvas
+               
                 CameraManager.SetActive(true);
                 CameraUi.SetActive(true);
-                
+
                 
 
             }
@@ -217,6 +223,7 @@ public class testcam : MonoBehaviour
                 CameraUi.SetActive(false);
                 
                 pauseMenu.SetActive(true);
+                //activar todos los objetos con canvas
 
 
             }

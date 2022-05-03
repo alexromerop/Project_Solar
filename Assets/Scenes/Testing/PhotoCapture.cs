@@ -38,11 +38,13 @@ public class PhotoCapture : MonoBehaviour
 
     [SerializeField] public GameObject Animal;
 
+    public Canvas[] canvas;
 
 
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        canvas =FindObjectsOfType<Canvas>();
     }
 
     private void Update()
@@ -61,6 +63,15 @@ public class PhotoCapture : MonoBehaviour
 
     IEnumerator CapturePhoto()
     {
+
+        for (int i = 0; i < canvas.Length; i++)
+        {
+            if (canvas[i] == !CameraUI)
+            {
+                canvas[i].gameObject.SetActive(false);
+            }
+        }
+
         cam.GetComponent<testcam>().canCam=false;
         CameraUI.SetActive(false);
         viewingPhoto = true;
@@ -120,15 +131,24 @@ public class PhotoCapture : MonoBehaviour
 
     //Funcion temporal para quitar la imagen de golpe
     //en un futuro hacer que se minimize mientras se mueve a la izquierda
-    void RemovePhoto() { 
+    void RemovePhoto() {
 
 
-        
+
         viewingPhoto = false;
         photoFrame.SetActive(false);
         CameraUI.SetActive(true);
         cam.GetComponent<testcam>().canCam = true;
 
+        for (int i = 0; i < canvas.Length; i++)
+        {
+            if (canvas[i].gameObject.name == "UI-Canvas")
+            {
+                Debug.Log("wtf");
+            }
+                canvas[i].gameObject.SetActive(true);
+            
+        }
     }
 
 
@@ -177,6 +197,7 @@ public class PhotoCapture : MonoBehaviour
         cam.GetComponent<testcam>()._mouseSensitivity = 2;
 
 
+        
     }
 
 }
