@@ -18,6 +18,7 @@ public class MochilaController : MonoBehaviour
     public GameObject particulaRayo;
 
     public GameObject pico;
+    public GameObject UiCont;
     public Transform rayoSpawner;
     
     public bool destroyed;
@@ -49,7 +50,10 @@ public class MochilaController : MonoBehaviour
          if(other.tag=="RecargaLuz"){
              energia = 5;
          }
-   }
+         if(other.tag == "ZonaContaminada")
+        UiCont.SetActive(true);
+        }
+   
    
     
 
@@ -65,9 +69,13 @@ public class MochilaController : MonoBehaviour
   
       
   }
+
+ 
+         
     void OnTriggerExit(Collider other) {
         if (other.tag == "ZonaContaminada"){
              Movimiento.vida=100;
+             UiCont.SetActive(false);
         }
     }
 
@@ -89,6 +97,7 @@ public class MochilaController : MonoBehaviour
     private void Awake()
     {
         Movimiento = GameObject.Find("Player").GetComponent<ThirdPersonMovement>();
+       
     }
 
     // Start is called before the first frame update

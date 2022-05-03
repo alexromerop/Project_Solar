@@ -6,6 +6,7 @@ public class DestructibleWall : MonoBehaviour
 {
 
     public GameObject destroyedVersion;
+    public GameObject UiPick;
     
     public IEnumerator EsperaAlPico(float time)
     {
@@ -17,12 +18,20 @@ public class DestructibleWall : MonoBehaviour
     {
         gameObject.tag = "ParedRompible";
     }
+   private void OnTriggerEnter(Collider other){
+        UiPick.SetActive(true);
+    }
+
+     private void OnTriggerExit(Collider other){
+        UiPick.SetActive(false);
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" && Input.GetMouseButtonDown(0))
         {
             BreakObject();
+            UiPick.SetActive(false);
         }
     }
 

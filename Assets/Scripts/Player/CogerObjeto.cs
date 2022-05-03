@@ -20,6 +20,7 @@ public GameObject pickedObject = null;
 public GameObject pickedBox = null;
 public GameObject UiPickUp;
     public GameObject UiPickUpCam;
+    public GameObject UiCam;
 
 
     public bool take1;
@@ -40,6 +41,7 @@ public GameObject UiPickUp;
         {
 
             UiPickUpCam.SetActive(true);
+            UiCam.SetActive(true);
         }
     }
     void Update()
@@ -96,6 +98,8 @@ public GameObject UiPickUp;
     Explorar.SetActive(true);
      StartCoroutine(ExploOut());
     }
+    
+    
 }
 
 private void OnTriggerStay(Collider other)

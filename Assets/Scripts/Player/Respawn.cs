@@ -61,10 +61,10 @@ public class Respawn : MonoBehaviour
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
         anim.SetTrigger("Death");
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.3f);
          
         Player.transform.position = OriginRespawn.position;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.3f);
         thirdPersonMovement.disable = false;
 
     }
