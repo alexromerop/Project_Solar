@@ -72,7 +72,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         //Con tecla Esc se activa el menu de pausa
-        if (Input.GetKeyDown(KeyCode.Escape)&& can)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPause)
             {

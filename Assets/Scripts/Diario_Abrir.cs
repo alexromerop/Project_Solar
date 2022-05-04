@@ -8,27 +8,46 @@ public class Diario_Abrir : MonoBehaviour
     public bool Abierto;
     public bool open;
     private GameObject menu;
+    public Canvas[] canvas;
+
     // Start is called before the first frame update
     void Start()
     {
-        menu = FindObjectOfType<MainMenu>().transform.GetChild(0).gameObject;
+        //menu = FindObjectOfType<MainMenu>().transform.GetChild(0).gameObject;
+        canvas = FindObjectsOfType<Canvas>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I) && !menu.activeSelf){
+        if(Input.GetKeyDown(KeyCode.I)){
             if(Abierto==false){
-                menu.GetComponentInParent<MainMenu>().can = false;
-                Abierto=true;
-                Time.timeScale = 0;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
-            Diario.SetActive(true);
+                foreach (Canvas c in canvas)
+                {
+                    if (c.gameObject.name != this.gameObject.name)
+                    {
+                        //c.gameObject.SetActive(false);
+
+                    }
+                }
+                    //menu.GetComponentInParent<MainMenu>().can = false;
+                    Abierto = true;
+                    Time.timeScale = 0;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Diario.SetActive(true);
+                
             }else{
                 if(Abierto==true){
-                    menu.GetComponentInParent<MainMenu>().can = true;
+                    //menu.GetComponentInParent<MainMenu>().can = true;
+                    foreach (Canvas c in canvas)
+                    {
+                        if (c.gameObject.name != this.gameObject.name)
+                        {
+                           // c.gameObject.SetActive(true);
 
+                        }
+                    }
                     Abierto = false;
                     Time.timeScale = 1;
                     Cursor.visible = false;
