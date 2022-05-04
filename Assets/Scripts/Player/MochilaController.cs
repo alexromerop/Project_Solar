@@ -47,9 +47,7 @@ public class MochilaController : MonoBehaviour
       if(other.name== "CambioPrimerRay"){
          lightLookAtMe.RayCastBegin=lightLookAtMe.Raycast1;
      }
-         if(other.tag=="RecargaLuz"){
-             energia = 5;
-         }
+         
          if(other.tag == "ZonaContaminada")
         UiCont.SetActive(true);
         }
@@ -58,6 +56,9 @@ public class MochilaController : MonoBehaviour
     
 
   void OnTriggerStay(Collider other){  
+      if(other.tag=="RecargaLuz"){
+             energia = 5;
+         }
      if(other.tag == "ZonaContaminada")
          
           if(Movimiento.buf==false){
@@ -65,6 +66,7 @@ public class MochilaController : MonoBehaviour
           }else{
               Movimiento.vida-=1.6f*Time.deltaTime;
           }
+
             
   
       
