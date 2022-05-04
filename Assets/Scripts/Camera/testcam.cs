@@ -108,13 +108,13 @@ public class testcam : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.F) && canCam == true && !menu.activeSelf )
+        if (Input.GetKeyDown(KeyCode.F) && canCam == true )
         {
             Debug.Log("adasd");
             StartCoroutine( ChangeCamera());
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true && !menu.activeSelf)
+        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true)
         {
             StartCoroutine(ChangeCamera());
             
