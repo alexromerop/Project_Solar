@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        cam = GameObject.Find("Camera");
+        cam = GameObject.Find("CameraCollider");
         //Resolucion pantalla
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();

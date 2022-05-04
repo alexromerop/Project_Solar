@@ -109,6 +109,7 @@ public class testcam : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && canCam == true )
         {
+            Debug.Log("adasd");
             StartCoroutine( ChangeCamera());
         }
 

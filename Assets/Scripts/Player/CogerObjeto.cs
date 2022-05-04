@@ -39,7 +39,7 @@ public GameObject UiPickUp;
 
     private void Start()
     {
-        cam = GameObject.Find("Camera");
+        cam = GameObject.Find("CameraCollider");
         if (take1 == true || take2 == true)
         {
 
