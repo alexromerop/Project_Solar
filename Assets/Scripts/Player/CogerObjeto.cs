@@ -21,6 +21,7 @@ public GameObject pickedBox = null;
 public GameObject UiPickUp;
     public GameObject UiPickUpCam;
     public GameObject UiCam;
+    public GameObject UiDiario;
 
 
     public bool take1;
@@ -44,6 +45,7 @@ public GameObject UiPickUp;
 
             UiPickUpCam.SetActive(true);
             UiCam.SetActive(true);
+            UiDiario.SetActive(true);
         }
     }
     void Update()
@@ -61,6 +63,7 @@ public GameObject UiPickUp;
             cam.GetComponent<testcam>().canCam = true;
             player.GetComponent<ObstalePush_>().enabled = true;
             take3 = true;
+             UiDiario.SetActive(true);
         }
 
         if (pickedObject!=null || pickedBox!=null){

@@ -18,6 +18,7 @@ public class Respawn : MonoBehaviour
         Player = GameObject.Find("Player");
         thirdPersonMovement = Player.GetComponent<ThirdPersonMovement>();
         OriginRespawn = GameObject.Find("OriginalChekPoint").transform;
+         anim = GameObject.Find("Panel").GetComponent<Animator>();
 
     }
 
@@ -53,9 +54,7 @@ public class Respawn : MonoBehaviour
         }
     }
 
-    void Awake() {
-         anim = GameObject.Find("Panel").GetComponent<Animator>();
-    }
+   
     public IEnumerator TeleportDeath(float time)
     {
         Debug.Log("TELEPORT");

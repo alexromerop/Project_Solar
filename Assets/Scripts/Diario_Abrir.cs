@@ -19,8 +19,8 @@ public class Diario_Abrir : MonoBehaviour
             if(Abierto==false){
                 Abierto=true;
                 Time.timeScale = 0;
-                 Cursor.visible = true;
-
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
             Diario.SetActive(true);
             }else{
                 if(Abierto==true){
@@ -28,6 +28,7 @@ public class Diario_Abrir : MonoBehaviour
                     Time.timeScale = 1;
                     Cursor.visible = false;
                     Diario.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             
             }
