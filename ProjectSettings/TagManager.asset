@@ -39,6 +39,8 @@ TagManager:
   - test
   - Kraggi
   - EcoTrigger
+  - RecargaLuz
+  - Bunny
   layers:
   - Default
   - TransparentFX
@@ -56,8 +58,8 @@ TagManager:
   - Animal
   - OnlyAnimals
   - CamColllision
-  - Zona Contaminada
   - 
+  - TriggersP
   - 
   - 
   - 
