@@ -6,17 +6,20 @@ public class Diario_Abrir : MonoBehaviour
 {
     public GameObject Diario;
     public bool Abierto;
+    public bool open;
+    private GameObject menu;
     // Start is called before the first frame update
     void Start()
     {
-        
+        menu = FindObjectOfType<MainMenu>().transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I)){
+        if(Input.GetKeyDown(KeyCode.I) && !menu.activeSelf){
             if(Abierto==false){
+                menu.GetComponentInParent<MainMenu>().can = false;
                 Abierto=true;
                 Time.timeScale = 0;
                 Cursor.visible = true;
@@ -24,7 +27,9 @@ public class Diario_Abrir : MonoBehaviour
             Diario.SetActive(true);
             }else{
                 if(Abierto==true){
-                    Abierto=false;
+                    menu.GetComponentInParent<MainMenu>().can = true;
+
+                    Abierto = false;
                     Time.timeScale = 1;
                     Cursor.visible = false;
                     Diario.SetActive(false);

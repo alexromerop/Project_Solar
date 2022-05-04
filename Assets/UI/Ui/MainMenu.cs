@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     private GameObject cam;
     private GameObject player;
-
+    public bool can;
 
     private void Start()
     {
@@ -72,7 +72,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         //Con tecla Esc se activa el menu de pausa
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)&& can)
         {
             if (GameIsPause)
             {

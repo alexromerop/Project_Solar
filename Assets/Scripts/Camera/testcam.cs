@@ -82,7 +82,7 @@ public class testcam : MonoBehaviour
     float distance;
     Vector3 direction;
     public Canvas[] canvas;
-   
+    GameObject menu;
 
     private void Awake()
     {
@@ -92,6 +92,7 @@ public class testcam : MonoBehaviour
  
         distanceFromTarget_ = _distanceFromTarget;
         smoothTime_ = _smoothTime;
+        menu = FindObjectOfType<MainMenu>().transform.GetChild(0).gameObject;
 
     }
 
@@ -107,13 +108,13 @@ public class testcam : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.F) && canCam == true )
+        if (Input.GetKeyDown(KeyCode.F) && canCam == true && !menu.activeSelf )
         {
             Debug.Log("adasd");
             StartCoroutine( ChangeCamera());
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true)
+        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true && !menu.activeSelf)
         {
             StartCoroutine(ChangeCamera());
             
