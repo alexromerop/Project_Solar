@@ -4817,6 +4817,8 @@ MonoBehaviour:
   pickedBox: {fileID: 0}
   UiPickUp: {fileID: 0}
   UiPickUpCam: {fileID: 0}
+  UiCam: {fileID: 0}
+  UiDiario: {fileID: 0}
   take1: 0
   take2: 0
   taked: 0
@@ -20286,6 +20288,7 @@ MonoBehaviour:
   electrificado: 0
   particulaRayo: {fileID: 1662375302742038139, guid: f6ce1093ac37a634a85c92b31d51c19f, type: 3}
   pico: {fileID: 5464377148099951873}
+  UiCont: {fileID: 0}
   rayoSpawner: {fileID: 5464377149497698657}
   destroyed: 0
   energySlot: []
@@ -39641,7 +39644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da34983cff7f414c80dca6af31d365d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RendPlayer: []
   player: {fileID: 5464377147905107281}
   CameraManager: {fileID: 0}
   CameraUi: {fileID: 0}
@@ -39658,11 +39660,11 @@ MonoBehaviour:
     m_Bits: 9
   canCam: 0
   ZoomIn: {fileID: 292875832}
-  dir: {x: 0, y: 0, z: 0}
   hitDistance: 0
   hitObjet: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   Cheker: {fileID: 0}
+  canvas: []
 --- !u!114 &5464377149349759469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55156,13 +55158,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
---- !u!4 &543450653155977943 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
-  m_PrefabInstance: {fileID: 552439100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132148632432749 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
+  m_PrefabInstance: {fileID: 552439100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &543450653155977943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37304b498ec6b664687027ada9b00ec6, type: 3}
   m_PrefabInstance: {fileID: 552439100}
   m_PrefabAsset: {fileID: 0}

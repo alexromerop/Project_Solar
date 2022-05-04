@@ -7,8 +7,6 @@ public class LookAtFreeze : MonoBehaviour
     public Transform CharacterMesh;
     public ThirdPersonMovement personaje;
 
-    public Camera cam;
-
     public float ghostPositionY;
     public Transform ghostTransform;
     public Vector3 velocity = Vector3.zero;
@@ -66,16 +64,7 @@ public class LookAtFreeze : MonoBehaviour
     {
         if (personaje)
         {
-            Vector3 characterViewPos = cam.WorldToViewportPoint(CharacterMesh.position + personaje.velocity * Time.deltaTime);
-
-            if (characterViewPos.y > 0.99f || characterViewPos.y < 0.5f)
-            {
-                //ghostPositionY = CharacterMesh.position.y;
-            }
-            else if (personaje.isGrounded == true)
-            {
-                //ghostPositionY = CharacterMesh.position.y;
-            }
+            
             var desiredPosition = new Vector3(CharacterMesh.position.x, ghostPositionY, CharacterMesh.position.z);
             ghostTransform.position = Vector3.SmoothDamp(ghostTransform.position, desiredPosition, ref velocity, speed * Time.deltaTime);
 
