@@ -14,6 +14,8 @@ public class box_scr : MonoBehaviour
     public GameObject trigger;
     public bool boxAnim;
 
+    public AudioSource audio;
+    public AudioClip boxMoveClip;
 
     bool boxpull;
     // Start is called before the first frame update
@@ -26,35 +28,53 @@ public class box_scr : MonoBehaviour
     private void Update()
     {
         if (Player != null) {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Player.GetComponent<ObstalePush_>().enabled)
-        {
-            if (trigger != null)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Player.GetComponent<ObstalePush_>().enabled)
             {
-                if (activado)
+                if (trigger != null)
                 {
-                   
-                    activado = false;
-                    Player.GetComponent<CharacterController>().radius = 0.4f;
-
-                }
-                else
-                {
-                    if (Player != null)
+                    if (activado)
                     {
-                        if (trigger != null)
-                            StartCoroutine(Pullbox(trigger));
+
+                        activado = false;
+                        Player.GetComponent<CharacterController>().radius = 0.4f;
+
                     }
+                    else
+                    {
+                        if (Player != null)
+                        {
+                            if (trigger != null)
+                            {
+                                StartCoroutine(Pullbox(trigger));
+                            }
+                        }
+
+                        activado = true;
+
+                    }
+
+                    //Audio Play de arrastrar la caja
+                    Debug.Log("sonido move box");
+                    audio.clip = boxMoveClip;
+                    audio.Play();
+                    //Audio stop de arrastrar la caja
+                    if (boxpull == true) {
+                        Debug.Log("sin audiobox");
+                        boxpull = false;
+                        audio.clip = boxMoveClip;
+                        audio.Stop();
+                    }
+                   
                     
-                    activado = true;
+                    boxAnim = activado;
 
                 }
-                boxAnim = activado;
 
             }
-
-        }
-    } 
-}
+            
+          
+        } 
+    }
 
     private void OnTriggerStay(Collider other)
     {
