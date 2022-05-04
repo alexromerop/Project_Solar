@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PhotoCapture : MonoBehaviour
 {
     private  string iterator;
-    
+    private int pivot = 0;
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
 
@@ -173,6 +173,11 @@ public class PhotoCapture : MonoBehaviour
         }
         else
         {
+            if (Random.Range(0, 2) == 1)
+            {
+                pivot++;
+                iterator = pivot + iterator;
+            }
             name.text = null;
         }
         date.text = b;

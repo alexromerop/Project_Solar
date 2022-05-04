@@ -22,6 +22,8 @@ public class CinematicCamController : MonoBehaviour
    
      public IEnumerator DesactivaCinematica1()
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         cam.GetComponent<AudioListener>().enabled = false;
         yield return new WaitForSeconds(22);
         cam.GetComponent<AudioListener>().enabled = true;

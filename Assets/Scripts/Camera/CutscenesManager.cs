@@ -48,14 +48,19 @@ public class CutscenesManager : MonoBehaviour
     {
         Debug.Log("Animacion Carretilla");
         player.enabled=false;
+        player.GetComponent<ThirdPersonMovement>().enabled=false;
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
         yield return new WaitForSeconds(50*Time.deltaTime);
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
     }
 
-     public IEnumerator CinematicaCogerRob(float time)
+    public IEnumerator CinematicaCogerRob(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         Debug.Log("COGER ROB CINEMATICA");
         player.enabled=false;
         MainCamera.SetActive(false);
@@ -70,11 +75,15 @@ public class CutscenesManager : MonoBehaviour
         Timeline2.SetActive(false); 
         Destroy(this.gameObject);
         player.enabled=true;
-        
-        
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
+
+
     }
-      public IEnumerator Cinematica2(float time)
+    public IEnumerator Cinematica2(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
@@ -86,12 +95,15 @@ public class CutscenesManager : MonoBehaviour
         MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
-        
+        player.GetComponent<ThirdPersonMovement>().enabled=true;
+
         Destroy(this.gameObject);
     }
    
         public IEnumerator CinematicaNoche(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
@@ -102,9 +114,13 @@ public class CutscenesManager : MonoBehaviour
         Timeline2.SetActive(false);
         player.disable=false;
         Destroy(this.gameObject);
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
     }
-     public IEnumerator CinematicaFinal(float time)
+    public IEnumerator CinematicaFinal(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica3.SetActive(true);
         Timeline3.SetActive(true);
@@ -113,9 +129,13 @@ public class CutscenesManager : MonoBehaviour
         endCanvas.SetActive(true);
         yield return new WaitForSeconds(10f);
         SceneManager.LoadScene(0);
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
     }
-     public IEnumerator CinematicaPozo(float time)
+    public IEnumerator CinematicaPozo(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
@@ -125,6 +145,8 @@ public class CutscenesManager : MonoBehaviour
         MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
         Destroy(this.gameObject);
     }
     void Update(){

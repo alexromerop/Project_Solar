@@ -36,11 +36,19 @@ public class ImageAnimal_scr : MonoBehaviour
                 string name = array2[0];
                 if (name == AnimalName)
                 {
+                    this.gameObject.transform.GetChild(0).GetComponent<Image>().enabled = true;
+                    this.gameObject.GetComponent<Image>().enabled = true;
                     Debug.Log(name);
                     Texture2D t = image;
                     Sprite mySprite = Sprite.Create(t, new Rect(0.0f, 0.0f, t.width, t.height), new Vector2(0.5f, 0.5f), 100.0f);
                     this.gameObject.GetComponent<Image>().sprite = mySprite;
                     return;
+                }
+                else
+                {
+                    this.gameObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
+                    this.gameObject.GetComponent<Image>().enabled = false;
+
                 }
             }
             catch
