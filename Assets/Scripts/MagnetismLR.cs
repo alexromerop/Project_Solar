@@ -19,21 +19,28 @@ public class MagnetismLR : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.tag== "Pila")
+        {
         if (other.GetComponent<Rigidbody>())
         {
             Rigidbody r = other.GetComponent<Rigidbody>();
-
+            
             if(!caughtRigidbodies.Contains(r))
             {
                 //Add Rigidbody
                 caughtRigidbodies.Add(r);
+                  
             }
+            
+        }
+        StartCoroutine(Soltar(other));
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<Rigidbody>())
+   
+         public IEnumerator Soltar(Collider other){
+              yield return new WaitForSeconds(1f);
+             if (other.GetComponent<Rigidbody>())
         {
             Rigidbody r = other.GetComponent<Rigidbody>();
 
@@ -43,5 +50,8 @@ public class MagnetismLR : MonoBehaviour
                 caughtRigidbodies.Remove(r);
             }
         }
-    }
+
+         }
+
+
 }
