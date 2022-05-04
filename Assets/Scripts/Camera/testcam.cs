@@ -86,8 +86,6 @@ public class testcam : MonoBehaviour
 
     private void Awake()
     {
-        canvas = FindObjectsOfType<Canvas>();
-       
         pauseMenu = GameObject.Find("PauseMenu");
  
         distanceFromTarget_ = _distanceFromTarget;
@@ -191,7 +189,11 @@ public class testcam : MonoBehaviour
         {
             if (!CamMode)
             {
-               
+               foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(false);
+                }
+                 
                 pauseMenu.SetActive(false);
                 Cheker.enabled = true;
                 oncam = true;
@@ -227,7 +229,10 @@ public class testcam : MonoBehaviour
                 pauseMenu.SetActive(true);
                 //activar todos los objetos con canvas
 
-
+                foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(true);
+                }
             }
         }
 

@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
     private GameObject cam;
     private GameObject player;
     public bool can;
+    public Canvas[] canvas;
 
     private void Start()
     {
@@ -76,10 +77,18 @@ public class MainMenu : MonoBehaviour
         {
             if (GameIsPause)
             {
+                foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(true);
+                }
                 ContinueGame();
             }
             else
             {
+                foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(false);
+                }
                 Pause();
                 Setting();
             }

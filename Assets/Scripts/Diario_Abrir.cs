@@ -7,26 +7,26 @@ public class Diario_Abrir : MonoBehaviour
     public GameObject Diario;
     public bool Abierto;
     public bool open;
-    private GameObject menu;
+    private GameObject pause;
     public Canvas[] canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        //menu = FindObjectOfType<MainMenu>().transform.GetChild(0).gameObject;
-        canvas = FindObjectsOfType<Canvas>();
+        pause = GameObject.Find("PauseMenu");
+        pause = pause.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I)){
+        if((Input.GetKeyDown(KeyCode.I)|| (Input.GetKeyDown(KeyCode.Escape) && Abierto )) && !pause.activeSelf){
             if(Abierto==false){
                 foreach (Canvas c in canvas)
                 {
                     if (c.gameObject.name != this.gameObject.name)
                     {
-                        //c.gameObject.SetActive(false);
+                        c.gameObject.SetActive(false);
 
                     }
                 }
@@ -44,7 +44,7 @@ public class Diario_Abrir : MonoBehaviour
                     {
                         if (c.gameObject.name != this.gameObject.name)
                         {
-                           // c.gameObject.SetActive(true);
+                            c.gameObject.SetActive(true);
 
                         }
                     }
