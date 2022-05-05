@@ -149,6 +149,10 @@ public class MainMenu : MonoBehaviour
         bool Active = principal.activeSelf;
         principal.SetActive(true);
         cam.GetComponent<testcam>().enabled = false;
+        foreach (Canvas c in canvas)
+        {
+            c.gameObject.SetActive(true);
+        }
 
     }
 
