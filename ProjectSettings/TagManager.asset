@@ -41,6 +41,7 @@ TagManager:
   - EcoTrigger
   - RecargaLuz
   - Bunny
+  - Pelicano
   layers:
   - Default
   - TransparentFX
