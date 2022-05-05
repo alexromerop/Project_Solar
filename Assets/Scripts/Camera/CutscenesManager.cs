@@ -23,22 +23,18 @@ public class CutscenesManager : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other){
         if(other.tag=="Player" && name=="TriggerCinematica2"){
-            BandasN.SetActive(true);
             StartCoroutine(Cinematica2(5.3f));
         }
         if(other.tag=="Player" && name=="CutsceneTriggerNoche"){
-            BandasN.SetActive(true);
             player.speed=13;
             StartCoroutine(CinematicaNoche(2.85f));
         }
         if(other.tag=="Player" && gameObject.name=="TriggerCinematica1"){
-            BandasN.SetActive(true);
             other.transform.position = playerTransform.transform.position;
             other.transform.rotation = playerTransform.transform.rotation;
             StartCoroutine(CinematicaCogerRob(580f*Time.deltaTime));
         }
         if(other.tag=="Player" && gameObject.name=="TriggerCinematicaCarreta"){
-            BandasN.SetActive(true);
             
             
             other.transform.parent = playerTransform;
