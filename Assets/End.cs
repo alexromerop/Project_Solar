@@ -17,7 +17,7 @@ public class End : MonoBehaviour
     {
         yield return new WaitForSeconds(15f);
         Seeu.SetActive(true);
-        yield return new WaitForSeconds(22f);
+        yield return new WaitForSeconds(19f);
         Application.Quit();
 
     }
