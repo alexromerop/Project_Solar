@@ -11,6 +11,7 @@ public class Diario_Abrir : MonoBehaviour
     public Canvas[] canvas;
     public GameObject[] Paginas;
     private testcam cam;
+    public CogerObjeto CogerItem;
 
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class Diario_Abrir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(CogerItem.take2==true){
         if((Input.GetKeyDown(KeyCode.I)|| (Input.GetKeyDown(KeyCode.Escape) && Abierto )) && !pause.activeSelf){
             if(Abierto==false){
                 foreach (Canvas c in canvas)
@@ -69,6 +71,7 @@ public class Diario_Abrir : MonoBehaviour
                 }
             
             }
+        }
         }
     }   
 }    

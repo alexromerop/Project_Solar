@@ -14,6 +14,7 @@ public class CutscenesManager : MonoBehaviour
     public Transform playerTransform;
     public GameObject mochila;
     public GameObject fakeMochila;
+    public GameObject BandasN;
 
 
     public GameObject endCanvas;
@@ -22,18 +23,22 @@ public class CutscenesManager : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other){
         if(other.tag=="Player" && name=="TriggerCinematica2"){
+            BandasN.SetActive(true);
             StartCoroutine(Cinematica2(5.3f));
         }
         if(other.tag=="Player" && name=="CutsceneTriggerNoche"){
+            BandasN.SetActive(true);
             player.speed=13;
             StartCoroutine(CinematicaNoche(2.85f));
         }
         if(other.tag=="Player" && gameObject.name=="TriggerCinematica1"){
+            BandasN.SetActive(true);
             other.transform.position = playerTransform.transform.position;
             other.transform.rotation = playerTransform.transform.rotation;
             StartCoroutine(CinematicaCogerRob(580f*Time.deltaTime));
         }
         if(other.tag=="Player" && gameObject.name=="TriggerCinematicaCarreta"){
+            BandasN.SetActive(true);
             
             
             other.transform.parent = playerTransform;
@@ -46,6 +51,7 @@ public class CutscenesManager : MonoBehaviour
      
     public IEnumerator CinematicaCarretillaFinal(float time)
     {
+        
         Debug.Log("Animacion Carretilla");
         player.enabled=false;
         player.GetComponent<ThirdPersonMovement>().enabled=false;
