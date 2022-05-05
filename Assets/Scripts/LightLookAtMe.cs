@@ -10,6 +10,8 @@ public class LightLookAtMe : MonoBehaviour
     public Transform RayCastBegin;
     public Transform RayCastEnd;
     public MochilaController mochila;
+    public LayerMask mask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +26,13 @@ public class LightLookAtMe : MonoBehaviour
 
        
         dirRayo=RayCastEnd.transform.position-RayCastBegin.transform.position;
-        Debug.DrawRay(RayCastBegin.transform.position, dirRayo,Color.red);
+        Debug.DrawRay(RayCastBegin.transform.position, dirRayo,Color.red, mask);
         
-        if(Physics.Raycast(RayCastBegin.transform.position,dirRayo, out hit)){
-            
-            if(hit.collider.tag=="LightReciever"){
-        
+        if(Physics.Raycast(RayCastBegin.transform.position,dirRayo, out hit, 7000, mask)){
+                
+
+            if (hit.transform.gameObject.tag=="LightReciever"){
+                Debug.Log("puta");
                 mochila.reciboLuz=true;
             }
             else{
