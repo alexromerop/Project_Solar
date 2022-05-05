@@ -35,7 +35,7 @@ public class Diario_Abrir : MonoBehaviour
                     }
                 }
                     //menu.GetComponentInParent<MainMenu>().can = false;
-                    cam.gameObject.SetActive(false);
+                    cam.enabled=false;
                     Abierto = true;
                     Time.timeScale = 0;
                     Cursor.visible = true;
@@ -54,7 +54,8 @@ public class Diario_Abrir : MonoBehaviour
 
                         }
                     }
-                    cam.gameObject.SetActive(true);
+                    cam.enabled = true;
+
 
                     Abierto = false;
                     Time.timeScale = 1;
