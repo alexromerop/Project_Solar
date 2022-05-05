@@ -9,6 +9,8 @@ public class Diario_Abrir : MonoBehaviour
     public bool open;
     private GameObject pause;
     public Canvas[] canvas;
+    public GameObject[] Paginas;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class Diario_Abrir : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.Confined;
                     Diario.SetActive(true);
+                    Paginas[0].SetActive(true);
                 
             }else{
                 if(Abierto==true){
@@ -52,6 +55,10 @@ public class Diario_Abrir : MonoBehaviour
                     Time.timeScale = 1;
                     Cursor.visible = false;
                     Diario.SetActive(false);
+                    foreach (GameObject i in Paginas)
+                    {
+                        i.SetActive(false);
+                    }
                     Cursor.lockState = CursorLockMode.Locked;
                 }
             
