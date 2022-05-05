@@ -124,7 +124,10 @@ public class MainMenu : MonoBehaviour
         cam.GetComponent<testcam>().enabled = true;
         player.GetComponent<ThirdPersonMovement>().enabled = true;
 
-
+        foreach (Canvas c in canvas)
+        {
+            c.gameObject.SetActive(true);
+        }
 
     }
 
