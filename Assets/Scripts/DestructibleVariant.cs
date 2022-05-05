@@ -11,6 +11,7 @@ public class DestructibleVariant : MonoBehaviour
     public GameObject UiCont;
     public GameObject UiPick;
     public GameObject Pico;
+    public NivelDIA_Manager Player;
     
     public IEnumerator EsperaAlPico(float time)
     {
@@ -24,7 +25,10 @@ public class DestructibleVariant : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
+       if(Player.picoUnlock==true){
         UiPick.SetActive(true);
+       }
+    
     }
 
       private void OnTriggerExit(Collider other){
@@ -32,7 +36,8 @@ public class DestructibleVariant : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {
+    {   
+         if(Player.picoUnlock==true){
         if (other.tag == "Player" && Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Breack());
@@ -42,6 +47,7 @@ public class DestructibleVariant : MonoBehaviour
             UiPick.SetActive(false);
             Pico.GetComponent<MeshRenderer>().enabled = true;
         }
+    }
     }
 
     void BreakObject()
