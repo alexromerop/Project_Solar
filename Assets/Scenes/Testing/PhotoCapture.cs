@@ -37,9 +37,16 @@ public class PhotoCapture : MonoBehaviour
 
 
     [SerializeField] public GameObject Animal;
+    
 
     public Canvas[] canvas;
 
+
+    private void OnEnable()
+    {
+        Animal = null;
+
+    }
 
     private void Start()
     {
@@ -60,7 +67,7 @@ public class PhotoCapture : MonoBehaviour
         }
     }
 
-
+    
     IEnumerator CapturePhoto()
     {
 

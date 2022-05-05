@@ -165,6 +165,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
 
                     velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
+                    GetComponent<CharacterController>().radius = 0.1f;
 
                     coyoteTimeCounter = 0f;
                 }
@@ -232,14 +233,14 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-            GetComponent<CharacterController>().radius = 0.3f;
+            GetComponent<CharacterController>().radius = 0.1f;
             groundDistance = 0.1f;
 
 
         }
         if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope && canJump && !gameObject.GetComponent<ObstalePush_>().oncollider_) 
         {
-            GetComponent<CharacterController>().radius = 0.3f;
+            GetComponent<CharacterController>().radius = 0.1f;
             groundDistance = 0.1f;
 
             velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
