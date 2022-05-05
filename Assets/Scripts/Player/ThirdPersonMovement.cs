@@ -218,7 +218,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (isGrounded)
 
         {
-            GetComponent<CharacterController>().radius = 0.6f;
+            GetComponent<CharacterController>().radius = 0.4f;
             groundDistance = 0.3f;
 
             gravity = -36f;
@@ -438,7 +438,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
                     speed_ = speed * 0.2f;
                     box.transform.SetParent(null);
-                    GetComponent<CharacterController>().radius = 0.6f;
+                    GetComponent<CharacterController>().radius = 0.4f;
                     groundDistance = 0.3f;
 
                 }
