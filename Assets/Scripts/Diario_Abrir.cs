@@ -10,6 +10,7 @@ public class Diario_Abrir : MonoBehaviour
     private GameObject pause;
     public Canvas[] canvas;
     public GameObject[] Paginas;
+    private testcam cam;
 
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Diario_Abrir : MonoBehaviour
     {
         pause = GameObject.Find("PauseMenu");
         pause = pause.transform.GetChild(0).gameObject;
+        cam = FindObjectOfType<testcam>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class Diario_Abrir : MonoBehaviour
                     }
                 }
                     //menu.GetComponentInParent<MainMenu>().can = false;
+                    cam.gameObject.SetActive(false);
                     Abierto = true;
                     Time.timeScale = 0;
                     Cursor.visible = true;
@@ -51,6 +54,8 @@ public class Diario_Abrir : MonoBehaviour
 
                         }
                     }
+                    cam.gameObject.SetActive(true);
+
                     Abierto = false;
                     Time.timeScale = 1;
                     Cursor.visible = false;
