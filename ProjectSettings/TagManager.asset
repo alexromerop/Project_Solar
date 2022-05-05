@@ -42,6 +42,7 @@ TagManager:
   - RecargaLuz
   - Bunny
   - Pelicano
+  - WallB
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,9 @@ public class DestructibleWall : MonoBehaviour
 
     public GameObject destroyedVersion;
     public GameObject UiPick;
+    public AnimatorHoopCtrl HoopAnim;
+    public GameObject Pico;
+
     
     public IEnumerator EsperaAlPico(float time)
     {
@@ -30,8 +33,10 @@ public class DestructibleWall : MonoBehaviour
     {
         if (other.tag == "Player" && Input.GetMouseButtonDown(0))
         {
-            BreakObject();
+            StartCoroutine(Breack());
             UiPick.SetActive(false);
+            Pico.GetComponent<MeshRenderer>().enabled = true;
+            HoopAnim.StarPick();
         }
     }
 
@@ -39,6 +44,14 @@ public class DestructibleWall : MonoBehaviour
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(this.gameObject);
+    }
+
+     IEnumerator Breack (){
+        
+        yield return new WaitForSeconds(1f);
+         BreakObject();
+         Pico.GetComponent<MeshRenderer>().enabled = false;
+        
     }
 
 }

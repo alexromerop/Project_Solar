@@ -10,6 +10,7 @@ public class DestructibleVariant : MonoBehaviour
     public ThirdPersonMovement Movimiento;
     public GameObject UiCont;
     public GameObject UiPick;
+    public GameObject Pico;
     
     public IEnumerator EsperaAlPico(float time)
     {
@@ -34,11 +35,12 @@ public class DestructibleVariant : MonoBehaviour
     {
         if (other.tag == "Player" && Input.GetMouseButtonDown(0))
         {
-            BreakObject();
+            StartCoroutine(Breack());
             ZonaContaminada.SetActive(false);
             Movimiento.vida=100;
             UiCont.SetActive(false);
             UiPick.SetActive(false);
+            Pico.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 
@@ -46,6 +48,14 @@ public class DestructibleVariant : MonoBehaviour
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(this.gameObject);
+    }
+
+      IEnumerator Breack (){
+        
+        yield return new WaitForSeconds(1f);
+         BreakObject();
+         Pico.GetComponent<MeshRenderer>().enabled = false;
+        
     }
 
 }

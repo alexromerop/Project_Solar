@@ -7,7 +7,7 @@ public class RabbitScript : MonoBehaviour
     private Animator anim;
     public Vector3[] Path;
     private Vector3 currentTarget;
-    public float speed;
+    public float speed = 7;
     public int actualPath = 0;
     public float tolerancia = 1;
     private bool Apath;
@@ -30,15 +30,15 @@ void OnTriggerEnter(Collider other) {
     
     if(other.tag=="Player"){
     Apath=true;
-    Debug.Log("ENTRANDO");
-    
     anim.SetTrigger("PlayerNear");
+   
+    
            
             
         }
 }
     IEnumerator StartMove(){
-        yield return new WaitForSeconds (4.3f);
+        yield return new WaitForSeconds (2f);
          if(transform.position != currentTarget){
              anim.SetTrigger("Run");
             Vector3 heading = currentTarget - transform.position;       
@@ -54,6 +54,7 @@ void OnTriggerEnter(Collider other) {
                 actualPath=0;
                 anim.SetTrigger("Idle");
                 Apath=false;
+                speed=0;
             }
 
             currentTarget= Path[actualPath];
