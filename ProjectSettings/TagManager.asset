@@ -43,6 +43,7 @@ TagManager:
   - Bunny
   - Pelicano
   - WallB
+  - Tele
   layers:
   - Default
   - TransparentFX

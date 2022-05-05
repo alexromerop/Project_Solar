@@ -12,11 +12,16 @@ public class Richard_Script : MonoBehaviour
         panel.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+   
+
+    private void OnTriggerStay(Collider other)
     {
-        if (other.name == "RAYO")
+        if (other.tag == "Player")         
         {
-            panel.SetActive(true);
+            if (Input.GetKeyDown("e"))
+            {
+                panel.SetActive(true);
+            }
         }
     }
 }
