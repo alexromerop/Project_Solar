@@ -15,9 +15,9 @@ public class End : MonoBehaviour
 
      public IEnumerator Endo()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(14f);
         Seeu.SetActive(true);
-        yield return new WaitForSeconds(19f);
+        yield return new WaitForSeconds(16f);
         Application.Quit();
 
     }
