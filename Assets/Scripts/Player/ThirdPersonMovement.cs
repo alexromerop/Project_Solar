@@ -192,6 +192,7 @@ public class ThirdPersonMovement : MonoBehaviour
                  if (isFalling && allowGliding)
                  {
                      if (Input.GetKey(KeyCode.LeftShift)){
+                         velocity.y=glidingGravity;
                           planeoParticle.SetActive(true);
                         //Audio planeo
                         Debug.Log("Planeando");
