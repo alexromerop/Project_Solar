@@ -31,7 +31,8 @@ public class MainMenu : MonoBehaviour
     public Canvas[] canvas;
 
     private void Start()
-    {
+    {   
+        Cursor.visible = true;
         player = GameObject.Find("Player");
         cam = GameObject.Find("CameraCollider");
         //Resolucion pantalla
