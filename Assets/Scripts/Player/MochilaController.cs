@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MochilaController : MonoBehaviour
 {
-    public int energia = 5;
+    public int energia = 0;
     
     public LightLookAtMe lightLookAtMe;
     public Material electricityMat;
@@ -18,6 +18,7 @@ public class MochilaController : MonoBehaviour
     public GameObject particulaRayo;
 
     public GameObject pico;
+    public GameObject UiCont;
     public Transform rayoSpawner;
     
     public bool destroyed;
@@ -29,6 +30,8 @@ public class MochilaController : MonoBehaviour
     public Material energyOn;
     public GameObject sparkMochila;
     public AudioClip rayoClip;
+    bool cargando = false;
+    int lastCharged = 2;
 
     IEnumerator SpawnSparkle(float time){
         sparkMochila.SetActive(true);
@@ -45,23 +48,36 @@ public class MochilaController : MonoBehaviour
          lightLookAtMe.RayCastBegin=lightLookAtMe.Raycast1;
      }
          
-   }
+         if(other.tag == "ZonaContaminada")
+        UiCont.SetActive(true);
+        }
+   
    
     
 
   void OnTriggerStay(Collider other){  
+      if(other.tag=="RecargaLuz"){
+             energia = 5;
+         }
      if(other.tag == "ZonaContaminada")
          
           if(Movimiento.buf==false){
           Movimiento.vida -= 6f*Time.deltaTime;
+          }else{
+              Movimiento.vida-=1.2f*Time.deltaTime;
           }
+
             
   
       
   }
+
+ 
+         
     void OnTriggerExit(Collider other) {
         if (other.tag == "ZonaContaminada"){
              Movimiento.vida=100;
+             UiCont.SetActive(false);
         }
     }
 
@@ -83,24 +99,36 @@ public class MochilaController : MonoBehaviour
     private void Awake()
     {
         Movimiento = GameObject.Find("Player").GetComponent<ThirdPersonMovement>();
+       
     }
 
     // Start is called before the first frame update
     void Start()
     {
+         
         //int index=0;
         pico.SetActive(false);
         //for (int i=2;i<robotin.materials.Length;i++){
             energySlot=robotin.materials;
         //    index++;
         //}
+
+        for(int i=2;i<energySlot.Length;i++){
+             energySlot[i]=energyOff;
+         }
+    }
+    void CargaMochila(){
+        if(lastCharged<energySlot.Length){
+        energySlot[lastCharged]=energyOn;
+        lastCharged++;
+        energia++;
+        }
     }
     
 // Update is called once per frame
     void Update()
     {   
-    
-
+        
         for(int i=2;i<energySlot.Length;i++){
             energySlot[i]=energyOff;
         }
@@ -123,13 +151,14 @@ public class MochilaController : MonoBehaviour
         if (reciboLuz==true){
             Movimiento.vida=100;
         }
+        
 
         if (Movimiento)
         {
-            if (Movimiento.isGrounded && reciboLuz)
-            {
-                energia = 5;
-            }
+             if (Movimiento.isGrounded && reciboLuz)
+             {
+                 energia = 5;
+             }
 
             if (energia <= 0)
             {

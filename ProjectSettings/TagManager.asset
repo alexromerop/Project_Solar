@@ -38,6 +38,12 @@ TagManager:
   - Concrete
   - test
   - Kraggi
+  - EcoTrigger
+  - RecargaLuz
+  - Bunny
+  - Pelicano
+  - WallB
+  - Tele
   layers:
   - Default
   - TransparentFX
@@ -54,9 +60,9 @@ TagManager:
   - IgnorePlayer
   - Animal
   - OnlyAnimals
+  - CamColllision
   - 
-  - 
-  - 
+  - TriggersP
   - 
   - 
   - 

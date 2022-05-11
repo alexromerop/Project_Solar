@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-  public ThirdPersonMovement thirdPersonMovement;
-  public GameObject Player;
+  private ThirdPersonMovement thirdPersonMovement;
+  private GameObject Player;
   public Transform respawnPoint;
+    private Transform OriginRespawn;
+    public Animator anim;
 
-  void OnTriggerEnter(Collider other){
+
+    private void Start()
+    {
+
+
+        Player = GameObject.Find("Player");
+        thirdPersonMovement = Player.GetComponent<ThirdPersonMovement>();
+        OriginRespawn = GameObject.Find("OriginalChekPoint").transform;
+         anim = GameObject.Find("Panel").GetComponent<Animator>();
+
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(Teleport(1f));
+
+        }
+    }
+    void OnTriggerEnter(Collider other){
       if(other.tag=="Player"){
           StartCoroutine(Teleport(1f));
       }
@@ -17,16 +39,33 @@ public class Respawn : MonoBehaviour
     {
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
-        yield return new WaitForSeconds(.1f);
-        Player.transform.position = respawnPoint.transform.position;
-        yield return new WaitForSeconds(.1f);
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(.3f);
+        
+        Player.transform.position = respawnPoint.position;
+        yield return new WaitForSeconds(.3f);
         thirdPersonMovement.disable = false;
         
     }
     void Update(){
         if(thirdPersonMovement)
         if(thirdPersonMovement.vida<0){
-            StartCoroutine(Teleport(1f));
+            StartCoroutine(TeleportDeath(1f));
         }
     }
+
+   
+    public IEnumerator TeleportDeath(float time)
+    {
+        Debug.Log("TELEPORT");
+        thirdPersonMovement.disable = true;
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(.3f);
+         
+        Player.transform.position = OriginRespawn.position;
+        yield return new WaitForSeconds(.3f);
+        thirdPersonMovement.disable = false;
+
+    }
+
 }

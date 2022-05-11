@@ -14,6 +14,9 @@ public class box_scr : MonoBehaviour
     public GameObject trigger;
     public bool boxAnim;
 
+    public AudioSource audio;
+    public AudioClip boxMoveClip;
+    private Rigidbody rb;
 
     bool boxpull;
     // Start is called before the first frame update
@@ -21,40 +24,61 @@ public class box_scr : MonoBehaviour
     private void Start()
     {
         animator = GameObject.Find("Hoop_GameReady");
+        rb= gameObject.GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeAll;          
+        gameObject.isStatic=true;
     }
     // Update is called once per frame
     private void Update()
     {
         if (Player != null) {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Player.GetComponent<ObstalePush_>().enabled)
-        {
-            if (trigger != null)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Player.GetComponent<ObstalePush_>().enabled)
             {
-                if (activado)
+                if (trigger != null)
                 {
-                   
-                    activado = false;
-                    Player.GetComponent<CharacterController>().radius = 0.4f;
-
-                }
-                else
-                {
-                    if (Player != null)
+                    if (activado)
                     {
-                        if (trigger != null)
-                            StartCoroutine(Pullbox(trigger));
+
+                        activado = false;
+                        Player.GetComponent<CharacterController>().radius = 0.4f;
+
                     }
+                    else
+                    {
+                        if (Player != null)
+                        {
+                            if (trigger != null)
+                            {
+                                StartCoroutine(Pullbox(trigger));
+                            }
+                        }
+
+                        activado = true;
+
+                    }
+
+                    //Audio Play de arrastrar la caja
+                    Debug.Log("sonido move box");
+                    audio.clip = boxMoveClip;
+                    audio.Play();
+                    //Audio stop de arrastrar la caja
+                    if (boxpull == true) {
+                        Debug.Log("sin audiobox");
+                        boxpull = false;
+                        audio.clip = boxMoveClip;
+                        audio.Stop();
+                    }
+                   
                     
-                    activado = true;
+                    boxAnim = activado;
 
                 }
-                boxAnim = activado;
 
             }
-
-        }
-    } 
-}
+            
+          
+        } 
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -67,7 +91,14 @@ public class box_scr : MonoBehaviour
 
             if (activado)
             {
-                other.GetComponent<ObstalePush_>().oncollider_ = true;             
+                other.GetComponent<ObstalePush_>().oncollider_ = true;
+               
+                    gameObject.isStatic = false;
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+
+
             }
             else
             {
@@ -76,8 +107,11 @@ public class box_scr : MonoBehaviour
                 {
                     Debug.Log("parente null");
                     other.GetComponent<ObstalePush_>().box.transform.SetParent(null);
+                    gameObject.isStatic = true;
+                    rb.constraints = RigidbodyConstraints.FreezeAll;
+
                 }
-                
+
             }
         }
     }
@@ -90,6 +124,10 @@ public class box_scr : MonoBehaviour
             activado = false;
             trigger = null;
             Player.GetComponent<CharacterController>().radius = 0.1f;
+            gameObject.isStatic = true;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+
+
 
         }
     }

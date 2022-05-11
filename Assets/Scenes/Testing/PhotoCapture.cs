@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PhotoCapture : MonoBehaviour
 {
     private  string iterator;
-    
+    private int pivot = 0;
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
 
@@ -37,12 +37,21 @@ public class PhotoCapture : MonoBehaviour
 
 
     [SerializeField] public GameObject Animal;
+    
+
+    public Canvas[] canvas;
 
 
+    private void OnEnable()
+    {
+        Animal = null;
+
+    }
 
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        canvas =FindObjectsOfType<Canvas>();
     }
 
     private void Update()
@@ -58,9 +67,18 @@ public class PhotoCapture : MonoBehaviour
         }
     }
 
-
+    
     IEnumerator CapturePhoto()
     {
+
+        for (int i = 0; i < canvas.Length; i++)
+        {
+            if (canvas[i] == !CameraUI)
+            {
+                canvas[i].gameObject.SetActive(false);
+            }
+        }
+
         cam.GetComponent<testcam>().canCam=false;
         CameraUI.SetActive(false);
         viewingPhoto = true;
@@ -120,15 +138,24 @@ public class PhotoCapture : MonoBehaviour
 
     //Funcion temporal para quitar la imagen de golpe
     //en un futuro hacer que se minimize mientras se mueve a la izquierda
-    void RemovePhoto() { 
+    void RemovePhoto() {
 
 
-        
+
         viewingPhoto = false;
         photoFrame.SetActive(false);
         CameraUI.SetActive(true);
         cam.GetComponent<testcam>().canCam = true;
 
+        for (int i = 0; i < canvas.Length; i++)
+        {
+            if (canvas[i].gameObject.name == "UI-Canvas")
+            {
+                Debug.Log("wtf");
+            }
+                canvas[i].gameObject.SetActive(true);
+            
+        }
     }
 
 
@@ -139,7 +166,7 @@ public class PhotoCapture : MonoBehaviour
         System.DateTime.UtcNow.ToString();
         System.DateTime theTime = System.DateTime.Now;
         
-        string a = theTime.ToString("yyyy-MM-dd\\THHmmss");
+        string a = theTime.ToString(","+"yyyy-MM-dd\\THHmmss");
         string b = theTime.ToString("dd-MM-2147");
 
 
@@ -153,11 +180,16 @@ public class PhotoCapture : MonoBehaviour
         }
         else
         {
+            if (Random.Range(0, 2) == 1)
+            {
+                pivot++;
+                iterator = pivot + iterator;
+            }
             name.text = null;
         }
         date.text = b;
 
-        var dirPath = Application.dataPath + "/RenderOutput";
+        var dirPath = Application.dataPath + "/Resources/RenderOutput";
         if (!System.IO.Directory.Exists(dirPath))
         {
             System.IO.Directory.CreateDirectory(dirPath);
@@ -177,6 +209,7 @@ public class PhotoCapture : MonoBehaviour
         cam.GetComponent<testcam>()._mouseSensitivity = 2;
 
 
+        
     }
 
 }

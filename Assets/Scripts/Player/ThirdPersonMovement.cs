@@ -75,6 +75,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject sparkMochila;
     public GameObject planeoParticle;
     public AudioClip propulsoresClip;
+    public AudioClip jetpackClip;
     float startSpeed = 0;
     float endSpeed = 7;
 
@@ -84,6 +85,7 @@ public class ThirdPersonMovement : MonoBehaviour
     bool canJump;
 
     private AudioSource audio;
+    bool gladingSound;
 
     public bool movment = true;
     IEnumerator SpawnSparkle(float time){
@@ -163,6 +165,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
 
                     velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
+                    GetComponent<CharacterController>().radius = 0.1f;
 
                     coyoteTimeCounter = 0f;
                 }
@@ -182,52 +185,69 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
     public void GLIDING()
-        {
+    {
           if(DIA_Manager.glidingUnlock==true){
              if(mochilaController.energia>=1){
             
                  if (isFalling && allowGliding)
-        {
+                 {
                      if (Input.GetKey(KeyCode.LeftShift)){
                           planeoParticle.SetActive(true);
-                        //Audio propulsores
-                        audio.Play();
-                        audio.clip = propulsoresClip;
-                        audio.Play();
+                        //Audio planeo
+                        Debug.Log("Planeando");
+                        if (gladingSound == false) {
+                            
+                            audio.clip = jetpackClip;
+                            audio.Play();
+                            gladingSound = true;
+                        }
+                        
                         gravity = glidingGravity;
-                     } 
+                        
+                    } 
                     else
                     {
                      gravity = -36f;
                      planeoParticle.SetActive(false);
-                        audio.clip = propulsoresClip;
-                        audio.Stop();
+                       
 
                     }
+
+                 }
              }
           }
-     }
         if (isGrounded)
 
         {
             GetComponent<CharacterController>().radius = 0.4f;
+            groundDistance = 0.3f;
 
             gravity = -36f;
             planeoParticle.SetActive(false);
+            //Audio Planeo Stop
+            if (gladingSound == true)
+            {
+                gladingSound = false;
+                audio.Stop();
+            }
         }
         else
         {
-            GetComponent<CharacterController>().radius = 0.03f;
+            GetComponent<CharacterController>().radius = 0.1f;
+            groundDistance = 0.1f;
+
 
         }
         if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope && canJump && !gameObject.GetComponent<ObstalePush_>().oncollider_) 
         {
-            GetComponent<CharacterController>().radius = 0.03f;
+            GetComponent<CharacterController>().radius = 0.1f;
+            groundDistance = 0.1f;
+
             velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
             
             
         }
-        }
+    }
         
 
        public IEnumerator SubeBuf(float time)
@@ -420,6 +440,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     speed_ = speed * 0.2f;
                     box.transform.SetParent(null);
                     GetComponent<CharacterController>().radius = 0.4f;
+                    groundDistance = 0.3f;
 
                 }
                 else if (vertical < 0f)
@@ -427,7 +448,8 @@ public class ThirdPersonMovement : MonoBehaviour
                     speed_ = -speed * 0.2f;
 
                     // speed_ = -speed * 0.5f;
-                    GetComponent<CharacterController>().radius = 0.03f;
+                    GetComponent<CharacterController>().radius = 0.3f;
+                    groundDistance = 0.1f;
 
                     box.transform.SetParent(transform);
                 }
@@ -455,6 +477,17 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             isMoving = false;
         }
+    }
+
+
+  
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //call respawn function
+       
+        Debug.Log("aadassdaa");
+
     }
 
 }
