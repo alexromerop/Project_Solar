@@ -143,11 +143,8 @@ private void OnTriggerStay(Collider other)
                         Destroy(other.gameObject);
                         UiPickUp.SetActive(false);
                         take1 = true;
-
-                        if (take2)
-                        {
-                            cam.GetComponent<testcam>().canCam = true;
-                        }
+                        cam.GetComponent<testcam>().canCam = true;
+                        
                     }
                     else if (other.name == "Libreta")
                     {   
@@ -155,10 +152,7 @@ private void OnTriggerStay(Collider other)
                         Destroy(other.gameObject);
                         UiPickUp.SetActive(false);
                         take2 = true;
-                        if (take1)
-                        {
-                            cam.GetComponent<testcam>().canCam = true;
-                        }
+                        
                     }
                     else
                     {
