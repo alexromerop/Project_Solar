@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
 {
+    public bool bNewImage;
     private string iterator;
     private int pivot = 0;
     [Header("Photo Taker")]
@@ -199,7 +200,10 @@ public class PhotoCapture : MonoBehaviour
         ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".jpg");
 
 
-
+        if (iterator !="a")
+        {
+            bNewImage = true;
+        }
         yield return new WaitForSeconds(1f);
 
 

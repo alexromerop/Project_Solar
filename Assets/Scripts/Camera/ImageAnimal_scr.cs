@@ -10,17 +10,8 @@ public class ImageAnimal_scr : MonoBehaviour
 {
     [SerializeField]
     private string AnimalName;
-
-    private Texture2D[] Images;
-
-    struct photoSlot
-    {
-        public bool IsFree;
-        public string Name;
-        public string Date;
-
-    }
     public string[] info;
+
 
     //funcion para mostar las imagens del libro, ahora esta con el on enable pero se deberia cambiar a cuando se abre el diario para ocultar la carga con la cinematica 
     private void OnEnable()
@@ -62,6 +53,7 @@ public class ImageAnimal_scr : MonoBehaviour
 
                     Sprite mySprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
                     this.gameObject.GetComponent<Image>().sprite = mySprite;
+
                     break;
                 }
                 else

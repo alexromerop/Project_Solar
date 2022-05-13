@@ -53,7 +53,7 @@ public GameObject UiPickUp;
     {
 
         if(pickedObject== Objeto1){
-            Debug.Log("Tengo el 1");
+            //Debug.Log("Tengo el 1");
         }
 
        

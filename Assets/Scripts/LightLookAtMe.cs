@@ -32,7 +32,6 @@ public class LightLookAtMe : MonoBehaviour
                 
 
             if (hit.transform.gameObject.tag=="LightReciever"){
-                Debug.Log("puta");
                 mochila.reciboLuz=true;
             }
             else{
