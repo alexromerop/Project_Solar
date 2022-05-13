@@ -28,7 +28,7 @@ public class LightLookAtMe : MonoBehaviour
         dirRayo=RayCastEnd.transform.position-RayCastBegin.transform.position;
         Debug.DrawRay(RayCastBegin.transform.position, dirRayo,Color.red, mask);
         
-        if(Physics.Raycast(RayCastBegin.transform.position,dirRayo, out hit, 7000, mask)){
+        if(Physics.Raycast(RayCastBegin.transform.position,dirRayo, out hit, 8000, mask)){
                 
 
             if (hit.transform.gameObject.tag=="LightReciever"){
