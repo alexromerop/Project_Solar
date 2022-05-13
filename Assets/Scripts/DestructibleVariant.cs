@@ -11,6 +11,7 @@ public class DestructibleVariant : MonoBehaviour
     public GameObject UiCont;
     public GameObject UiPick;
     public GameObject Pico;
+    public GameObject Wind;
     public NivelDIA_Manager Player;
     public AnimatorHoopCtrl HoopAnim;
 
@@ -47,9 +48,10 @@ public class DestructibleVariant : MonoBehaviour
             if (other.tag == "Player" && Input.GetMouseButtonDown(0))
             {
                 StartCoroutine(Breack());
+                
                 ZonaContaminada.SetActive(false);
                 Movimiento.vida = 100;
-                UiCont.SetActive(false);
+                
                 UiPick.SetActive(false);
                 Pico.GetComponent<MeshRenderer>().enabled = true;
                 HoopAnim.StarPick();
@@ -68,7 +70,16 @@ public class DestructibleVariant : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         BreakObject();
+        
         Pico.GetComponent<MeshRenderer>().enabled = false;
+         UiCont.SetActive(false);
+         Wind.SetActive(true);
+    }
+     IEnumerator WindOf()
+    {
 
+        yield return new WaitForSeconds(3f);
+        
+         Wind.SetActive(false);
     }
 }
