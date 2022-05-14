@@ -17,6 +17,12 @@ public class Diario_Abrir : MonoBehaviour
     private testcam cam;
     public CogerObjeto CogerItem;
     public PhotoCapture imageAnimal;
+    public Diario_AnimalSee CheckF;
+
+    public GameObject FoundAny;
+
+    public GameObject SeenK;
+    public GameObject InfoK;
 
     private int pag = 0;
     private void Awake()
@@ -35,6 +41,12 @@ public class Diario_Abrir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(CheckF.KraggiV==true){
+            SeenK.SetActive(false);
+            InfoK.SetActive(true);
+            FoundAny.SetActive(false);
+        }
         if (CogerItem.take2 == true)
         {
             if ((Input.GetKeyDown(KeyCode.I) || (Input.GetKeyDown(KeyCode.Escape) && Abierto)) && !pause.activeSelf)

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Annihilation : MonoBehaviour
 {
-    public int lifeTime = 10;
+    public GameObject Wind;
+    public int lifeTime = 2;
     public void Start()
     {
+        Wind = GameObject.Find("WINDCont");
         StartCoroutine(WaitThenDie());
     }
     IEnumerator WaitThenDie()
     {
         yield return new WaitForSeconds(lifeTime);
+        Wind.SetActive(false);
         Destroy(gameObject);
     }
 
 }
+
+

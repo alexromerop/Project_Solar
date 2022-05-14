@@ -8,6 +8,7 @@ public class Diario_AnimalSee : MonoBehaviour
 {
     public GameObject[] Kraggi;
     public GameObject KraggiImage;
+    public bool KraggiV;
 
     private void OnEnable()
     {
@@ -27,6 +28,7 @@ public class Diario_AnimalSee : MonoBehaviour
                 foreach (GameObject item in items)
                 {
                     item.gameObject.GetComponent<Image>().enabled = true;
+                    KraggiV=true;
                     Debug.Log("show log");
 
                 }
