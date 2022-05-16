@@ -7,31 +7,54 @@ using UnityEngine.UI;
 public class Diario_AnimalSee : MonoBehaviour
 {
     public GameObject[] Kraggi;
+    public GameObject[] KraggiBlack;
     public GameObject KraggiImage;
-    public bool KraggiV;
+
+    public GameObject[] Pelican;
+    public GameObject[] PelicanBlack;
+    public GameObject PelicanImage;
+
+    [SerializeField] private GameObject dontsee;
 
     private void OnEnable()
     {
-        Debug.Log("show log2");
+        activeAnimal(KraggiImage, Kraggi, KraggiBlack);
+        activeAnimal(PelicanImage, Pelican, PelicanBlack);
 
-        activeAnimal(KraggiImage, Kraggi);
     }
 
 
-    public void activeAnimal(GameObject image, GameObject[] items)
+    public void activeAnimal(GameObject image, GameObject[] items, GameObject[] itemsBlack)
     {
         if (image != null)
         {
 
-            if (image.gameObject.GetComponent<Image>().enabled == true && items[items.Length - 1].gameObject.GetComponent<Image>().enabled == false)
+            if (image.gameObject.GetComponent<Image>().enabled == true && items[0].gameObject.GetComponent<Image>().enabled == false)
             {
+
+                dontsee.SetActive(false);
                 foreach (GameObject item in items)
                 {
-                    item.gameObject.GetComponent<Image>().enabled = true;
-                    KraggiV=true;
-                    Debug.Log("show log");
+
+                
+                
+                    if (item.gameObject.TryGetComponent(out Image a ))
+                    {
+                        a.enabled = true;
+                    }
+                    else 
+                    {
+                        item.gameObject.SetActive(true);
+                    }
+                    
 
                 }
+                foreach (GameObject item in itemsBlack)
+                {
+                    item.gameObject.SetActive(false);
+
+
+            }
             }
         }
     }

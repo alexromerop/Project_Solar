@@ -200,7 +200,7 @@ public class PhotoCapture : MonoBehaviour
         ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".jpg");
 
 
-        if (iterator !="a")
+        if (iterator != "a")
         {
             bNewImage = true;
         }
@@ -222,4 +222,6 @@ public class PhotoCapture : MonoBehaviour
 
     }
 
+
 }
+      
