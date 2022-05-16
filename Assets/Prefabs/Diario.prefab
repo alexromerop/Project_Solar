@@ -23661,8 +23661,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Kraggi:
   - {fileID: 232043611793950509}
+  KraggiBlack: []
   KraggiImage: {fileID: 232043611379259111}
-  KraggiV: 0
+  Pelican: []
+  PelicanBlack: []
+  PelicanImage: {fileID: 0}
+  dontsee: {fileID: 0}
 --- !u!1 &232043611172062433
 GameObject:
   m_ObjectHideFlags: 0
@@ -24269,10 +24273,6 @@ MonoBehaviour:
   - {fileID: 232043610951907395}
   CogerItem: {fileID: 0}
   imageAnimal: {fileID: 0}
-  CheckF: {fileID: 0}
-  FoundAny: {fileID: 6223571612288045290}
-  SeenK: {fileID: 232043611695659490}
-  InfoK: {fileID: 232043610102101196}
 --- !u!1 &232043611205481787
 GameObject:
   m_ObjectHideFlags: 0
