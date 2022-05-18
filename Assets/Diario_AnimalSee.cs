@@ -37,7 +37,7 @@ public class Diario_AnimalSee : MonoBehaviour
 
     public void activeAnimal(GameObject image, GameObject[] items, GameObject[] itemsBlack)
     {
-        if (image != null)
+        if (image != null && items != null && itemsBlack != null)
         {
 
             if (image.gameObject.GetComponent<Image>().enabled == true && items[0].gameObject.GetComponent<Image>().enabled == false)
