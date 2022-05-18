@@ -14,12 +14,23 @@ public class Diario_AnimalSee : MonoBehaviour
     public GameObject[] PelicanBlack;
     public GameObject PelicanImage;
 
+    public GameObject[] Rabbit;
+    public GameObject[] RabbitBlack;
+    public GameObject RabbitImage;
+
+    public GameObject[] Froggy;
+    public GameObject[] FroggyBlack;
+    public GameObject FroggyImage;
+
     [SerializeField] private GameObject dontsee;
 
     private void OnEnable()
     {
         activeAnimal(KraggiImage, Kraggi, KraggiBlack);
         activeAnimal(PelicanImage, Pelican, PelicanBlack);
+        activeAnimal(RabbitImage, Rabbit, RabbitBlack);
+        activeAnimal(FroggyImage, Froggy, FroggyBlack);
+
 
     }
 

@@ -6687,7 +6687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8990b43d5425e514a923b7b028ef62e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimalName: 6
+  AnimalName: Bunny
   info: []
 --- !u!1 &232043610110588469
 GameObject:
@@ -9347,7 +9347,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232043610279538147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -9497,7 +9497,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232043610305857007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -13843,7 +13843,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232043610605097208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -16164,7 +16164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &232043610702617301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17753,7 +17753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8990b43d5425e514a923b7b028ef62e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimalName: 4
+  AnimalName: Pelicano
   info: []
 --- !u!1 &232043610779681430
 GameObject:
@@ -20194,7 +20194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232043610935958168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -23661,12 +23661,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Kraggi:
   - {fileID: 232043611793950509}
-  KraggiBlack: []
+  - {fileID: 232043610279538147}
+  - {fileID: 232043610935958168}
+  - {fileID: 232043611698903944}
+  - {fileID: 232043610102101196}
+  - {fileID: 232043609888833073}
+  KraggiBlack:
+  - {fileID: 972309471518666527}
   KraggiImage: {fileID: 232043611379259111}
-  Pelican: []
-  PelicanBlack: []
-  PelicanImage: {fileID: 0}
-  dontsee: {fileID: 0}
+  Pelican:
+  - {fileID: 232043611172062433}
+  - {fileID: 232043610906514042}
+  - {fileID: 232043610702617298}
+  - {fileID: 232043610605097208}
+  - {fileID: 232043610305857007}
+  - {fileID: 232043610989391288}
+  - {fileID: 232043609843785091}
+  PelicanBlack:
+  - {fileID: 8014596326933773328}
+  PelicanImage: {fileID: 232043610778461899}
+  Rabbit: []
+  RabbitBlack: []
+  RabbitImage: {fileID: 0}
+  Froggy: []
+  FroggyBlack: []
+  FroggyImage: {fileID: 0}
+  dontsee: {fileID: 6223571612288045290}
 --- !u!1 &232043611172062433
 GameObject:
   m_ObjectHideFlags: 0
@@ -23719,7 +23739,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232043611172062433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -34028,7 +34048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &232043611698903947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36502,6 +36522,7 @@ GameObject:
   - component: {fileID: 1580896593176428531}
   - component: {fileID: 8399478934663056110}
   - component: {fileID: 2366929413324959309}
+  - component: {fileID: 576084354}
   m_Layer: 5
   m_Name: ANY_FOUND
   m_TagString: Untagged
@@ -36567,6 +36588,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &576084354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223571612288045290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0707d2a00b5a5a43b0dac73d4b87887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zonas:
+  - {fileID: 232043609932340361}
+  - {fileID: 232043610808014163}
+  - {fileID: 232043611112505126}
 --- !u!1 &8014596326933773328
 GameObject:
   m_ObjectHideFlags: 0
