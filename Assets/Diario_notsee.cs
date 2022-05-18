@@ -8,6 +8,8 @@ public class Diario_notsee : MonoBehaviour
 {
     public Button[] zonas;
 
+
+
     private void OnDisable()
     {
         foreach (var t in zonas)
@@ -22,5 +24,10 @@ public class Diario_notsee : MonoBehaviour
         {
             t.enabled = false;
         }
+
+
+
     }
 }
+
+
