@@ -75,4 +75,15 @@ public class ImageAnimal_scr : MonoBehaviour
         }
         yield return null;
     }
+
+
+
+
+
+
+
+    public void ChangeAnimal(string name)
+    {
+        AnimalName= name;
+    }
 }

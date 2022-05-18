@@ -13,7 +13,6 @@ public class Diario_Abrir : MonoBehaviour
     private GameObject pause;
     public Canvas[] canvas;
     public GameObject[] Paginas;
-
     private testcam cam;
     public CogerObjeto CogerItem;
     public PhotoCapture imageAnimal;
