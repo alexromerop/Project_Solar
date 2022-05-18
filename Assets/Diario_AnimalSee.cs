@@ -40,6 +40,11 @@ public class Diario_AnimalSee : MonoBehaviour
                 
                     if (item.gameObject.TryGetComponent(out Image a ))
                     {
+                        if (item.gameObject.TryGetComponent(out Button b))
+                        {
+                            b.gameObject.SetActive(true);
+
+                        }
                         a.enabled = true;
                     }
                     else 
