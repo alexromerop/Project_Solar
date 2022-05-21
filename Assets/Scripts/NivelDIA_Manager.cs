@@ -55,7 +55,7 @@ public class NivelDIA_Manager : MonoBehaviour
 
      public IEnumerator NoFuncionas(float time)
     {
-        yield return new WaitForSeconds(1200f*Time.deltaTime);
+        yield return new WaitForSeconds(2000f*Time.deltaTime);
         personaje.enabled=true;
     }
     
