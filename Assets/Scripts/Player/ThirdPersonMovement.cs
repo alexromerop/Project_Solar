@@ -68,6 +68,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Vector3 moveDir;
 
     public GameObject bufBajado;
+    public Animator UiBuf;
 
     public GameObject bufSubido;
 
@@ -140,6 +141,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
+       
         movment = true;
         elapsedTime += Time.deltaTime;
           Cursor.visible = false;
@@ -297,9 +299,11 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)){
             if(buf==false){
                 StartCoroutine(SubeBuf(1f*Time.deltaTime));
+                UiBuf.SetBool("PutOn",true);
             }
             else{
                 StartCoroutine(BajaBuf(1f*Time.deltaTime));
+                UiBuf.SetBool("PutOn",false);
             }
         }
 
