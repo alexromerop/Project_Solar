@@ -1025,8 +1025,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 352848776}
+        m_TargetAssemblyTypeName: TrueManiMenu, Assembly-CSharp
         m_MethodName: VolumeMusic
         m_Mode: 0
         m_Arguments:
@@ -19183,8 +19183,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 352848776}
+        m_TargetAssemblyTypeName: TrueManiMenu, Assembly-CSharp
         m_MethodName: VolumeSFX
         m_Mode: 0
         m_Arguments:
@@ -35790,7 +35790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1306966104
 Transform:
   m_ObjectHideFlags: 0
@@ -54604,7 +54604,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 434600404037346230, guid: 3e376ef5e7eb4584395f506fa5162e8b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f20a81df1209894488088bcadc9e8868, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f225f5c6fe51d50419c3b6da5743caf8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
