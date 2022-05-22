@@ -12,6 +12,7 @@ public class RabbitScript : MonoBehaviour
     public float tolerancia = 1;
     private bool Apath;
     public int ajuste =90;
+    public bool finished;
 
    void Start()
    {
@@ -29,16 +30,25 @@ public class RabbitScript : MonoBehaviour
 void OnTriggerEnter(Collider other) {
     
     if(other.tag=="Player"){
-    Apath=true;
-    anim.SetTrigger("PlayerNear");
-   
+        if(!finished){
+        Apath=true;
+        anim.SetTrigger("PlayerNear");
+        }else if(finished){
+           
     
+       
+        anim.SetTrigger("PlayerNear");
+        } 
+       
+       
            
             
         }
 }
     IEnumerator StartMove(){
-        yield return new WaitForSeconds (2f);
+       
+       if(finished==false){
+        yield return new WaitForSeconds (1.2f);
          if(transform.position != currentTarget){
              anim.SetTrigger("Run");
             Vector3 heading = currentTarget - transform.position;       
@@ -49,17 +59,24 @@ void OnTriggerEnter(Collider other) {
                 transform.position = currentTarget;
             }
         }else{
+
+
             actualPath++;
             if(actualPath >= Path.Length){
-                actualPath=0;
+
+                finished = true;
+                
                 anim.SetTrigger("Idle");
                 Apath=false;
                 speed=0;
+                 
             }
 
             currentTarget= Path[actualPath];
 
         }
+
+       }
     }
     
 }

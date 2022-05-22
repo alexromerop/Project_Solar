@@ -64,6 +64,7 @@ public class Respawn : MonoBehaviour
          
         Player.transform.position = OriginRespawn.position;
         yield return new WaitForSeconds(.3f);
+        thirdPersonMovement.vida=100;
         thirdPersonMovement.disable = false;
 
     }
