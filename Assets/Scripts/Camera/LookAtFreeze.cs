@@ -15,12 +15,14 @@ public class LookAtFreeze : MonoBehaviour
     public bool cam_colliison;
     private GameObject player;
     private GameObject playerpref;
-
+    public bool salt = true;
+    private Camera cam;
+    bool call; static float t = 0.0f;
 
     void OnLeaveGround()
 {
     // update Y for behavior 3
-    //ghostPositionY = CharacterMesh.position.y;
+    ghostPositionY = CharacterMesh.position.y;
 
         
 
@@ -33,19 +35,29 @@ public class LookAtFreeze : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerpref = GameObject.Find("PlayerPref");
+        cam = GameObject.Find("Camera").GetComponent<Camera>();
     }
     void Update() {
-        ghostPositionY = CharacterMesh.position.y;
+       
+      
+
+        if (salt)
+        {
+            ghostPositionY = CharacterMesh.position.y;
+
+        }
         if (personaje&& !cam_colliison)
         {
             this.transform.parent = playerpref.transform.parent;
             if (personaje.gravity == -1)
             {
                 speed = 20;
+                
             }
             else
             {
-                speed = 5;
+                speed = 10;
+                salt = false;
             }
             if (personaje.isGrounded == true)
             {
@@ -56,6 +68,7 @@ public class LookAtFreeze : MonoBehaviour
         {
             this.transform.parent = player.transform;
             speed = 0;
+            salt = true;
         }
     }
 
@@ -64,6 +77,19 @@ public class LookAtFreeze : MonoBehaviour
     {
         if (personaje)
         {
+            if (!salt)
+            {
+                Vector3 characterViewPos = cam.WorldToViewportPoint(CharacterMesh.position + personaje.velocity * Time.deltaTime);
+
+                if (characterViewPos.y > 1.2f || characterViewPos.y < 0.3f)
+                {
+                    ghostPositionY = CharacterMesh.position.y;
+                }
+                else if (personaje.isGrounded == true)
+                {
+                    ghostPositionY = CharacterMesh.position.y;
+                }
+            }
             
             var desiredPosition = new Vector3(CharacterMesh.position.x, ghostPositionY, CharacterMesh.position.z);
             ghostTransform.position = Vector3.SmoothDamp(ghostTransform.position, desiredPosition, ref velocity, speed * Time.deltaTime);
