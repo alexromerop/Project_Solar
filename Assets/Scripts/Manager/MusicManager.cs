@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip cancionAphex;
+    public AudioClip cancion;
     public AudioSource sourceMusica;
     /*public AudioSource sourcePlaya;
     public AudioSource sourceWind;
@@ -21,7 +21,7 @@ public class MusicManager : MonoBehaviour
     
     void OnTriggerEnter (Collider other){
         if (other.tag=="Player"){
-            sourceMusica.PlayOneShot(cancionAphex);
+            sourceMusica.PlayOneShot(cancion);
         }
 
         if(other.tag=="Player" && name=="EndCancion"){

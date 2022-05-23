@@ -61,8 +61,6 @@ public class CutscenesManager : MonoBehaviour
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
-        yield return new WaitForSeconds(50*Time.deltaTime);
-        player.GetComponent<ThirdPersonMovement>().enabled = true;
         yield return new WaitForSeconds(450*Time.deltaTime);
         BandasN.SetTrigger("Hide");
         UiGame.SetActive(true);

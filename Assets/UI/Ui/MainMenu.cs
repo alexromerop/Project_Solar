@@ -137,7 +137,7 @@ public class MainMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         Debug.Log("Otra Scene");
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Nivel_Tarde - copia");
 
     }
     //Cuando se activa y se desactiva el Settings
