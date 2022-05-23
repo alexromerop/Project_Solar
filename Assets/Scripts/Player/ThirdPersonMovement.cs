@@ -438,7 +438,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if (this.GetComponent<ObstalePush_>().oncollider_)
             {
                 GameObject box = this.GetComponent<ObstalePush_>().box;
-              
+
                 canJump = false;
                 if (vertical > 0f)
                 {
@@ -458,7 +458,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
                     box.transform.SetParent(transform);
                 }
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+                if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
                 {
                     
                     speed_ = 0;
