@@ -22,6 +22,7 @@ public class FIxMenuCamera : MonoBehaviour
 
     private void OnEnable()
     {
+        if (pause != null)
         pause.SetActive(false);
 
     }
@@ -29,7 +30,8 @@ public class FIxMenuCamera : MonoBehaviour
 
     private void OnDisable()
     {
-        pause.SetActive(true);
+        if (pause != null)
+            pause.SetActive(true);
 
     }
 }
