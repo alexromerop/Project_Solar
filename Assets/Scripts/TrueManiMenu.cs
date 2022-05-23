@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.Collections;
+using System.IO;
 
 public class TrueManiMenu : MonoBehaviour
 {
@@ -65,6 +67,21 @@ public class TrueManiMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        try
+        {
+            string filePath = Application.dataPath + "/RenderOutput";
+
+            var dir = new DirectoryInfo(filePath);
+            dir.Attributes = dir.Attributes & ~FileAttributes.ReadOnly;
+            dir.Delete(true);
+
+
+
+        }
+        catch
+        {
+            Debug.Log("falie");
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
@@ -144,4 +161,6 @@ public class TrueManiMenu : MonoBehaviour
 
 
     }
+
+
 }
