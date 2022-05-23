@@ -114,12 +114,12 @@ Material:
     - _IntersectionSource: 0
     - _IntersectionSpeed: 0.1
     - _IntersectionStyle: 1
-    - _IntersectionTiling: 0.09999993
+    - _IntersectionTiling: 10
     - _Metallic: 0
     - _NormalMapOn: 1
     - _NormalSpeed: 0.2
     - _NormalStrength: 0
-    - _NormalTiling: 1
+    - _NormalTiling: 0.16000001
     - _OcclusionStrength: 1
     - _PlanarReflectionsEnabled: 0
     - _PlanarReflectionsParams: 0
@@ -182,6 +182,7 @@ Material:
     - _VertexColorMask: {r: 0, g: 0, b: 0, a: 0}
     - _WaveDirection: {r: 1, g: 1, b: 1, a: 1}
     - _WaveFadeDistance: {r: 150, g: 300, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!114 &1092640962685890020
 MonoBehaviour:
   m_ObjectHideFlags: 11

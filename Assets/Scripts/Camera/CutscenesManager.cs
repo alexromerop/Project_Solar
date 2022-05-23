@@ -41,6 +41,7 @@ public class CutscenesManager : MonoBehaviour
             other.transform.parent = playerTransform;
              other.transform.localPosition = new Vector3(0, 0, 0);
             other.transform.localEulerAngles = new Vector3(0, 0, 0);
+            Debug.Log(other.name);
             StartCoroutine(CinematicaCarretillaFinal(580f*Time.deltaTime));
         }
     }
@@ -55,14 +56,17 @@ public class CutscenesManager : MonoBehaviour
         BandasN.SetTrigger("Start");
         Debug.Log("Animacion Carretilla");
         player.enabled=false;
+        player.GetComponent<CharacterController>().enabled=false;
         player.GetComponent<ThirdPersonMovement>().enabled=false;
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
         yield return new WaitForSeconds(50*Time.deltaTime);
         player.GetComponent<ThirdPersonMovement>().enabled = true;
+        yield return new WaitForSeconds(450*Time.deltaTime);
         BandasN.SetTrigger("Hide");
         UiGame.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
 
