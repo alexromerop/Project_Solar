@@ -141,7 +141,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
-       
+        Application.targetFrameRate = 100;
         movment = true;
         elapsedTime += Time.deltaTime;
           Cursor.visible = false;
