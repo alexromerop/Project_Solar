@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         }
          
     }
-    void FixedUpdate (){
+    void Update (){
         if(estoyEnDialogo==true){
         if(Input.GetKeyDown(KeyCode.Mouse0)){
             dialogueManager.DisplayNextSentence();

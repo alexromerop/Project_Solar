@@ -39,8 +39,8 @@ public class NivelDIA_Manager : MonoBehaviour
         }
         if (other.name == "Pico_Unlock" && tag=="Player"){
             picoUnlock=true;
-            Destroy(other.gameObject);
-            personaje.movment = false;
+            // Destroy(other.gameObject);
+            // personaje.movment = false;
 
         }
 

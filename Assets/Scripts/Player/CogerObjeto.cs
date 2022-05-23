@@ -118,6 +118,8 @@ private void OnTriggerStay(Collider other)
 
 
 
+
+
     if(other.gameObject.CompareTag("Box") && take2 && take1)
     {
 
@@ -131,9 +133,13 @@ private void OnTriggerStay(Collider other)
         
 
             if (pickedObject == null && !picked){
-        UiPickUp.SetActive(true);
 
-      
+                UiPickUp.SetActive(true);
+
+              
+
+
+
 
         if (Input.GetMouseButton(0) && taked == false){
                     if (other.name == "PolaroidMESH")

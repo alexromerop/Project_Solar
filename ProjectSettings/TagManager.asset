@@ -45,6 +45,7 @@ TagManager:
   - WallB
   - Tele
   - PickableNoMagnet
+  - PickUpUI
   layers:
   - Default
   - TransparentFX
