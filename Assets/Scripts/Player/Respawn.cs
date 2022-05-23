@@ -39,9 +39,9 @@ public class Respawn : MonoBehaviour
     {
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
-        anim.SetTrigger("Death");
+        anim.SetBool("Death",true);
         yield return new WaitForSeconds(.3f);
-        
+        anim.SetBool("Death",false);
         Player.transform.position = respawnPoint.position;
         yield return new WaitForSeconds(.3f);
         thirdPersonMovement.disable = false;
@@ -59,9 +59,10 @@ public class Respawn : MonoBehaviour
     {
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
-        anim.SetTrigger("Death");
+       anim.SetBool("Death",true);
         yield return new WaitForSeconds(.3f);
-         
+        anim.SetBool("Death",false);
+        thirdPersonMovement.vida=100;
         Player.transform.position = OriginRespawn.position;
         yield return new WaitForSeconds(.3f);
         thirdPersonMovement.vida=100;
