@@ -23,15 +23,20 @@ public class Diario_Abrir : MonoBehaviour
     private int pag = 0;
     private void Awake()
     {
-        
+        pause = GameObject.Find("PauseMenu");
+        pause = pause.transform.GetChild(0).gameObject;
+        cam = FindObjectOfType<testcam>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        pause = GameObject.Find("PauseMenu");
-        pause = pause.transform.GetChild(0).gameObject;
-        cam = FindObjectOfType<testcam>();
+        
+    }
+
+    private void OnEnable()
+    {
+       
     }
 
     // Update is called once per frame
