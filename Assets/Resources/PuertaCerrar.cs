@@ -5,7 +5,7 @@ using UnityEngine;
 public class PuertaCerrar : MonoBehaviour
 {
 public Animator Puerta;
-
+public AudioSource Cerrar;
 
 
     
@@ -13,6 +13,7 @@ public Animator Puerta;
    public void OnTriggerExit(Collider other) {
        if(other.tag == "Player"){
         Puerta.SetTrigger("PuertaDown");
+        Cerrar.Play();
        Debug.Log("CERRAR");
        }
    }
