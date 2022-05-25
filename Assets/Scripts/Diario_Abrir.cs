@@ -16,9 +16,10 @@ public class Diario_Abrir : MonoBehaviour
     private testcam cam;
     public CogerObjeto CogerItem;
     public PhotoCapture imageAnimal;
-   
 
-    
+    public AudioSource audioSourceDiario;
+    public AudioClip audioPapelClip;
+
 
     private int pag = 0;
     private void Awake()
@@ -77,6 +78,7 @@ public class Diario_Abrir : MonoBehaviour
                         Cursor.visible = true;
                         Cursor.lockState = CursorLockMode.Confined;
                         Diario.SetActive(true);
+                        audioSourceDiario.PlayOneShot(audioPapelClip);
                         Paginas[pag].SetActive(true);
                         
                     
@@ -103,6 +105,7 @@ public class Diario_Abrir : MonoBehaviour
                         Time.timeScale = 1;
                         Cursor.visible = false;
                         Diario.SetActive(false);
+                        audioSourceDiario.PlayOneShot(audioPapelClip);
                         foreach (GameObject i in Paginas)
                         {
                             i.SetActive(false);
