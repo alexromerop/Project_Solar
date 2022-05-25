@@ -108,12 +108,16 @@ public class testcam : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && canCam == true )
         {
+            canCam = false;
+            pauseMenu.SetActive(false);
             Debug.Log("adasd");
             StartCoroutine( ChangeCamera());
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true)
+        if (Input.GetKeyUp(KeyCode.Escape) && oncam && canCam == true)
         {
+            canCam = false;
+
             StartCoroutine(ChangeCamera());
             
         }
@@ -202,17 +206,19 @@ public class testcam : MonoBehaviour
                 Debug.Log("Cambiar camera");
                 _distanceFromTarget = distanceFromTarget;
                 player.gameObject.SetActive(false);
-                CamMode = true;
                 //desactivar todos los objetos con canvas
                
                 CameraManager.SetActive(true);
                 CameraUi.SetActive(true);
 
                 
+                CamMode = true;
+                canCam = true;
 
             }
             else
             {
+               canCam = false;
                 Cheker.enabled = false;
 
                 ZoomIn.Play("zoomout");
@@ -228,11 +234,18 @@ public class testcam : MonoBehaviour
                 
                 pauseMenu.SetActive(true);
                 //activar todos los objetos con canvas
+                yield return new WaitForSeconds(1f);
 
                 foreach (Canvas c in canvas)
                 {
                     c.gameObject.SetActive(true);
                 }
+                CamMode = false;
+               canCam = true;
+
+
+              
+
             }
         }
 
