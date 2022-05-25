@@ -47,7 +47,9 @@ public class CutscenesManager : MonoBehaviour
     }
         void Start(){
             BandasN.GetComponent<Animator>();
+            BandasN.SetTrigger("Start");
             StartCoroutine(StartGame());
+
         }
      
     public IEnumerator CinematicaCarretillaFinal(float time)
