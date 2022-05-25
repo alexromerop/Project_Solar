@@ -176,20 +176,14 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
                     StartCoroutine(SpawnSparkle(0.5f));
                     //Audio propulsores
-                    audio.Play();
+                   
                     audio.clip = propulsoresClip;
+                    audio.Play();
                     velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
                     mochilaController.energia -= 1;
                     canDoubleJump = false;
 
-                    //Parar el bug de sonido de double jump
-                    if (doubleJumpSound == true) {
-
-                        doubleJumpSound = false;
-                        audio.Stop();
-                    
-                    }
-
+                   
 
 
                 }
@@ -209,10 +203,11 @@ public class ThirdPersonMovement : MonoBehaviour
                         //Audio planeo
                         Debug.Log("Planeando");
                         if (gladingSound == false) {
-                            
+                            audio.Stop();
                             audio.clip = jetpackClip;
+                            audio.loop = true;
                             audio.Play();
-                            audio.loop = jetpackClip;
+                            
                             gladingSound = true;
                         }
                         
@@ -242,6 +237,8 @@ public class ThirdPersonMovement : MonoBehaviour
             if (gladingSound == true)
             {
                 gladingSound = false;
+                
+                audio.loop = false;
                 audio.Stop();
             }
         }
