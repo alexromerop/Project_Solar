@@ -132,7 +132,7 @@ Material:
     - _LightContribution: 1
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
-    - _Metallic: 0
+    - _Metallic: 0.72
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineDepthOffset: 0
@@ -160,7 +160,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.6509434, g: 0.468446, b: 0.076762185, a: 1}
+    - _BaseColor: {r: 0.6117647, g: 0.4784314, b: 0.56078434, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorGradient: {r: 1, g: 0.8533139, b: 0, a: 0.85056}
     - _DetailMapColor: {r: 0.9528302, g: 0.06741722, b: 0.06741722, a: 1}

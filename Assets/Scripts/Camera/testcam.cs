@@ -175,8 +175,8 @@ public class testcam : MonoBehaviour
                 {
                     _distanceFromTarget = 0;
                 }
-                
-               
+
+                Debug.Log(hit.collider.gameObject.name);
 
             }
            
