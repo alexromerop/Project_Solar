@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SplashScreen.unity
     guid: 63aee17c8bc90544b81557257236a222
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Nivel_NOCHE.unity
     guid: 0f74df1e1097c81468d2f9d6ceab560f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Nivel_Tarde - copia.unity
     guid: 6dc739f2d01b6d7438d506f81d77dd92
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Nivel_DIA.unity
     guid: 428d63e4ad5225b41b0a88a40e8bd2a5
   - enabled: 0

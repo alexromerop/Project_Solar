@@ -32,7 +32,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public float gravity;
     public Vector3 velocity;
-    public int glidingGravity;
+    public float glidingGravity;
     
     public Transform groundCheck;
     public float groundDistance = 0.4f;
