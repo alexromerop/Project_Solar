@@ -16,7 +16,7 @@ public class CutscenesManager : MonoBehaviour
     public GameObject fakeMochila;
     public GameObject UiGame;
     public Animator BandasN;
-
+    public AudioSource Pasos;
 
     public GameObject endCanvas;
      public Generic_Activator Activator;
@@ -52,6 +52,7 @@ public class CutscenesManager : MonoBehaviour
      
     public IEnumerator CinematicaCarretillaFinal(float time)
     {   
+        Pasos.enabled=false;   
         UiGame.SetActive(false);
         BandasN.SetTrigger("Start");
         Debug.Log("Animacion Carretilla");
@@ -64,8 +65,10 @@ public class CutscenesManager : MonoBehaviour
         yield return new WaitForSeconds(450*Time.deltaTime);
         BandasN.SetTrigger("Hide");
         UiGame.SetActive(true);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+         Pasos.enabled=true;  
 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       
     }
 
     public IEnumerator CinematicaCogerRob(float time)
@@ -96,7 +99,7 @@ public class CutscenesManager : MonoBehaviour
     }
     public IEnumerator Cinematica2(float time)
     {
-
+        Pasos.enabled=false;    
         UiGame.SetActive(false);
         BandasN.SetTrigger("Start");
         player.GetComponent<ThirdPersonMovement>().enabled = false;
@@ -115,9 +118,11 @@ public class CutscenesManager : MonoBehaviour
         player.GetComponent<ThirdPersonMovement>().enabled=true;
         BandasN.SetTrigger("Hide");
         UiGame.SetActive(true);
+        Pasos.enabled=true;  
         Destroy(this.gameObject);
+
     }
-   
+        
         public IEnumerator CinematicaNoche(float time)
     {
         player.GetComponent<ThirdPersonMovement>().enabled = false;
