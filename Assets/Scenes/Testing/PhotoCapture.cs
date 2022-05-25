@@ -197,13 +197,16 @@ public class PhotoCapture : MonoBehaviour
             System.IO.Directory.CreateDirectory(dirPath);
         }
 
-        ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".jpg");
-
-
-        if (iterator != "a")
+        if (iterator != a)
         {
-            bNewImage = true;
+            ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".jpg");
+            if (iterator != "a")
+            {
+                bNewImage = true;
+            }
         }
+
+        
         yield return new WaitForSeconds(1f);
 
 

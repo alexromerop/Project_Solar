@@ -182,6 +182,10 @@ public class ThirdPersonMovement : MonoBehaviour
                     velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
                     mochilaController.energia -= 1;
                     canDoubleJump = false;
+                    if (mochilaController.energia <= 0)
+                    {
+                        Debug.Log("DobleSaltonoenergia");
+                    }
 
                    
 

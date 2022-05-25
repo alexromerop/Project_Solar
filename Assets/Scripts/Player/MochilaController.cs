@@ -194,6 +194,7 @@ public class MochilaController : MonoBehaviour
             else
             {
                 rayo = false;
+                Debug.Log("FalloEnergia");
             }
         }
     }
