@@ -15,8 +15,9 @@ public class FootDECALS : MonoBehaviour
    
 }
 public void OnTriggerExit(Collider other) {
-     PLeft.Stop();
+        PLeft.Stop();
        PRight.Stop();
+        PJump.Stop();
     
     if(other.tag == "Sand"){
        PLeft.Stop();
