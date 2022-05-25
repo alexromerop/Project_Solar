@@ -19,6 +19,7 @@ public class Diario_Abrir : MonoBehaviour
 
     public AudioSource audioSourceDiario;
     public AudioClip audioPapelClip;
+    public AudioClip aduioPageSlide;
 
 
     private int pag = 0;
@@ -109,6 +110,7 @@ public class Diario_Abrir : MonoBehaviour
                         foreach (GameObject i in Paginas)
                         {
                             i.SetActive(false);
+                            
                         }
                         Cursor.lockState = CursorLockMode.Locked;
                     }
