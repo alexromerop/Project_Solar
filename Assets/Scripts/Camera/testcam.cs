@@ -8,8 +8,6 @@ public class testcam : MonoBehaviour
     private bool oncam;
     private bool oncam_;
 
-    public Renderer[] RendPlayer;
-    private Renderer[] player_;
 
     [SerializeField]
     private GameObject player;
@@ -27,7 +25,7 @@ public class testcam : MonoBehaviour
     private float _rotationX;
 
     [SerializeField]
-    private Transform _target;                                  //camera pivot and follow
+    private GameObject _target;                                  //camera pivot and follow
     [SerializeField]
     public Transform lookme;                                  //camera pivot and follow
 
@@ -50,7 +48,7 @@ public class testcam : MonoBehaviour
     private Vector2 _rotationXMinMax = new Vector2(-40, 40);
 
     public Transform cameraTransform;                           //transform actual camera
-    public float cameraCollisionRadius= 0.25f;
+    public float cameraCollisionRadius= 0.4f;
 
 
     public LayerMask collisionLayer;
@@ -63,7 +61,7 @@ public class testcam : MonoBehaviour
     [SerializeField] private Animator ZoomIn;
 
 
-    public Vector3 dir;
+    
     public float hitDistance;
     public GameObject hitObjet;
 
@@ -73,28 +71,53 @@ public class testcam : MonoBehaviour
 
     RaycastHit hit;
 
+
     public BoxCollider Cheker;
+
+
+    private Vector3 nextRotation;
+    float mouseX;
+    float mouseY;
+    Vector3 heading;
+    float distance;
+    Vector3 direction;
+    public Canvas[] canvas;
+    GameObject menu;
+
     private void Awake()
     {
         pauseMenu = GameObject.Find("PauseMenu");
-        player_ = RendPlayer;
+ 
         distanceFromTarget_ = _distanceFromTarget;
         smoothTime_ = _smoothTime;
+        menu = FindObjectOfType<MainMenu>().transform.GetChild(0).gameObject;
+
     }
 
-    void Update()
+    private void LateUpdate()
+    {
+        Camera();
+
+    }
+
+    private void Update()
     {
 
-        Camera();
+
 
 
         if (Input.GetKeyDown(KeyCode.F) && canCam == true )
         {
+            canCam = false;
+            pauseMenu.SetActive(false);
+            Debug.Log("adasd");
             StartCoroutine( ChangeCamera());
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && oncam == true)
+        if (Input.GetKeyUp(KeyCode.Escape) && oncam && canCam == true)
         {
+            canCam = false;
+
             StartCoroutine(ChangeCamera());
             
         }
@@ -106,8 +129,8 @@ public class testcam : MonoBehaviour
     }
     void Camera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * -1;
+        mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
+        mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * -1;
 
         _rotationY += mouseX;
         _rotationX += mouseY;
@@ -115,18 +138,18 @@ public class testcam : MonoBehaviour
         // Apply clamping for x rotation 
         _rotationX = Mathf.Clamp(_rotationX, _rotationXMinMax.x, _rotationXMinMax.y);
 
-        Vector3 nextRotation = new Vector3(_rotationX, _rotationY);
+        nextRotation = new Vector3(_rotationX, _rotationY);
 
         // Apply damping between rotation changes
         _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
         transform.localEulerAngles = _currentRotation;
 
 
-        Vector3 heading = this.gameObject.transform.position - _target.position;
-        float distance = heading.magnitude;
-        Vector3 direction = heading / distance;
+        heading = this.gameObject.transform.position - _target.transform.position;
+        distance = heading.magnitude;
+        direction = heading / distance;
         direction.Normalize();
-        dir = direction;
+        
        
 
 
@@ -135,18 +158,34 @@ public class testcam : MonoBehaviour
 
         if (oncam == false)
         {
+            //cameraCollisionRadius = _distanceFromTarget * 0.23f;
 
-            if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), 0.39f, direction, out hit, 6, collisionLayer, QueryTriggerInteraction.UseGlobal))
+
+           
+
+            
+
+
+
+            if (Physics.SphereCast(new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), cameraCollisionRadius/2, direction, out hit, _distanceFromTarget, collisionLayer, QueryTriggerInteraction.UseGlobal))
             {
-
-                _distanceFromTarget = hit.distance;
+                
+                    _distanceFromTarget = hit.distance;
+                if (_distanceFromTarget < 0)
+                {
+                    _distanceFromTarget = 0;
+                }
+                
+               
 
             }
+           
         }
-            transform.position = _target.position - transform.forward * (_distanceFromTarget-0.01f);
+            transform.position = _target.transform.position - transform.forward * (_distanceFromTarget);
       
         
     }
+   
     #region Polaroid
     IEnumerator ChangeCamera()
     {
@@ -154,6 +193,11 @@ public class testcam : MonoBehaviour
         {
             if (!CamMode)
             {
+               foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(false);
+                }
+                 
                 pauseMenu.SetActive(false);
                 Cheker.enabled = true;
                 oncam = true;
@@ -162,15 +206,19 @@ public class testcam : MonoBehaviour
                 Debug.Log("Cambiar camera");
                 _distanceFromTarget = distanceFromTarget;
                 player.gameObject.SetActive(false);
-                CamMode = true;
+                //desactivar todos los objetos con canvas
+               
                 CameraManager.SetActive(true);
                 CameraUi.SetActive(true);
+
                 
-                
+                CamMode = true;
+                canCam = true;
 
             }
             else
             {
+               canCam = false;
                 Cheker.enabled = false;
 
                 ZoomIn.Play("zoomout");
@@ -185,7 +233,18 @@ public class testcam : MonoBehaviour
                 CameraUi.SetActive(false);
                 
                 pauseMenu.SetActive(true);
+                //activar todos los objetos con canvas
+                yield return new WaitForSeconds(1f);
 
+                foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(true);
+                }
+                CamMode = false;
+               canCam = true;
+
+
+              
 
             }
         }
@@ -197,12 +256,4 @@ public class testcam : MonoBehaviour
     #endregion
 
 
-    void OnDrawGizmosSelected()
-    {
-        
-        Gizmos.color = Color.yellow;
-        //Gizmos.DrawSphere(transform.position, cameraCollisionRadius);
-        Gizmos.DrawWireSphere(transform.position, 0.25f);
-
-    }
 }

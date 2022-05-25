@@ -27,12 +27,14 @@ public class MainMenu : MonoBehaviour
 
     private GameObject cam;
     private GameObject player;
-
+    public bool can;
+    public Canvas[] canvas;
 
     private void Start()
-    {
+    {   
+        Cursor.visible = true;
         player = GameObject.Find("Player");
-        cam = GameObject.Find("Camera");
+        cam = GameObject.Find("CameraCollider");
         //Resolucion pantalla
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -53,7 +55,9 @@ public class MainMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        
     }
 
 
@@ -72,16 +76,24 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         //Con tecla Esc se activa el menu de pausa
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)&& cam.GetComponent<testcam>().canCam)
         {
             if (GameIsPause)
             {
+                foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(true);
+                }
                 ContinueGame();
             }
             else
             {
+                foreach (Canvas c in canvas)
+                {
+                    c.gameObject.SetActive(false);
+                }
                 Pause();
-                Setting();
+                //Setting();
             }
 
         }
@@ -113,7 +125,10 @@ public class MainMenu : MonoBehaviour
         cam.GetComponent<testcam>().enabled = true;
         player.GetComponent<ThirdPersonMovement>().enabled = true;
 
-
+        foreach (Canvas c in canvas)
+        {
+            c.gameObject.SetActive(true);
+        }
 
     }
 
@@ -122,7 +137,7 @@ public class MainMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         Debug.Log("Otra Scene");
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Nivel_Tarde - copia");
 
     }
     //Cuando se activa y se desactiva el Settings
@@ -135,6 +150,10 @@ public class MainMenu : MonoBehaviour
         bool Active = principal.activeSelf;
         principal.SetActive(true);
         cam.GetComponent<testcam>().enabled = false;
+        foreach (Canvas c in canvas)
+        {
+            c.gameObject.SetActive(true);
+        }
 
     }
 
@@ -195,6 +214,17 @@ public class MainMenu : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    public void ExitGame()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main_Menu");
+      
+
 
     }
 }

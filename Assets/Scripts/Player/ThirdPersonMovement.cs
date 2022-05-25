@@ -68,6 +68,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Vector3 moveDir;
 
     public GameObject bufBajado;
+    public Animator UiBuf;
 
     public GameObject bufSubido;
 
@@ -140,6 +141,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 100;
         movment = true;
         elapsedTime += Time.deltaTime;
           Cursor.visible = false;
@@ -165,6 +167,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
 
                     velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
+                    GetComponent<CharacterController>().radius = 0.1f;
 
                     coyoteTimeCounter = 0f;
                 }
@@ -191,6 +194,7 @@ public class ThirdPersonMovement : MonoBehaviour
                  if (isFalling && allowGliding)
                  {
                      if (Input.GetKey(KeyCode.LeftShift)){
+                         velocity.y=glidingGravity;
                           planeoParticle.SetActive(true);
                         //Audio planeo
                         Debug.Log("Planeando");
@@ -220,6 +224,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         {
             GetComponent<CharacterController>().radius = 0.4f;
+            groundDistance = 0.3f;
 
             gravity = -36f;
             planeoParticle.SetActive(false);
@@ -232,12 +237,16 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-            GetComponent<CharacterController>().radius = 0.03f;
+            GetComponent<CharacterController>().radius = 0.1f;
+            groundDistance = 0.1f;
+
 
         }
         if (Input.GetButtonDown("Jump") && isGrounded && !isOnSlope && canJump && !gameObject.GetComponent<ObstalePush_>().oncollider_) 
         {
-            GetComponent<CharacterController>().radius = 0.03f;
+            GetComponent<CharacterController>().radius = 0.1f;
+            groundDistance = 0.1f;
+
             velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
             
             
@@ -291,9 +300,11 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)){
             if(buf==false){
                 StartCoroutine(SubeBuf(1f*Time.deltaTime));
+                UiBuf.SetBool("PutOn",true);
             }
             else{
                 StartCoroutine(BajaBuf(1f*Time.deltaTime));
+                UiBuf.SetBool("PutOn",false);
             }
         }
 
@@ -428,13 +439,14 @@ public class ThirdPersonMovement : MonoBehaviour
             if (this.GetComponent<ObstalePush_>().oncollider_)
             {
                 GameObject box = this.GetComponent<ObstalePush_>().box;
-              
+
                 canJump = false;
                 if (vertical > 0f)
                 {
                     speed_ = speed * 0.2f;
                     box.transform.SetParent(null);
                     GetComponent<CharacterController>().radius = 0.4f;
+                    groundDistance = 0.3f;
 
                 }
                 else if (vertical < 0f)
@@ -442,11 +454,12 @@ public class ThirdPersonMovement : MonoBehaviour
                     speed_ = -speed * 0.2f;
 
                     // speed_ = -speed * 0.5f;
-                    GetComponent<CharacterController>().radius = 0.03f;
+                    GetComponent<CharacterController>().radius = 0.3f;
+                    groundDistance = 0.1f;
 
                     box.transform.SetParent(transform);
                 }
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+                if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
                 {
                     
                     speed_ = 0;
@@ -470,6 +483,17 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             isMoving = false;
         }
+    }
+
+
+  
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //call respawn function
+       
+        Debug.Log("aadassdaa");
+
     }
 
 }

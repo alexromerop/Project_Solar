@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip cancionAphex;
+    public AudioClip cancion;
     public AudioSource sourceMusica;
     /*public AudioSource sourcePlaya;
     public AudioSource sourceWind;
@@ -16,12 +16,14 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible=false;
         //sourcePlaya.PlayOneShot(cancionPlaya);
     }
     
     void OnTriggerEnter (Collider other){
         if (other.tag=="Player"){
-            sourceMusica.PlayOneShot(cancionAphex);
+            sourceMusica.PlayOneShot(cancion);
+             GetComponent<BoxCollider>().enabled=false;
         }
 
         if(other.tag=="Player" && name=="EndCancion"){

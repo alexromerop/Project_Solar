@@ -14,10 +14,13 @@ public class CutscenesManager : MonoBehaviour
     public Transform playerTransform;
     public GameObject mochila;
     public GameObject fakeMochila;
+    public GameObject UiGame;
+    public Animator BandasN;
 
 
     public GameObject endCanvas;
      public Generic_Activator Activator;
+     
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other){
         if(other.tag=="Player" && name=="TriggerCinematica2"){
@@ -28,21 +31,48 @@ public class CutscenesManager : MonoBehaviour
             StartCoroutine(CinematicaNoche(2.85f));
         }
         if(other.tag=="Player" && gameObject.name=="TriggerCinematica1"){
-            
-            
             other.transform.position = playerTransform.transform.position;
             other.transform.rotation = playerTransform.transform.rotation;
             StartCoroutine(CinematicaCogerRob(580f*Time.deltaTime));
+        }
+        if(other.tag=="Player" && gameObject.name=="TriggerCinematicaCarreta"){
             
             
+            other.transform.parent = playerTransform;
+             other.transform.localPosition = new Vector3(0, 0, 0);
+            other.transform.localEulerAngles = new Vector3(0, 0, 0);
+            Debug.Log(other.name);
+            StartCoroutine(CinematicaCarretillaFinal(580f*Time.deltaTime));
         }
     }
-
+        void Start(){
+            BandasN.GetComponent<Animator>();
+            StartCoroutine(StartGame());
+        }
      
+    public IEnumerator CinematicaCarretillaFinal(float time)
+    {   
+        UiGame.SetActive(false);
+        BandasN.SetTrigger("Start");
+        Debug.Log("Animacion Carretilla");
+        player.enabled=false;
+        player.GetComponent<CharacterController>().enabled=false;
+        player.GetComponent<ThirdPersonMovement>().enabled=false;
+        MainCamera.SetActive(false);
+        CameraCinematica2.SetActive(true);
+        Timeline2.SetActive(true);
+        yield return new WaitForSeconds(450*Time.deltaTime);
+        BandasN.SetTrigger("Hide");
+        UiGame.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+    }
 
-     public IEnumerator CinematicaCogerRob(float time)
+    public IEnumerator CinematicaCogerRob(float time)
     {
+        UiGame.SetActive(false);
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+        BandasN.SetTrigger("Start");
         Debug.Log("COGER ROB CINEMATICA");
         player.enabled=false;
         MainCamera.SetActive(false);
@@ -52,16 +82,25 @@ public class CutscenesManager : MonoBehaviour
         mochila.SetActive(true);
         Destroy(fakeMochila);
         yield return new WaitForSeconds(50*Time.deltaTime);
+        BandasN.SetTrigger("Hide");
         CameraCinematica2.SetActive(false);
         MainCamera.SetActive(true);
         Timeline2.SetActive(false); 
-        Destroy(this.gameObject);
-        player.enabled=true;
-        
-        
+         player.enabled=true;
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+         UiGame.SetActive(true);
+          Destroy(this.gameObject);
+
+
+
     }
-      public IEnumerator Cinematica2(float time)
+    public IEnumerator Cinematica2(float time)
     {
+
+        UiGame.SetActive(false);
+        BandasN.SetTrigger("Start");
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
@@ -73,12 +112,16 @@ public class CutscenesManager : MonoBehaviour
         MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
-        
+        player.GetComponent<ThirdPersonMovement>().enabled=true;
+        BandasN.SetTrigger("Hide");
+        UiGame.SetActive(true);
         Destroy(this.gameObject);
     }
    
         public IEnumerator CinematicaNoche(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
@@ -89,9 +132,13 @@ public class CutscenesManager : MonoBehaviour
         Timeline2.SetActive(false);
         player.disable=false;
         Destroy(this.gameObject);
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
     }
-     public IEnumerator CinematicaFinal(float time)
+    public IEnumerator CinematicaFinal(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica3.SetActive(true);
         Timeline3.SetActive(true);
@@ -100,9 +147,19 @@ public class CutscenesManager : MonoBehaviour
         endCanvas.SetActive(true);
         yield return new WaitForSeconds(10f);
         SceneManager.LoadScene(0);
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
     }
-     public IEnumerator CinematicaPozo(float time)
+
+    public IEnumerator StartGame(){
+        yield return new WaitForSeconds(23f);
+        BandasN.SetTrigger("Hide");
+
+    }
+    public IEnumerator CinematicaPozo(float time)
     {
+        player.GetComponent<ThirdPersonMovement>().enabled = false;
+
         MainCamera.SetActive(false);
         CameraCinematica2.SetActive(true);
         Timeline2.SetActive(true);
@@ -112,6 +169,8 @@ public class CutscenesManager : MonoBehaviour
         MainCamera.SetActive(true);
         Timeline2.SetActive(false);
         player.disable=false;
+        player.GetComponent<ThirdPersonMovement>().enabled = true;
+
         Destroy(this.gameObject);
     }
     void Update(){

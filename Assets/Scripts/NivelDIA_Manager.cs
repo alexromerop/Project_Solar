@@ -39,8 +39,8 @@ public class NivelDIA_Manager : MonoBehaviour
         }
         if (other.name == "Pico_Unlock" && tag=="Player"){
             picoUnlock=true;
-            Destroy(other.gameObject);
-            personaje.movment = false;
+            // Destroy(other.gameObject);
+            // personaje.movment = false;
 
         }
 
@@ -55,7 +55,7 @@ public class NivelDIA_Manager : MonoBehaviour
 
      public IEnumerator NoFuncionas(float time)
     {
-        yield return new WaitForSeconds(1200f*Time.deltaTime);
+        yield return new WaitForSeconds(2000f*Time.deltaTime);
         personaje.enabled=true;
     }
     

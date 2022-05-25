@@ -12,11 +12,12 @@ public class KraggiScript : MonoBehaviour
     public float tolerancia = 1;
     private bool Apath;
     public int ajuste = 90;
-
+    public ParticleSystem Tierra;
    void Start()
    {
        anim = GetComponent<Animator>();
        currentTarget = Path[0];
+       Tierra.Stop();
    }
 
 
@@ -28,6 +29,8 @@ public class KraggiScript : MonoBehaviour
    }
 void OnTriggerEnter(Collider other) {
     if(other.tag=="Player"){
+        Tierra.Play();
+        
     Apath=true;
     anim.SetTrigger("PlayerNear");
             gameObject.layer = 13;  
@@ -37,6 +40,7 @@ void OnTriggerEnter(Collider other) {
     IEnumerator StartMove(){
         yield return new WaitForSeconds (1);
          if(transform.position != currentTarget){
+             Tierra.Stop();
             Vector3 heading = currentTarget - transform.position;       
             transform.position += (Vector3)(heading / heading.magnitude) * speed * Time.deltaTime;
             transform.LookAt(currentTarget);

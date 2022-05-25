@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
 {
-    private  string iterator;
-    
+    public bool bNewImage;
+    private string iterator;
+    private int pivot = 0;
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
 
@@ -39,10 +40,19 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] public GameObject Animal;
 
 
+    public Canvas[] canvas;
+
+
+    private void OnEnable()
+    {
+        Animal = null;
+
+    }
 
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        canvas = FindObjectsOfType<Canvas>();
     }
 
     private void Update()
@@ -52,16 +62,25 @@ public class PhotoCapture : MonoBehaviour
             if (!viewingPhoto)
             {
                 StartCoroutine(CapturePhoto());
-               
+
             }
-            
+
         }
     }
 
 
     IEnumerator CapturePhoto()
     {
-        cam.GetComponent<testcam>().canCam=false;
+
+        for (int i = 0; i < canvas.Length; i++)
+        {
+            if (canvas[i] == !CameraUI)
+            {
+                canvas[i].gameObject.SetActive(false);
+            }
+        }
+
+        cam.GetComponent<testcam>().canCam = false;
         CameraUI.SetActive(false);
         viewingPhoto = true;
 
@@ -73,7 +92,7 @@ public class PhotoCapture : MonoBehaviour
 
         //screenCapture = ScreenCapture.CaptureScreenshotAsTexture();
 
-        Rect regionToRead = new Rect(0,0,Screen.width,Screen.height);
+        Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);
 
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
@@ -83,7 +102,7 @@ public class PhotoCapture : MonoBehaviour
 
 
 
-        StartCoroutine( capture());
+        StartCoroutine(capture());
         //SaveTexture(screenCapture);
         //StartCoroutine(SaveImg(screenCapture));
         ShowPhoto();
@@ -120,15 +139,25 @@ public class PhotoCapture : MonoBehaviour
 
     //Funcion temporal para quitar la imagen de golpe
     //en un futuro hacer que se minimize mientras se mueve a la izquierda
-    void RemovePhoto() { 
+    void RemovePhoto()
+    {
 
 
-        
+
         viewingPhoto = false;
         photoFrame.SetActive(false);
         CameraUI.SetActive(true);
         cam.GetComponent<testcam>().canCam = true;
 
+        for (int i = 0; i < canvas.Length; i++)
+        {
+            if (canvas[i].gameObject.name == "UI-Canvas")
+            {
+                Debug.Log("wtf");
+            }
+            canvas[i].gameObject.SetActive(true);
+
+        }
     }
 
 
@@ -138,12 +167,12 @@ public class PhotoCapture : MonoBehaviour
     {
         System.DateTime.UtcNow.ToString();
         System.DateTime theTime = System.DateTime.Now;
-        
-        string a = theTime.ToString("yyyy-MM-dd\\THHmmss");
+
+        string a = theTime.ToString("," + "yyyy-MM-dd\\THHmmss");
         string b = theTime.ToString("dd-MM-2147");
 
 
-        
+
 
         iterator = a;
         if (Animal)
@@ -153,6 +182,11 @@ public class PhotoCapture : MonoBehaviour
         }
         else
         {
+            if (Random.Range(0, 2) == 1)
+            {
+                pivot++;
+                iterator = pivot + iterator;
+            }
             name.text = null;
         }
         date.text = b;
@@ -163,20 +197,31 @@ public class PhotoCapture : MonoBehaviour
             System.IO.Directory.CreateDirectory(dirPath);
         }
 
-        ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".png");
+        ScreenCapture.CaptureScreenshot(dirPath + "/R_" + iterator + ".jpg");
+
+
+        if (iterator != "a")
+        {
+            bNewImage = true;
+        }
         yield return new WaitForSeconds(1f);
-#if UNITY_EDITOR
 
 
         //hay que comprobar si se puede acceder aun si no se hace eso
-        UnityEditor.AssetDatabase.Refresh();
+        //UnityEditor.AssetDatabase.Refresh();
 
-#endif
+
+
+
+        //UnloadUnusedAssets();
         yield return new WaitForSeconds(0.5f);
 
         cam.GetComponent<testcam>()._mouseSensitivity = 2;
 
 
+
     }
 
+
 }
+      

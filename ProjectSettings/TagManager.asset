@@ -39,6 +39,13 @@ TagManager:
   - test
   - Kraggi
   - EcoTrigger
+  - RecargaLuz
+  - Bunny
+  - Pelicano
+  - WallB
+  - Tele
+  - PickableNoMagnet
+  - PickUpUI
   layers:
   - Default
   - TransparentFX
@@ -55,9 +62,9 @@ TagManager:
   - IgnorePlayer
   - Animal
   - OnlyAnimals
+  - CamColllision
   - 
-  - 
-  - 
+  - TriggersP
   - 
   - 
   - 

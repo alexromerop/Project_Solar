@@ -13,7 +13,7 @@ public class AnimatorHoopCtrl : MonoBehaviour
     public CogerObjeto cogerObjeto;
     public GameObject dustIzq;
     public box_scr boxScript;
-
+    
     
     
     int VelocityHash;
@@ -39,6 +39,10 @@ public class AnimatorHoopCtrl : MonoBehaviour
     }
     void DustJump(){
         StartCoroutine(dust(0.2f));
+    }
+
+    public void StarPick(){
+        anim.SetTrigger("PickAxe");
     }
    
 
@@ -77,10 +81,11 @@ public class AnimatorHoopCtrl : MonoBehaviour
             }
 
         }
-        anim.SetFloat(VelocityHash, Movimiento.speed);
 
         if (Movimiento)
         {
+            anim.SetFloat(VelocityHash, Movimiento.speed);
+
             if (Movimiento.danger == true)
             {
                 anim.runtimeAnimatorController = anim2;

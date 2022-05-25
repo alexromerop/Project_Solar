@@ -20,10 +20,16 @@ public GameObject pickedObject = null;
 public GameObject pickedBox = null;
 public GameObject UiPickUp;
     public GameObject UiPickUpCam;
+    public GameObject UiCam;
+    public GameObject UiDiario;
 
 
     public bool take1;
     public bool take2;
+    private bool take3;
+    public GameObject Objeto1;
+    public GameObject Objeto2;
+
     public bool taked = false;
 
     public AudioSource audioSourceHand;
@@ -35,22 +41,32 @@ public GameObject UiPickUp;
 
     private void Start()
     {
-        cam = GameObject.Find("Camera");
+        cam = GameObject.Find("CameraCollider");
+        if (take1 == true || take2 == true)
+        {
+
+            UiPickUpCam.SetActive(true);
+           
+        }
     }
     void Update()
     {
-        if(take1 == true || take2 == true)
-        {
-            
-            UiPickUpCam.SetActive(true);
+
+        if(pickedObject== Objeto1){
+            //Debug.Log("Tengo el 1");
         }
-        if (take2 && take1)
+
+       
+        if ((take2 && take1 )&& !take3)
         {
            
             cam.GetComponent<testcam>().canCam = true;
             player.GetComponent<ObstalePush_>().enabled = true;
+            take3 = true;
+             UiDiario.SetActive(true);
+             UiCam.SetActive(true);
         }
-       
+
         if (pickedObject!=null || pickedBox!=null){
             if(Input.GetMouseButtonDown(0)&& taked)
             {
@@ -102,6 +118,8 @@ private void OnTriggerStay(Collider other)
 
 
 
+
+
     if(other.gameObject.CompareTag("Box") && take2 && take1)
     {
 
@@ -115,31 +133,32 @@ private void OnTriggerStay(Collider other)
         
 
             if (pickedObject == null && !picked){
-        UiPickUp.SetActive(true);
 
-      
+                UiPickUp.SetActive(true);
+
+              
+
+
+
 
         if (Input.GetMouseButton(0) && taked == false){
                     if (other.name == "PolaroidMESH")
-                    {
+                    {   
+                         UiCam.SetActive(true);
                         polaroidPlayer.SetActive(true);
                         Destroy(other.gameObject);
                         UiPickUp.SetActive(false);
                         take1 = true;
-                        if (take2)
-                        {
-                            cam.GetComponent<testcam>().canCam = true;
-                        }
+                        cam.GetComponent<testcam>().canCam = true;
+                        
                     }
                     else if (other.name == "Libreta")
-                    {
+                    {   
+                        UiDiario.SetActive(true);
                         Destroy(other.gameObject);
                         UiPickUp.SetActive(false);
                         take2 = true;
-                        if (take1)
-                        {
-                            cam.GetComponent<testcam>().canCam = true;
-                        }
+                        
                     }
                     else
                     {

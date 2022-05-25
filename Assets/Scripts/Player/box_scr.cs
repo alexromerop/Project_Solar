@@ -16,6 +16,7 @@ public class box_scr : MonoBehaviour
 
     public AudioSource audio;
     public AudioClip boxMoveClip;
+    private Rigidbody rb;
 
     bool boxpull;
     // Start is called before the first frame update
@@ -23,6 +24,9 @@ public class box_scr : MonoBehaviour
     private void Start()
     {
         animator = GameObject.Find("Hoop_GameReady");
+        rb= gameObject.GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeAll;          
+        gameObject.isStatic=true;
     }
     // Update is called once per frame
     private void Update()
@@ -87,7 +91,14 @@ public class box_scr : MonoBehaviour
 
             if (activado)
             {
-                other.GetComponent<ObstalePush_>().oncollider_ = true;             
+                other.GetComponent<ObstalePush_>().oncollider_ = true;
+               
+                    gameObject.isStatic = false;
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+
+
             }
             else
             {
@@ -96,8 +107,11 @@ public class box_scr : MonoBehaviour
                 {
                     Debug.Log("parente null");
                     other.GetComponent<ObstalePush_>().box.transform.SetParent(null);
+                    gameObject.isStatic = true;
+                    rb.constraints = RigidbodyConstraints.FreezeAll;
+
                 }
-                
+
             }
         }
     }
@@ -110,6 +124,10 @@ public class box_scr : MonoBehaviour
             activado = false;
             trigger = null;
             Player.GetComponent<CharacterController>().radius = 0.1f;
+            gameObject.isStatic = true;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+
+
 
         }
     }
