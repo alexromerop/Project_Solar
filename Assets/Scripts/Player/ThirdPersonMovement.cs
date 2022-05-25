@@ -87,6 +87,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private AudioSource audio;
     bool gladingSound;
+    bool doubleJumpSound;
 
     public bool movment = true;
     IEnumerator SpawnSparkle(float time){
@@ -177,10 +178,19 @@ public class ThirdPersonMovement : MonoBehaviour
                     //Audio propulsores
                     audio.Play();
                     audio.clip = propulsoresClip;
-                    audio.Play();
                     velocity.y = Mathf.Sqrt(AlturaSalto * -2f * gravity);
                     mochilaController.energia -= 1;
                     canDoubleJump = false;
+
+                    //Parar el bug de sonido de double jump
+                    if (doubleJumpSound == true) {
+
+                        doubleJumpSound = false;
+                        audio.Stop();
+                    
+                    }
+
+
 
                 }
             }
