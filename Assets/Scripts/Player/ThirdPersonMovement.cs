@@ -202,6 +202,7 @@ public class ThirdPersonMovement : MonoBehaviour
                             
                             audio.clip = jetpackClip;
                             audio.Play();
+                            audio.loop = jetpackClip;
                             gladingSound = true;
                         }
                         
