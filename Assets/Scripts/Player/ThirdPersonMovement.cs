@@ -161,7 +161,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
 
 
-            if (Input.GetButtonDown("Jump") && canDoubleJump && gravity < -1 )
+            if (Input.GetButtonDown("Jump") && canDoubleJump && gravity < -2 )
             {
 
                 if (coyoteTimeCounter > 0f)
