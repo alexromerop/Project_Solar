@@ -16,12 +16,14 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible=false;
         //sourcePlaya.PlayOneShot(cancionPlaya);
     }
     
     void OnTriggerEnter (Collider other){
         if (other.tag=="Player"){
             sourceMusica.PlayOneShot(cancion);
+             GetComponent<BoxCollider>().enabled=false;
         }
 
         if(other.tag=="Player" && name=="EndCancion"){

@@ -28,6 +28,7 @@ public class MochilaController : MonoBehaviour
     public SkinnedMeshRenderer robotin;
     public Material energyOff;
     public Material energyOn;
+    public Material energyRed;
     public GameObject sparkMochila;
     public AudioClip rayoClip;
     bool cargando = false;

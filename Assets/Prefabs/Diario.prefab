@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZONA 1
+  m_text: ZONE 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
@@ -7810,7 +7810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZONA 1
+  m_text: ZONE 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
@@ -20079,7 +20079,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZONA 1
+  m_text: ZONE 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
@@ -21814,7 +21814,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZONA 1
+  m_text: 'ZONE 1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
@@ -26162,7 +26164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &232043611303758373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29707,7 +29709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have not seen any  yet
+  m_text: You have not seen any yet
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 109cae8dd09a79e4786e63e37a9b09f8, type: 2}
   m_sharedMaterial: {fileID: 29744002285568794, guid: 109cae8dd09a79e4786e63e37a9b09f8, type: 2}
@@ -33351,7 +33353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZONA 1
+  m_text: ZONE 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
