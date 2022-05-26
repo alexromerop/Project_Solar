@@ -12,7 +12,8 @@ public class Elevator2Sctript : MonoBehaviour
 
  void OnTriggerStay (Collider other){
         if (other.tag=="Player" && Activator.power==true && Sube==false){
-          
+          StartCoroutine(Reset());
+          sourceMusica.volume = 0.5f;
        sourceMusica.PlayOneShot(cancion);
             Sube=true;
 
@@ -21,6 +22,11 @@ public class Elevator2Sctript : MonoBehaviour
             
         }
 
+ }
+
+ IEnumerator Reset() {
+     yield return new WaitForSeconds(7f);
+     Sube=false;
  }
 
 
