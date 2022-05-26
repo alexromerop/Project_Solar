@@ -14585,7 +14585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &232043610615175893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16002,7 +16002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &232043610685260361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26603,7 +26603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &232043611303758373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35905,7 +35905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZONA 2
+  m_text: ZONE 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
@@ -36701,7 +36701,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Area 2. Llanura \n"
+  m_text: 'Area 2.Plains
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
   m_sharedMaterial: {fileID: 8241630770796074610, guid: 07fe9dd90146529449da649e5ad123f3, type: 2}
