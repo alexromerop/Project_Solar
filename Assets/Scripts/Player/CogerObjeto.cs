@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class CogerObjeto : MonoBehaviour
 {
-public bool pickedBoxAnim;
-public GameObject player;
-public GameObject handpoint;
-public GameObject BoxPoint;
-public GameObject polaroidPlayer;
+    public bool pickedBoxAnim;
+    public GameObject player;
+    public GameObject handpoint;
+    public GameObject BoxPoint;
+    public GameObject polaroidPlayer;
     public GameObject cam;
-public GameObject Explorar;
-
-
+    public GameObject Explorar;
 
     public bool picked;
 
-public GameObject pickedObject = null;
-public GameObject pickedBox = null;
-public GameObject UiPickUp;
+    public GameObject pickedObject = null;
+    public GameObject pickedBox = null;
+    public GameObject UiPickUp;
     public GameObject UiPickUpCam;
     public GameObject UiCam;
     public GameObject UiDiario;
 
-
     public bool take1;
     public bool take2;
     private bool take3;
+    public bool handisfull;
+
+
     public GameObject Objeto1;
     public GameObject Objeto2;
 
@@ -48,6 +48,9 @@ public GameObject UiPickUp;
             UiPickUpCam.SetActive(true);
            
         }
+
+        handisfull = false;
+
     }
     void Update()
     {
@@ -59,7 +62,6 @@ public GameObject UiPickUp;
        
         if ((take2 && take1 )&& !take3)
         {
-           
             cam.GetComponent<testcam>().canCam = true;
             player.GetComponent<ObstalePush_>().enabled = true;
             take3 = true;
@@ -78,8 +80,8 @@ public GameObject UiPickUp;
                     pickedObject.GetComponent<Rigidbody>().useGravity = true;
                     pickedObject.gameObject.transform.SetParent(null);
                     pickedObject = null;
-                    taked = false;
-                    
+                    StartCoroutine(SetTakedFalse());
+
 
                 }
                
@@ -90,9 +92,12 @@ public GameObject UiPickUp;
                     pickedBox.gameObject.transform.SetParent(null);
                     pickedBox = null;
                     pickedBoxAnim=false;
-                    taked = false;
+                    StartCoroutine(SetTakedFalse());
 
                 }
+
+                handisfull = false;
+                Debug.Log("hand result false");
 
             }
         }
@@ -101,150 +106,125 @@ public GameObject UiPickUp;
 
 
      void OnTriggerEnter(Collider other)
-     {   
-            if(other.gameObject.CompareTag("Box") && !take2 && !take1)
+     {
+        if (other.gameObject.CompareTag("Box") && !take2 && !take1)
+        {
+            Explorar.SetActive(true);
+            StartCoroutine(ExploOut());
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+    
+        if(other.gameObject.CompareTag("Box") && take2 && take1)
+        {
+                if (pickedObject == null && !picked){
+                    UiPickUp.SetActive(true);
+                }
+        }
+        if(other.gameObject.CompareTag("Pickable"))
+        {
+            if (pickedObject == null && !picked)
             {
-                 Explorar.SetActive(true);
-                 StartCoroutine(ExploOut());
-            }
-
-       
-
-    }
-
-private void OnTriggerStay(Collider other)
-{
-
-
-
-
-
-
-    if(other.gameObject.CompareTag("Box") && take2 && take1)
-    {
-
-            if (pickedObject == null && !picked){
-        UiPickUp.SetActive(true);
-
-            }
-    }
-    if(other.gameObject.CompareTag("Pickable"))
-    {
-        
-
-            if (pickedObject == null && !picked){
 
                 UiPickUp.SetActive(true);
+            }
+            if (Input.GetMouseButton(0) && !taked){
+                if (other.name == "PolaroidMESH")
+                {   
+                     UiCam.SetActive(true);
+                    polaroidPlayer.SetActive(true);
+                    Destroy(other.gameObject);
+                    UiPickUp.SetActive(false);
+                    take1 = true;
+                    cam.GetComponent<testcam>().canCam = true;
+                    
+                }
+                else if (other.name == "Libreta")
+                {   
+                    UiDiario.SetActive(true);
+                    Destroy(other.gameObject);
+                    UiPickUp.SetActive(false);
+                    take2 = true;
+                    
+                }
+                else
+                {
+                    Debug.Log("saludos");
+                    UiPickUp.SetActive(false);
+                    picked = true;
+                    StartCoroutine(TimeTake());
 
-              
-
-
-
-
-        if (Input.GetMouseButton(0) && taked == false){
-                    if (other.name == "PolaroidMESH")
-                    {   
-                         UiCam.SetActive(true);
-                        polaroidPlayer.SetActive(true);
-                        Destroy(other.gameObject);
-                        UiPickUp.SetActive(false);
-                        take1 = true;
-                        cam.GetComponent<testcam>().canCam = true;
-                        
-                    }
-                    else if (other.name == "Libreta")
-                    {   
-                        UiDiario.SetActive(true);
-                        Destroy(other.gameObject);
-                        UiPickUp.SetActive(false);
-                        take2 = true;
-                        
-                    }
-                    else
+                    if (other.GetComponent<BoxCollider>())
                     {
-                        Debug.Log("saludos");
-                        UiPickUp.SetActive(false);
-                        picked = true;
-                        StartCoroutine(TimeTake());
-                        if (other.GetComponent<BoxCollider>())
-                        {
-                            other.GetComponent<BoxCollider>().enabled = false;
-                        }
-                        if (other.GetComponent<CapsuleCollider>())
-                        {
-                            other.GetComponent<CapsuleCollider>().enabled = false;
-                        }
-
-                        other.GetComponent<Rigidbody>().useGravity = false;
-
-                        other.GetComponent<Rigidbody>().isKinematic = true;
-
-                        other.transform.position = handpoint.transform.position;
-
-                        other.gameObject.transform.SetParent(handpoint.gameObject.transform);
-
-                        pickedObject = other.gameObject;
-
-                        other.transform.rotation = new Quaternion(0, 0, 0, 0);
-                        //Sonido de recoger cosas
-                        if (other.tag == "Pickable")
-                        {
-                            Debug.Log("Sonido Rake");
-
-                            audioSourceHand.PlayOneShot(audioRastrilloClip);
-                        }
-
-
+                        other.GetComponent<BoxCollider>().enabled = false;
                     }
-        }
-    }
-    }
-
-  
+                    if (other.GetComponent<CapsuleCollider>())
+                    {
+                        other.GetComponent<CapsuleCollider>().enabled = false;
+                    }
     
-            /* if (other.gameObject.CompareTag("Box")){
-                 if (Input.GetMouseButton(0) && pickedBox == null && !picked  ){
+                    other.GetComponent<Rigidbody>().useGravity = false;    
+                    other.GetComponent<Rigidbody>().isKinematic = true;   
+                    other.transform.position = handpoint.transform.position; 
+                    other.gameObject.transform.SetParent(handpoint.gameObject.transform);
+    
+                    pickedObject = other.gameObject;
+    
+                    other.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    //Sonido de recoger cosas
+                    if (other.tag == "Pickable")
+                    {
+                        Debug.Log("Sonido Rake");
 
-                         player.SetCamCoxPos();
-                         picked = true;
-                         other.GetComponent<Rigidbody>().useGravity = false;
-                         other.GetComponent<Rigidbody>().isKinematic = true;
+                        audioSourceHand.PlayOneShot(audioRastrilloClip);
+                    }
 
-                         other.transform.position = BoxPoint.transform.position;
+                    handisfull = true;
+                    Debug.Log("hand result true");
+                }
+            }
+        
+        }
+                /* if (other.gameObject.CompareTag("Box")){
+                     if (Input.GetMouseButton(0) && pickedBox == null && !picked  ){
+    
+                             player.SetCamCoxPos();
+                             picked = true;
+                             other.GetComponent<Rigidbody>().useGravity = false;
+                             other.GetComponent<Rigidbody>().isKinematic = true;
+    
+                             other.transform.position = BoxPoint.transform.position;
+    
+                             other.gameObject.transform.SetParent(BoxPoint.gameObject.transform);
+    
+                             pickedBox = other.gameObject;
+    
+                             other.transform.rotation = new Quaternion(0, 0, 0, 0);
+    
+                             pickedBoxAnim=true;
+    
+                         }
+    
+                 }
+                */
+    }
 
-                         other.gameObject.transform.SetParent(BoxPoint.gameObject.transform);
+    private void OnTriggerExit(Collider other){
 
-                         pickedBox = other.gameObject;
-
-                         other.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-                         pickedBoxAnim=true;
-
-                     }
-
-             }
-            */
-}
-
-     private void OnTriggerExit(Collider other){
-
-           if(other.gameObject.CompareTag("Box") && pickedObject==null && !picked){
-              
-           
+        if(other.gameObject.CompareTag("Box") && pickedObject==null && !picked){
 
             UiPickUp.SetActive(false);
-
-           }
+        }
         if(other.gameObject.CompareTag("Pickable") && pickedObject==null && !picked){
 
-
             UiPickUp.SetActive(false);
-
         }
-     }
+    }
 
     
-IEnumerator TimerF(GameObject A)
+    IEnumerator TimerF(GameObject A)
     {
 
        yield return new WaitForSeconds(2f);
@@ -271,9 +251,14 @@ IEnumerator TimerF(GameObject A)
     {
 
         yield return new WaitForSeconds(3f);
-         Explorar.SetActive(false);
+        Explorar.SetActive(false);
 
 
+    }
+     IEnumerator SetTakedFalse()
+    {
+        yield return new WaitForSeconds(0.1f);
+        taked = false;
     }
 
     private void FixedUpdate()
