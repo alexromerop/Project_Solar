@@ -1784,6 +1784,7 @@ MonoBehaviour:
   isJumping: 0
   moveDir: {x: 0, y: 0, z: 0}
   bufBajado: {fileID: 5464377148979255798}
+  UiBuf: {fileID: 0}
   bufSubido: {fileID: 5464377148649979098}
   ghostTransform: {fileID: 5464377148106164622}
   sparkMochila: {fileID: 5464377149726581022}
@@ -5057,6 +5058,8 @@ MonoBehaviour:
   UiDiario: {fileID: 0}
   take1: 1
   take2: 1
+  Objeto1: {fileID: 0}
+  Objeto2: {fileID: 0}
   taked: 0
   audioSourceHand: {fileID: 3399989877522969590}
   audioRastrilloClip: {fileID: 8300000, guid: 29dd809a3b6ac90459c27c082419e046, type: 3}
@@ -7960,6 +7963,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   speed: 15
   cam_colliison: 0
+  salt: 1
 --- !u!1 &5464377148110090698
 GameObject:
   m_ObjectHideFlags: 0
@@ -20530,8 +20534,11 @@ MonoBehaviour:
   robotin: {fileID: 5464377148700794487}
   energyOff: {fileID: 2100000, guid: 51ba22f8ccff4c947a425dd21e9d8c8a, type: 2}
   energyOn: {fileID: 2100000, guid: ecdd93a7cb5cedd4eafa4a632134bb13, type: 2}
+  energyRed: {fileID: 0}
   sparkMochila: {fileID: 0}
   rayoClip: {fileID: 8300000, guid: 0ad75cec6743d3a46bbbbf3f89977ed9, type: 3}
+  RecargarEnergia: {fileID: 8300000, guid: a398fab560138c64f9a64337dcaeac91, type: 3}
+  GastarEnergia: {fileID: 8300000, guid: 98bc9fe0937c22f4894c40d892baa2fe, type: 3}
 --- !u!54 &5464377148640895620
 Rigidbody:
   m_ObjectHideFlags: 0

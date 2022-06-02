@@ -31,6 +31,8 @@ public class MochilaController : MonoBehaviour
     public Material energyRed;
     public GameObject sparkMochila;
     public AudioClip rayoClip;
+    public AudioClip RecargarEnergia;
+    public AudioClip GastarEnergia;
     bool cargando = false;
     int lastCharged = 2;
 
@@ -123,6 +125,7 @@ public class MochilaController : MonoBehaviour
         energySlot[lastCharged]=energyOn;
         lastCharged++;
         energia++;
+            
         }
     }
     
@@ -132,10 +135,18 @@ public class MochilaController : MonoBehaviour
         
         for(int i=2;i<energySlot.Length;i++){
             energySlot[i]=energyOff;
+            /*AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = GastarEnergia;
+            audio.Play();*/
+
         }
 
         for (int i=0;i<energia;i++){
             energySlot[i+2]=energyOn;
+            /*AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = RecargarEnergia;
+            audio.Play();*/
+
         }
 
         //for (int i=2;i<robotin.materials.Length;i++){
@@ -185,7 +196,6 @@ public class MochilaController : MonoBehaviour
 
                 GetComponent<Renderer>().material = electricityMat;
                 AudioSource audio = GetComponent<AudioSource>();
-                audio.Play();
                 audio.clip = rayoClip;
                 audio.Play();
                 StartCoroutine(ElectrificameMochila(1f));

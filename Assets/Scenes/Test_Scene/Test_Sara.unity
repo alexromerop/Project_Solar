@@ -5365,6 +5365,14 @@ PrefabInstance:
       propertyPath: rayoClip
       value: 
       objectReference: {fileID: 8300000, guid: 0ad75cec6743d3a46bbbbf3f89977ed9, type: 3}
+    - target: {fileID: 5464377148640895640, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: GastarEnergia.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464377148640895640, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
+      propertyPath: RecargarEnergia.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5464377148641825931, guid: c70116bee6c80ee498482d8fed4d03c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 16.036821
