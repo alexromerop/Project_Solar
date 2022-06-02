@@ -38,7 +38,6 @@ public class box_scr : MonoBehaviour
                 {
                     if (activado)
                     {
-
                         activado = false;
                         Player.GetComponent<CharacterController>().radius = 0.4f;
 
@@ -49,6 +48,8 @@ public class box_scr : MonoBehaviour
                         {
                             if (trigger != null)
                             {
+                                Player.GetComponent<ThirdPersonMovement>().enabled = false;
+
                                 StartCoroutine(Pullbox(trigger));
                             }
                         }
@@ -144,7 +145,8 @@ public class box_scr : MonoBehaviour
 
         Player.GetComponent<CharacterController>().enabled = true;
         boxpull = true;
-       
+                        Player.GetComponent<ThirdPersonMovement>().enabled = true;
+
 
 
 

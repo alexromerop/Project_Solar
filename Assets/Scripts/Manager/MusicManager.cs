@@ -23,14 +23,20 @@ public class MusicManager : MonoBehaviour
     void OnTriggerEnter (Collider other){
         if (other.tag=="Player"){
             sourceMusica.PlayOneShot(cancion);
-            try
+
+            if (gameObject.layer != 13)
             {
-                GetComponent<BoxCollider>().enabled = false;
+                try
+                {
+
+                    GetComponent<BoxCollider>().enabled = false;
+                }
+                catch
+                {
+                    GetComponent<SphereCollider>().enabled = false;
+                }
             }
-            catch {
-                GetComponent<SphereCollider>().enabled = false;
-            }
-             
+
         }
 
         if(other.tag=="Player" && name=="EndCancion"){
