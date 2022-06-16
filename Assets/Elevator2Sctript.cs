@@ -9,14 +9,16 @@ public class Elevator2Sctript : MonoBehaviour
     public AudioSource sourceMusica;
     public Generic_Activator Activator;
     public bool Sube;
+    public bool Yata = true;
 
- void OnTriggerStay (Collider other){
-        if (other.tag=="Player" && Activator.power==true && Sube==false){
-          StartCoroutine(Reset());
-          sourceMusica.volume = 0.5f;
-       sourceMusica.PlayOneShot(cancion);
+ void OnTriggerEnter (Collider other){
+        if (other.tag=="Player" && Activator.power==true && !Sube && Yata){
+          
+            sourceMusica.volume = 0.5f;
+            sourceMusica.PlayOneShot(cancion);
             Sube=true;
-
+            Yata=false;
+            StartCoroutine(Reset());
 
 
             
@@ -25,8 +27,11 @@ public class Elevator2Sctript : MonoBehaviour
  }
 
  IEnumerator Reset() {
-     yield return new WaitForSeconds(7f);
-     Sube=false;
+       
+        yield return new WaitForSeconds(10f);
+        Sube=false;
+        Yata=true;
+
  }
 
 

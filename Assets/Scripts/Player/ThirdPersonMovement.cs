@@ -142,13 +142,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
+
         Application.targetFrameRate = 100;
         movment = true;
         elapsedTime += Time.deltaTime;
-          Cursor.visible = false;
+        Cursor.visible = false;
         speed_ = speed;
-
         audio = GetComponent<AudioSource>();
+        StartCoroutine(MosueOff());
     }
     void OnTriggerEnter(Collider other){
         if(other.tag==("DangerZone")){
@@ -408,7 +409,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     }
 
-    
+      public IEnumerator MosueOff()
+    {
+        yield return new WaitForSeconds(1f * Time.deltaTime);
+       Cursor.visible=false;
+    }
+
 
     public void SetCamCoxPos() 
     {

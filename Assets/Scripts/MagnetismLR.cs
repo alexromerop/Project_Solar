@@ -1,57 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class MagnetismLR : MonoBehaviour
 
 {
-    public float magnetForce = 100;
+    public bool pilaEnMano;
+    public CogerObjeto mano;
+    UnityEvent m_MyEvent;
+    private GameObject pila;
 
-    List<Rigidbody> caughtRigidbodies = new List<Rigidbody>();
 
-    void FixedUpdate()
+    private void Awake()
     {
-        for (int i = 0; i < caughtRigidbodies.Count; i++)
+     mano =FindObjectOfType<CogerObjeto>();
+        if (m_MyEvent == null)
+            m_MyEvent = new UnityEvent();
+
+        m_MyEvent.AddListener(Ping);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            caughtRigidbodies[i].velocity = (transform.position - (caughtRigidbodies[i].transform.position + caughtRigidbodies[i].centerOfMass)) * magnetForce * Time.deltaTime;
+            if (mano.picked == true)
+            {
+                pilaEnMano = true;
+            }
         }
     }
 
-    void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
-        if(other.tag== "Pila")
+        if (other.CompareTag("Player"))
         {
-        if (other.GetComponent<Rigidbody>())
-        {
-            Rigidbody r = other.GetComponent<Rigidbody>();
-            
-            if(!caughtRigidbodies.Contains(r))
+            if(mano.picked == true)
             {
-                //Add Rigidbody
-                caughtRigidbodies.Add(r);
-                  
+                pilaEnMano= true;
             }
-            
+
+
+            if (pilaEnMano)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0) && mano.taked)
+                {
+                    pilaEnMano=false;
+                   mano.coger_();
+                    m_MyEvent.Invoke();
+
+                }
+            }
+
         }
-        StartCoroutine(Soltar(other));
+
+        if (other.CompareTag("Pila"))
+        {
+            pila = other.transform.parent.gameObject;
         }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        pilaEnMano = false;
+        pila =null;
+
     }
 
-   
-         public IEnumerator Soltar(Collider other){
-              yield return new WaitForSeconds(1f);
-             if (other.GetComponent<Rigidbody>())
-        {
-            Rigidbody r = other.GetComponent<Rigidbody>();
 
-            if (caughtRigidbodies.Contains(r))
-            {
-                //Remove Rigidbody
-                caughtRigidbodies.Remove(r);
-            }
-        }
 
-         }
+    void Ping()
+    {
+        pila.transform.position = gameObject.transform.position+ new Vector3(0,1,0);
+        pila.transform.position = gameObject.transform.position + new Vector3(0, 1, 0);
+        pila.transform.eulerAngles =  new Vector3(-90,0,0);
+        
+    }
+
 
 
 }

@@ -52,27 +52,9 @@ public class CogerObjeto : MonoBehaviour
         handisfull = false;
 
     }
-    void Update()
-    {
 
-        if(pickedObject== Objeto1){
-            //Debug.Log("Tengo el 1");
-        }
-
-       
-        if ((take2 && take1 )&& !take3)
-        {
-            cam.GetComponent<testcam>().canCam = true;
-            player.GetComponent<ObstalePush_>().enabled = true;
-            take3 = true;
-             UiDiario.SetActive(true);
-             UiCam.SetActive(true);
-        }
-
-        if (pickedObject!=null || pickedBox!=null){
-            if(Input.GetMouseButtonDown(0)&& taked)
-            {
-                picked = false;
+    public void coger_(){
+        picked = false;
                 if (pickedObject != null)
                 {
                     StartCoroutine(TimerF(pickedObject));
@@ -99,6 +81,28 @@ public class CogerObjeto : MonoBehaviour
                 handisfull = false;
                 Debug.Log("hand result false");
 
+    }
+    void Update()
+    {
+
+        if(pickedObject== Objeto1){
+            //Debug.Log("Tengo el 1");
+        }
+
+       
+        if ((take2 && take1 )&& !take3)
+        {
+            cam.GetComponent<testcam>().canCam = true;
+            player.GetComponent<ObstalePush_>().enabled = true;
+            take3 = true;
+             UiDiario.SetActive(true);
+             UiCam.SetActive(true);
+        }
+
+        if (pickedObject!=null || pickedBox!=null){
+            if(Input.GetMouseButtonDown(0)&& taked)
+            {
+                coger_();
             }
         }
         
