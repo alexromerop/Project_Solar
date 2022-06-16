@@ -9,16 +9,19 @@ public class Respawn : MonoBehaviour
   public Transform respawnPoint;
     private Transform OriginRespawn;
     public Animator anim;
-
+    public Animator AnimHoop;
+    public bool dead;
+    public CogerObjeto cogerObjeto;
 
     private void Start()
     {
 
-
+        cogerObjeto = GameObject.Find("PickUpHand").GetComponent<CogerObjeto>();
         Player = GameObject.Find("Player");
         thirdPersonMovement = Player.GetComponent<ThirdPersonMovement>();
         OriginRespawn = GameObject.Find("OriginalChekPoint").transform;
          anim = GameObject.Find("Panel").GetComponent<Animator>();
+         
 
     }
 
@@ -40,7 +43,9 @@ public class Respawn : MonoBehaviour
         Debug.Log("TELEPORT");
         thirdPersonMovement.disable = true;
         anim.SetBool("Death",true);
+        //cogerObjeto.Picked=false;
         yield return new WaitForSeconds(.3f);
+        
         anim.SetBool("Death",false);
         Player.transform.position = respawnPoint.position;
         yield return new WaitForSeconds(.3f);

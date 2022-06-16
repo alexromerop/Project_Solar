@@ -74,6 +74,9 @@ public class box_scr : MonoBehaviour
                     boxAnim = activado;
 
                 }
+                else{
+                    boxAnim=false;
+                }
 
             }
             
