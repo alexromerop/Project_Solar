@@ -54,7 +54,7 @@ public class AnimatorHoopCtrl : MonoBehaviour
         {
 
 
-            if (boxScript.boxAnim == true)
+            if (boxScript.activado == true)
             {
                 anim.SetBool("BoxPicked", true);
                 if (Input.GetKey(KeyCode.W))
@@ -181,6 +181,7 @@ public class AnimatorHoopCtrl : MonoBehaviour
             {
                 anim.SetBool("parDes", false);
             }
+           
         }
     }
 }
