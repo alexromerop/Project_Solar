@@ -21,9 +21,9 @@ public class MusicManager : MonoBehaviour
     }
     
     void OnTriggerEnter (Collider other){
-        if (other.tag=="Player"){
+        if (other.tag=="Player" && cancion !=null){
             sourceMusica.PlayOneShot(cancion);
-
+            cancion=null;
             if (gameObject.layer != 13)
             {
                 try
@@ -57,9 +57,5 @@ public class MusicManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

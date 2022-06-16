@@ -13,6 +13,7 @@ public class KraggiScript : MonoBehaviour
     private bool Apath;
     public int ajuste = 90;
     public ParticleSystem Tierra;
+    
    void Start()
    {
        anim = GetComponent<Animator>();
@@ -29,7 +30,13 @@ public class KraggiScript : MonoBehaviour
    }
 void OnTriggerEnter(Collider other) {
     if(other.tag=="Player"){
+       
+        
         Tierra.Play();
+        StartCoroutine(TierraParticula());
+        
+
+        
         
     Apath=true;
     anim.SetTrigger("PlayerNear");
@@ -60,5 +67,10 @@ void OnTriggerEnter(Collider other) {
 
         }
     }
-    
+
+     IEnumerator TierraParticula(){
+        yield return new WaitForSeconds (3);
+       Tierra.gameObject.SetActive(false);
+     }
+
 }
